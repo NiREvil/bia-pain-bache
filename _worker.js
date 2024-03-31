@@ -11,7 +11,7 @@ let userID = "cf8cf683-40fa-4cd3-93cd-820071b11c90";
 //Open one of the two links below to find a proxy IP.
 //https://www.nslookup.io/domains/workers.bestip.one/dns-records/
 //https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs = ['workers.cloudflare.cyou'];// OR USE ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org'];
+const proxyIPs = ['workers.cloudflare.cyou', 'cdn.xn--b6gac.eu.org'];// OR USE const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
@@ -178,7 +178,7 @@ export default {
                             env,
                             host, 
                             "https://8.8.8.8/dns-query", 
-                            "8.8.8.8", 
+                            "1.1.1.1", 
                             "100", 
                             "200", 
                             "10", 
