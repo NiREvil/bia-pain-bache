@@ -177,7 +177,7 @@ export default {
                             await updateDataset(
                             env,
                             host, 
-                            "https://sky.rethinkdns.com/1:-Pf_____9_8A_AMAIgE8kMABVDDmKOHTAKg=", 
+                            "https://8.8.8.8/dns-query", 
                             "8.8.8.8", 
                             "100", 
                             "200", 
