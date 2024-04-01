@@ -1,17 +1,18 @@
 // @ts-nocheck
-// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
+// version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC.
 // @ts-ignore
-// https://github.com/bia-pain-bache/BPB-Worker-Panel
+// Many thanks to github.com/bia-pain-bache
 
 import { connect } from "cloudflare:sockets";
 
-// generate your own UUID: https://www.uuidgenerator.net/
+// How to generate your own UUID:
+// https://www.uuidgenerator.net/
 let userID = "cf8cf683-40fa-4cd3-93cd-820071b11c90";
 
-//Open one of the two links below to find a proxy IP.
-//https://www.nslookup.io/domains/workers.bestip.one/dns-records/
+//https://www.nslookup.io/domains/cdn.xn--b6gac.eu.org/dns-records/
 //https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs = ['workers.cloudflare.cyou', 'workers.bestip.one'];// OR USE const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
+const proxyIPs = ['workers.cloudflare.cyou', '23.90.144.167'];// OR USE const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
+
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
@@ -177,7 +178,7 @@ export default {
                             await updateDataset(
                             env,
                             host, 
-                            "https://8.8.8.8/dns-query", 
+                            "https://8.8.8.8/dns-query", // OR USE "https://94.140.14.14/dns-query"
                             "1.1.1.1", 
                             "100", 
                             "200", 
@@ -1048,7 +1049,7 @@ const getVLESSConfig = async (env) => {
         )}&fp=randomized&alpn=http/1.1&path=/${encodeURIComponent(
             `${getRandomPath(16)}?ed=2048`
         )}#${encodeURIComponent(
-            `❄️ ${addr}`
+            `❄️ - ${addr}`
         )}\n`;
     });
 
@@ -1434,7 +1435,7 @@ const getFragVLESSConfig = async (env) => {
     });
 
     let bestPingConfig = clone(fragConfigTemp);
-    bestPingConfig.remarks = '🌱 Fragment- Best Ping ⚡';
+    bestPingConfig.remarks = '🌱 Fragment - Best Ping ⚡️';
     bestPingConfig.outbounds = [...outbounds, ...bestPingConfig.outbounds];
     let bestPingNeko = clone(fragConfigNekorayTemp);
     bestPingNeko.outbounds = [ ...outbounds, ...bestPingNeko.outbounds];
@@ -1696,7 +1697,7 @@ const renderPage = async (env) => {
 	</head>
 	
 	<body>
-		<h1 style="text-align: center; color: #2980b9">BPB Panel <span style="font-size: smaller;">2.2</span> 🌱</h1>
+		<h1 style="text-align: center; color: #2980b9">BPB Panel <span style="font-size: smaller;">2.2</span> 🪄</h1>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS ⚙️</h2>
 			<form id="configForm">
@@ -1730,7 +1731,7 @@ const renderPage = async (env) => {
 				</div>
                 <h2>CLEAN IP SETTINGS ⚙️</h2>
 				<div class="form-control">
-					<label>💫 Clean IPs</label>
+					<label>✨💫 Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
@@ -1744,7 +1745,7 @@ const renderPage = async (env) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button" value="APPLY SETTINGS ⚡" form="configForm">
+						<input type="submit" id="applyButton" class="button" value="APPLY SETTINGS 🎗" form="configForm">
 					</div>
 				</div>
 			</form>
@@ -2128,7 +2129,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">2.2</span> ☃️</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">2.2</span> 🪄 🔐</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2158,7 +2159,7 @@ const renderLoginPage = async () => {
                 if (response.ok) {
                     window.location.href = '/panel';
                 } else {
-                    passwordError.textContent = '⚠️ Wrong Password!';
+                    passwordError.textContent = '⚠️ Wrong Password! The Password is: admin';
                     const errorMessage = await response.text();
                     console.error('Login failed:', errorMessage);
                 }
@@ -2309,4 +2310,4 @@ const verifyJWTToken = async (request, env) => {
 const getJSONSub = async (env) => {
     const fragConfigs = JSON.parse(await env.bpb.get("fragConfigs"));
     return fragConfigs.filter(config => config.address !== 'Best-Ping').map(config => config.fragConf);
-}
+}v
