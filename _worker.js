@@ -1048,7 +1048,7 @@ const getVLESSConfig = async (env) => {
         )}&fp=randomized&alpn=http/1.1&path=/${encodeURIComponent(
             `${getRandomPath(16)}?ed=2048`
         )}#${encodeURIComponent(
-            `💦 BPB - ${addr}`
+            `❄️ BPB - ${addr}`
         )}\n`;
     });
 
@@ -1409,7 +1409,7 @@ const getFragVLESSConfig = async (env) => {
         };
 
         let fragConfig = clone(fragConfigTemp);
-        fragConfig.remarks = `💦 BPB Frag - ${addr}`;
+        fragConfig.remarks = `🌱 BPB Frag - ${addr}`;
         fragConfig.outbounds = [{ ...proxyOutbound}, ...fragConfig.outbounds];
         delete fragConfig.observatory;
         delete fragConfig.routing.balancers;
@@ -1434,7 +1434,7 @@ const getFragVLESSConfig = async (env) => {
     });
 
     let bestPingConfig = clone(fragConfigTemp);
-    bestPingConfig.remarks = '💦 BPB Frag - Best Ping 💥';
+    bestPingConfig.remarks = '🌱 BPB Frag - Best Ping 💥';
     bestPingConfig.outbounds = [...outbounds, ...bestPingConfig.outbounds];
     let bestPingNeko = clone(fragConfigNekorayTemp);
     bestPingNeko.outbounds = [ ...outbounds, ...bestPingNeko.outbounds];
@@ -1696,7 +1696,7 @@ const renderPage = async (env) => {
 	</head>
 	
 	<body>
-		<h1 style="text-align: center; color: #2980b9">BPB Panel <span style="font-size: smaller;">2.2</span> 💦</h1>
+		<h1 style="text-align: center; color: #2980b9">BPB Panel <span style="font-size: smaller;">2.2</span> 🌱</h1>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS ⚙️</h2>
 			<form id="configForm">
@@ -2128,7 +2128,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">2.2</span> 💦</h1>
+            <h1>BPB Panel <span style="font-size: smaller;">2.2</span> ✨</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
