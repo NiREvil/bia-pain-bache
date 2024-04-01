@@ -1048,7 +1048,7 @@ const getVLESSConfig = async (env) => {
         )}&fp=randomized&alpn=http/1.1&path=/${encodeURIComponent(
             `${getRandomPath(16)}?ed=2048`
         )}#${encodeURIComponent(
-            `❄️ -  ${addr}`
+            `❄️ ${addr}`
         )}\n`;
     });
 
