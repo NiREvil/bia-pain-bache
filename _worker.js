@@ -2310,4 +2310,4 @@ const verifyJWTToken = async (request, env) => {
 const getJSONSub = async (env) => {
     const fragConfigs = JSON.parse(await env.bpb.get("fragConfigs"));
     return fragConfigs.filter(config => config.address !== 'Best-Ping').map(config => config.fragConf);
-}v
+}
