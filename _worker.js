@@ -178,7 +178,7 @@ export default {
                             await updateDataset(
                             env,
                             host, 
-                            "https://8.8.8.8/dns-query", // OR USE "https://94.140.14.14/dns-query"
+                            "https://94.140.14.14/dns-query", // OR USE "https://8.8.8.8/dns-query"
                             "1.1.1.1", 
                             "100", 
                             "200", 
