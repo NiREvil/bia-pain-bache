@@ -1,5 +1,5 @@
 <!-- language: lang-html -->
-<h1 align="center">☃️❄️ پنل BPB</h1>
+<h1 align="center"> ❄️☃️ BPB پنل </h1>
 
 #### 🌏 [English](README.md)
 
