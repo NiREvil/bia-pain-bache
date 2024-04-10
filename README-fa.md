@@ -1,12 +1,10 @@
 <!-- language: lang-html -->
-<h1 align="center"> ❄️☃️ BPB پنل </h1>
+<h1 align="center"> v2.3 BPB پنل  🎃</h1>
 
 #### 🌏 [English](README.md)
 
-<p align="center">
-  <img src="docs/assets/images/Panel.jpg">
-</p>
-<br>
+![bpb05](https://github.com/NiREvil/bia-pain-bache/assets/126243832/95b1fd53-aead-4634-a485-6f5652dbb82b)
+
 
 ## معرفی
 
