@@ -1509,7 +1509,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1 style="text-align: center; color: #2980b9">BPB 🃏 <span style="font-size: smaller;">v2.3</span> </h1>
+		<h1 style="text-align: center; color: #2980b9">🎃 BPB Panel <span style="font-size: smaller;">v2.3</span> </h1>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS ⚙️</h2>
 			<form id="configForm">
@@ -1572,7 +1572,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="APPLY SETTINGS ♣️" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value="🃏 APPLY SETTINGS 🃏" form="configForm">
 					</div>
 				</div>
 			</form>
@@ -2011,7 +2011,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">v2.3</span> 🌩🎱 </h1>
+            <h1>🎱 BPB Panel <span style="font-size: smaller;">v2.3</span>  </h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
