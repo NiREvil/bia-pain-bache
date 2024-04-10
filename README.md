@@ -1,11 +1,19 @@
 <h1 align="center"> 🎃 BPB Panel v2.3</h1>
 
-#### 🌏 Readme in [Farsi](README-fa.md)
 
 ![bpb05](https://github.com/NiREvil/bia-pain-bache/assets/126243832/0682320f-fb46-4f30-9a06-f5c8cca8b4c5)
 
+### [Farsi](README-fa.md)-[English](README.md)
+
 ## Introduction
-This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk). The panel offers two deployment options: 
+This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
+
+HUGE THANKS TO
+[bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
+
+----
+
+ The panel offers two deployment options:
 - **Worker** deployment
 - **Pages** deployment
 <br>
