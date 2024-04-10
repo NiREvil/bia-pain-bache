@@ -1,14 +1,15 @@
 <!-- language: lang-html -->
 <h1 align="center"> v2.3 BPB پنل  🎃</h1>
 
-#### 🌏 [English](README.md)
-
 ![bpb05](https://github.com/NiREvil/bia-pain-bache/assets/126243832/95b1fd53-aead-4634-a485-6f5652dbb82b)
 
+### [Farsi](README-fa.md)-[English](README.md)
 
 ## معرفی
 
 این پروژه توسعه‌ی یک پنل کاربری برای اسکریپت <a href="https://github.com/yonggekkk/Cloudflare-workers-pages-vless">پروکسی Cloudflare-workers/pages</a> ایجاد شده توسط <a href="https://github.com/yonggekkk">yonggekkk</a> می‌باشد.
+
+و همچنین قدردانی می‌کنیم از توسعه دهنده اصلی پروژه [bia pain bache](https://github.com/bia-pain-bache) برای پنل فوق العاده ای که خلق کردند.
 
 ### این پنل به دو روش راه‌اندازی می‌شود:
 
