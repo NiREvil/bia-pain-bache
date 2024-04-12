@@ -1,7 +1,8 @@
-<h1 align="center"> 🎃 BPB Panel v2.3.1 </h1>
+<h1 align="center"> 🎃 BPB Panel v2.3.2 </h1>
 
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/9f357533-8633-4c5a-a5b7-1ad75d1261e7)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/de49d323-ac65-4a4f-854a-e3ce7a336f10)
+
 
 ### [Farsi](README-fa.md)-[English](README.md)
 
@@ -20,7 +21,6 @@ HUGE THANKS TO
 <br>
 
 ## Features
-
 1. **Free**: No cost involved.
 2. **User-Friendly Panel:** Designed for easy navigation, configuration and usage.
 3. **Support Fragment:** Provides support for fragment functionality.
