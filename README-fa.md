@@ -1,7 +1,8 @@
 <!-- language: lang-html -->
 <h1 align="center"> 🎃پنل بیا پایین بچه  </h1>
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/9f357533-8633-4c5a-a5b7-1ad75d1261e7)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/3568c388-30d5-4bb4-b66b-1f1530cadc43)
+
 
 ### [Farsi](README-fa.md)-[English](README.md)
 
@@ -9,18 +10,15 @@
 
 این پروژه توسعه‌ی یک پنل کاربری برای اسکریپت <a href="https://github.com/yonggekkk/Cloudflare-workers-pages-vless">پروکسی Cloudflare-workers/pages</a> ایجاد شده توسط <a href="https://github.com/yonggekkk">yonggekkk</a> می‌باشد.
 
-و همچنین قدردانی می‌کنم از توسعه دهنده اصلی پروژه [bia pain bache](https://github.com/bia-pain-bache) برای پنل فوق العاده ای که خلق کردند.
+و همچنین قدردانی می‌کنم از توسعه دهنده اصلی پروژه [bia pain bache](https://github.com/bia-pain-bache) بخاطر پنل فوق العاده ای که خلق کردند.
 
 ### این پنل به دو روش راه‌اندازی می‌شود:
 
 - راه‌اندازی با **Cloudflare Worker**
 - راه‌اندازی با **Cloudflare Worker**
 <br>
-
 ## ویژگی‌ها
-
 <br>
-
 1- **رایگان**
   
 2- **پنل کاربری راحت:** قابلیت آسان تنظیمات و دریافت کانفیگ ها و لینک های اشتراک.
