@@ -1,10 +1,10 @@
 <!-- language: lang-html -->
-<h1 align="center"> 🎃پنل بیا پایین بچه  </h1>
+<h1 align="center"> 🎃 پنل بیا پایین بچه  </h1>
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/3568c388-30d5-4bb4-b66b-1f1530cadc43)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/1acec3aa-6132-4e66-b8b4-1e1075a3b9d9)
 
 
-### [Farsi](README-fa.md)-[English](README.md)
+### [Persian](README-fa.md)-[English](README.md)
 
 ## معرفی
 
