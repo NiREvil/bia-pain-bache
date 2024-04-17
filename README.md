@@ -4,7 +4,7 @@
 ![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/a505da7d-13d5-4885-a948-ae7f4f5c5657)
 
 
-### [Farsi](README-fa.md)-[English](README.md)
+### [Persian](README-fa.md)-[English](README.md)
 
 
 ## Introduction
