@@ -1,7 +1,7 @@
-<h1 align="center"> 🎃 BPB Panel v2.3.2 </h1>
+<h1 align="center"> 🎃 BPB Panel v2.3.3 </h1>
 
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/de49d323-ac65-4a4f-854a-e3ce7a336f10)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/a505da7d-13d5-4885-a948-ae7f4f5c5657)
 
 
 ### [Farsi](README-fa.md)-[English](README.md)
