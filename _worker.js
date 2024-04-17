@@ -1074,7 +1074,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '❄️Fragment - Best Ping ⚡';
+    bestPing.remarks = '❄️ Fragment - Best Ping';
     bestPing.dns.servers[0] = remoteDNS;
     bestPing.dns.servers[1].address = localDNS;
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1841,7 +1841,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Parameters applied successfully 🩶✋🏿😅');
+                    alert('Parameters applied successfully ✋🏿😅');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
