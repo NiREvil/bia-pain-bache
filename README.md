@@ -1,4 +1,5 @@
-<h3 align="left"> v2.3.4 </h3>
+> [!NOTE]
+> BPB Panel v2.3.4
 
 
 ![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/df411ab7-b733-4dfd-88b7-8df4d827b14c)
