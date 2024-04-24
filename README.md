@@ -1,7 +1,8 @@
-<h1 align="center"> 🎃 BPB Panel v2.3.3 </h1>
+<h3 align="left"> v2.3.4 </h3>
 
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/a505da7d-13d5-4885-a948-ae7f4f5c5657)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/df411ab7-b733-4dfd-88b7-8df4d827b14c)
+
 
 
 ### [Persian](README-fa.md)-[English](README.md)
@@ -20,7 +21,9 @@ HUGE THANKS TO
 - **Pages** deployment
 <br>
 
+
 ## Features
+
 1. **Free**: No cost involved.
 2. **User-Friendly Panel:** Designed for easy navigation, configuration and usage.
 3. **Support Fragment:** Provides support for fragment functionality.
@@ -41,9 +44,22 @@ HUGE THANKS TO
 
 - [How to use](docs/configuration_fa.md)
 
-- [Troubleshooting](docs/troubleshooting.md)
-
 - [FAQ](docs/faq.md)
+<br>
+
+## Supported Clients
+| Client  | Version | Fragment |
+| :-------------: | :-------------: | :-------------: |
+| **v2rayNG**  | 1.8.19 or higher  | :heavy_check_mark: |
+| **v2rayN**  | 6.42 or higher  | :heavy_check_mark: |
+| **Nekobox**  |   | :x: |
+| **Sing-box**  | 1.8.10 or higher  | :x: |
+| **Streisand**  |   | :heavy_check_mark: |
+| **V2Box**  |   | :x: |
+| **Shadowrocket**  |   | :x: |
+| **Nekoray**  |   | :heavy_check_mark: |
+| **Hiddify**  |   | :x: |
+
 
 ---
 
@@ -51,6 +67,14 @@ HUGE THANKS TO
 [![Stargazers Over Time](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
 
 ---
+
+### Special Thanks
+- CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
+- CF preferred IP program author [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest), [XIU2](https://github.com/XIU2/CloudflareSpeedTest)
+
+---
+
+For a detailed tutorial on the core script, please refer to [Yongge’s blog and video tutorials](https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html).
 
 ### Special Thanks
 - CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
