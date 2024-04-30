@@ -784,7 +784,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     ];
 
     Addresses.forEach((addr) => {
-        let remark = `🗿 ${addr}`;
+        let remark = `🟢 ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
 
         vlessWsTls += 'vless' + `://${userID}@${addr}:443?encryption=none&security=tls&type=ws&host=${
@@ -1540,7 +1540,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1> 🚬🗿 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
+		<h1>  BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
             <hr>            
 			<h2>${REvil} </h2>
 		<div class="form-container">
