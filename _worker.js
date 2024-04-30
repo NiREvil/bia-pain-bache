@@ -15,7 +15,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
 let panelVersion = 'v2.3.4';
-let REvil = 'Freedom to Dream 🤍';
+let REvil = 'Freedom to Dream';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -784,7 +784,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     ];
 
     Addresses.forEach((addr) => {
-        let remark = `👻 ${addr}`;
+        let remark = `|BpB| ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
 
         vlessWsTls += 'vless' + `://${userID}@${addr}:443?encryption=none&security=tls&type=ws&host=${
