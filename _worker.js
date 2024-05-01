@@ -15,7 +15,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
 let panelVersion = 'v2.3.4';
-let REvil = 'instagram.com/storm66.yt';
+let REvil = '';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -1540,7 +1540,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>  Storm Panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
+		<h1>  Panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
             <hr>            
 			<h2>${REvil} </h2>
 		<div class="form-container">
