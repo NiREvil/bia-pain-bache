@@ -2,7 +2,8 @@
 > vپنل بیا پایین بچه نسخه 2.3.4
 
     
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/b538bcee-3efc-418b-9577-21270bf98335)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/3a93c9c7-87f2-4abd-ab0f-a2ec533e11f7)
+
 
 
 
