@@ -1,5 +1,5 @@
 // @ts-nocheck
-// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
+// <!------- time is 17:59 UTC - Friday, 10 May 2024 -------!>
 // @ts-ignore
 // Many thanks to github.com/bia-pain-bache
 
@@ -9,8 +9,8 @@ import { connect } from 'cloudflare:sockets';
 // How to generate your own UUID: https://www.uuidgenerator.net/
 let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
-
 //Find proxyIP : https://www.nslookup.io/domains/ipdb.rr.nu/dns-records/
+//Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
 const proxyIPs= ['usa.revil.link'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
