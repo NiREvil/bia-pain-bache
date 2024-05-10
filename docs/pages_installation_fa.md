@@ -107,6 +107,8 @@
 
 حالا یه بار دیگه `Add variable` بزنید خونه اول `PROXYIP` با حروف بزرگ، IP رو هم میتونید از لینک‌های زیر بگیرید، اینا رو باز کنید یه تعدادی IP نشون میده که میتونید کشورشون رو هم چک کنید و یه دونه انتخاب کنید:
 
+>[Proxy IP](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md)
+
 >[Proxy IP](https://www.nslookup.io/domains/cdn.xn--b6gac.eu.org/dns-records/)
 
 >[Proxy IP](https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/)
