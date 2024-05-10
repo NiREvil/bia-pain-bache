@@ -1,13 +1,13 @@
 > [!NOTE]
-> BPB Panel v2.3.4
+> BPB Panel v2.3.5
 
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/b5654a99-abe9-49a0-9ead-3c03bfd286dd)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/c0c3e224-936f-4735-8799-d6ea09aff94b)
+![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/210ccdee-e0fa-42ad-bba5-0a74f0efc93e)
 
 
 
-
-### [Persian](README-fa.md)-[English](README.md)
+### [🇮🇷Persian](README-fa.md)-[🇬🇧English](README.md)
 
 
 ## Introduction
@@ -29,8 +29,8 @@ HUGE THANKS TO
 1. **Free**: No cost involved.
 2. **User-Friendly Panel:** Designed for easy navigation, configuration and usage.
 3. **Support Fragment:** Provides support for fragment functionality.
-4. **Ad Blocking (Optional):** Option to block Ads.
-5. **Direct Iran (Optional):** Includes an option for direct access to Iran.
+4. **Block Ads. and Porn (Optional)**
+5. **Bypass Iran and LAN (Optional)**
 6. **Full routing rules:** Bypassing Iran, Blocking Ads, Malwares, Phishing... for Sing-box.
 7. **Chain Proxy:** Capable of adding a chain proxy to fix IP.
 8. **Supports Wide Range of Clients:** Offers subscription links for Xray and Sing-box core clients.
@@ -69,14 +69,6 @@ HUGE THANKS TO
 [![Stargazers Over Time](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
 
 ---
-
-### Special Thanks
-- CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
-- CF preferred IP program author [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest), [XIU2](https://github.com/XIU2/CloudflareSpeedTest)
-
----
-
-For a detailed tutorial on the core script, please refer to [Yongge’s blog and video tutorials](https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html).
 
 ### Special Thanks
 - CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
