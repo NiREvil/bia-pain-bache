@@ -15,7 +15,7 @@ const proxyIPs= ['usa.revil.link'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
-let dohURL = 'https://dns.adguard-dns.com/dns-query';
+let dohURL = 'https://cloudflare-dns.com/dns-query';
 
 let panelVersion = 'v2.3.5';
 let REvil = 'Freedom to Dream';
