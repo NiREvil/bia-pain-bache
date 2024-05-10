@@ -1,7 +1,6 @@
 > [!NOTE]
 > BPB Panel v2.3.5
 
-
 ![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/c0c3e224-936f-4735-8799-d6ea09aff94b)
 ![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/210ccdee-e0fa-42ad-bba5-0a74f0efc93e)
 
