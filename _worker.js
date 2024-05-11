@@ -1,24 +1,23 @@
 // @ts-nocheck
-// <!------- time is 17:59 UTC - Friday, 10 May 2024 -------!>
+// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
 // @ts-ignore
-// Many thanks to github.com/bia-pain-bache
+// https://github.com/bia-pain-bache/BPB-Worker-Panel
 
 import { connect } from 'cloudflare:sockets';
 
+// How to generate your own UUID:
+// https://www.uuidgenerator.net/
+let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
 
-// How to generate your own UUID: https://www.uuidgenerator.net/
-let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
-
-//Find proxyIP : https://www.nslookup.io/domains/ipdb.rr.nu/dns-records/
-//Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['usa.revil.link'];
+// https://www.nslookup.io/domains/cdn.xn--b6gac.eu.org/dns-records/
+// https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
+const proxyIPs= ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = 'v2.3.5';
-let REvil = 'Freedom to Dream';
+let panelVersion = '2.3.5';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -790,7 +789,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     ];
 
     Addresses.forEach((addr) => {
-        let remark = ` | BpB | - ${addr}`;
+        let remark = `💦 BPB - ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
 
         vlessWsTls += 'vless' + `://${userID}@${addr}:443?encryption=none&security=tls&type=ws&host=${
@@ -931,7 +930,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💎 | Frag | - WorkerLess'
+    fragConfig.remarks  = '💦 BPB Frag - WorkerLess ⭐'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1013,7 +1012,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
         let addr = Addresses[index];
         let fragConfig = structuredClone(xrayConfigTemp);
         let outbound = structuredClone(xrayOutboundTemp);
-        let remark = `💎 | Frag | - ${addr}`;
+        let remark = `💦 BPB Frag - ${addr}`;
         delete outbound.mux;
         delete outbound.streamSettings.grpcSettings;
         delete outbound.streamSettings.realitySettings;
@@ -1065,7 +1064,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '💎 | Frag | - Best Ping';
+    bestPing.remarks = '💦 BPB Frag - Best Ping 💥';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1185,7 +1184,7 @@ const getRandomPath = (length) => {
 const resolveDNS = async (domain) => {
     const dohURLv4 = `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`;
     const dohURLv6 = `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=AAAA`;
-	
+
     try {
         const [ipv4Response, ipv6Response] = await Promise.all([
             fetch(dohURLv4, { headers: { accept: 'application/dns-json' } }),
@@ -1532,7 +1531,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BpB panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
+		<h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS ⚙️</h2>
 			<form id="configForm">
@@ -1608,12 +1607,12 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="🃏 APPLY SETTINGS 🃏" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value="APPLY SETTINGS 💥" form="configForm">
 					</div>
 				</div>
 			</form>
             <hr>            
-			<h2>NORMAL CONFIGS ☔</h2>
+			<h2>NORMAL CONFIGS 🔗</h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -1765,7 +1764,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
                 <a class="link" href="https://github.com/bia-pain-bache/BPB-Worker-Panel" target="_blank">Github</a>
-                <button id="openModalBtn" class="button">FUCK OFF asshole </button>
+                <button id="openModalBtn" class="button">Change Password</button>
                 <button type="button" id="logout" style="background: none; margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
                 </button>
@@ -1926,7 +1925,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Parameters applied successfully✋👀 ');
+                    alert('Parameters applied successfully 😎');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
@@ -1994,7 +1993,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully! 👀 really?");
+                    alert("Password changed successfully! 👍");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
@@ -2090,7 +2089,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>👻 BpB panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2161,10 +2160,10 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h2> ❗ ERROR ❗ <span style="font-size: smaller;">${panelVersion}</span> </h3>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
             <div id="error-message">
-                <h3>${message} ${refer 
-                    ? 'Please wait 60s and refresh page again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
+                <h2>${message} ${refer 
+                    ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
                     : ''}
                 </h2>
                 <p><b>${error ? `⚠️ ${error}` : ''}</b></p>
