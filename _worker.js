@@ -1,5 +1,5 @@
 // @ts-nocheck
-// <!------- time is 17:59 UTC - Friday, 10 May 2024 -------!>
+// <!------- time is 15:25 UTC - Sunday, 12 May 2024 -------!>
 // @ts-ignore
 // Many thanks to github.com/bia-pain-bache
 
@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://www.nslookup.io/domains/ipdb.rr.nu/dns-records/
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['usa.revil.link'];
+const proxyIPs= ['ni.radically.pro'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
