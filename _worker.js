@@ -1994,7 +1994,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully! 👀 really?");
+                    alert("سیکتیر کن دوست عزیز");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
