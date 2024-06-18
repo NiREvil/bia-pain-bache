@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://www.nslookup.io/domains/ipdb.rr.nu/dns-records/
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['ni.radically.pro'];
+const proxyIPs= ['23.90.151.62'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
@@ -790,7 +790,7 @@ const getNormalConfigs = async (env, hostName, client) => {
     ];
 
     Addresses.forEach((addr) => {
-        let remark = ` | BpB | - ${addr}`;
+        let remark = `< bpb > - ${addr}`;
         remark = remark.length <= 30 ? remark : `${remark.slice(0,29)}...`;
 
         vlessWsTls += 'vless' + `://${userID}@${addr}:443?encryption=none&security=tls&type=ws&host=${
@@ -802,7 +802,7 @@ const getNormalConfigs = async (env, hostName, client) => {
         }#${encodeURIComponent(remark)}\n`;
     });
 
-    const subscription = client === 'singbox' ? btoa(vlessWsTls) : btoa(vlessWsTls.replaceAll('http/1.1', 'h2,http/1.1'));
+    const subscription = client === 'singbox' ? btoa(vlessWsTls) : btoa(vlessWsTls.replaceAll('http/1.1', 'http/1.1'));
     return subscription;
 }
 
@@ -931,7 +931,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💎 | Frag | - WorkerLess'
+    fragConfig.remarks  = '‖‖FRAGMENT - WorkerLess'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1013,7 +1013,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
         let addr = Addresses[index];
         let fragConfig = structuredClone(xrayConfigTemp);
         let outbound = structuredClone(xrayOutboundTemp);
-        let remark = `💎 | Frag | - ${addr}`;
+        let remark = `‖‖FRAGMENT - ${addr}`;
         delete outbound.mux;
         delete outbound.streamSettings.grpcSettings;
         delete outbound.streamSettings.realitySettings;
@@ -1065,7 +1065,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '💎 | Frag | - Best Ping';
+    bestPing.remarks = '‖‖FRAGMENT - Best Ping';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1142,10 +1142,10 @@ const updateDataset = async (env, Settings) => {
     const proxySettings = {
         remoteDNS: Settings?.get('remoteDNS') || 'https://94.140.14.14/dns-query',
         localDNS: Settings?.get('localDNS') || '8.8.8.8',
-        lengthMin: Settings?.get('fragmentLengthMin') || '100',
-        lengthMax: Settings?.get('fragmentLengthMax') || '200',
-        intervalMin: Settings?.get('fragmentIntervalMin') || '5',
-        intervalMax: Settings?.get('fragmentIntervalMax') || '10',
+        lengthMin: Settings?.get('fragmentLengthMin') || '20',
+        lengthMax: Settings?.get('fragmentLengthMax') || '40',
+        intervalMin: Settings?.get('fragmentIntervalMin') || '10',
+        intervalMax: Settings?.get('fragmentIntervalMax') || '20',
         blockAds: Settings?.get('block-ads') || false,
         bypassIran: Settings?.get('bypass-iran') || false,
         blockPorn: Settings?.get('block-porn') || false,
@@ -1549,9 +1549,9 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
 				<div class="form-control">
 					<label for="fragmentLengthMin">📐 Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
-						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
+						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="1" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
-						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="500" required>
+						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="8000" required>
 					</div>
 				</div>
 				<div class="form-control">
@@ -1994,7 +1994,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("سیکتیر کن دوست عزیز");
+                    alert("سیکتیر کن دوست عزیز?");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
