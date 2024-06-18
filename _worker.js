@@ -1549,9 +1549,9 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
 				<div class="form-control">
 					<label for="fragmentLengthMin">📐 Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
-						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="1" required>
+						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
-						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="8000" required>
+						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="500" required>
 					</div>
 				</div>
 				<div class="form-control">
