@@ -1,13 +1,14 @@
-> [!NOTE]
-> BPB Panel v2.3.5
+> **[🇮🇷Persian](README-fa.md)**
+> **[🇬🇧English](README.md)**
 
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/c0c3e224-936f-4735-8799-d6ea09aff94b)
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/210ccdee-e0fa-42ad-bba5-0a74f0efc93e)
+<p align="center">
+  <img src="docs/assets/images/Panel.jpg">
+</p>
 
-
-
-### [🇮🇷Persian](README-fa.md)-[🇬🇧English](README.md)
-
+<p align="center">
+  <img src="docs/assets/images/Panel-2.jpg">
+</p>
+<br><br>
 
 ## Introduction
 This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
