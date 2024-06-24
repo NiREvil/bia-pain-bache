@@ -1,13 +1,15 @@
-> [!NOTE]
-> vپنل بیا پایین بچه نسخه 2.3.5
+> **[🇬🇧English](README.md)**
+> **[🇮🇷فارسی](README-fa.md)**
 
-    
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/c0c3e224-936f-4735-8799-d6ea09aff94b)
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/210ccdee-e0fa-42ad-bba5-0a74f0efc93e)
+<p align="center">
+  <img src="docs/assets/images/Panel.jpg">
+</p>
 
+<p align="center">
+  <img src="docs/assets/images/Panel-2.jpg">
+</p>
+<br><br>
 
-
-### [فارسی](README-fa.md)-[انگلیسی](README.md)
 
 ## معرفی
 
@@ -37,6 +39,7 @@
   <li><strong>لینک اشتراک (JSON):</strong> لینک‌ اشتراک کانفیگ‌های فرگمنت را در فرمت JSON فراهم می‌کند.</li>
   <li><strong>پنل با رمز عبور محافظت شده:</strong> ایمن‌سازی پنل با استفاده از رمز عبور.</li>
   <li><strong>دامنه و IP تمیز Cloudflare سفارشی:</strong> قابلیت اسکن آنلاین و تنظیم IP یا دامنه‌ی تمیز Cloudflare را دارد.</li>
+<li><strong>سابسکریپشن Warp: </strong>ارائه‌ی کانفیگ‌های Warp و Warp on Warp همراه اسکنر Endpoint</li>
 </ol>
 <br><br>
 
