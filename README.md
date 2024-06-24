@@ -36,6 +36,7 @@ HUGE THANKS TO
 9. **Subscription Link (JSON):** Provides subscription link for JSON configs.
 10. **Password-Protected Panel:** Secure your panel with password protection.
 11. **Custom Cloudflare Clean IP:** Ability to use online scanner and setting up clean IP-domains.
+12. **Warp configs:** Provides Warp and Warp on Warp subscription.
 <br>
 
 ## How to use:
