@@ -1,12 +1,14 @@
-> [!NOTE]
-> BPB Panel v2.3.5
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/c0c3e224-936f-4735-8799-d6ea09aff94b)
-![image](https://github.com/NiREvil/bia-pain-bache/assets/126243832/210ccdee-e0fa-42ad-bba5-0a74f0efc93e)
+> **[🇮🇷Persian](README-fa.md)**
+> **[🇬🇧English](README.md)**
 
+<p align="center">
+  <img src="docs/assets/images/Panel.jpg">
+</p>
 
-
-### [🇮🇷Persian](README-fa.md)-[🇬🇧English](README.md)
-
+<p align="center">
+  <img src="docs/assets/images/Panel-2.jpg">
+</p>
+<br><br>
 
 ## Introduction
 This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
@@ -35,6 +37,7 @@ HUGE THANKS TO
 9. **Subscription Link (JSON):** Provides subscription link for JSON configs.
 10. **Password-Protected Panel:** Secure your panel with password protection.
 11. **Custom Cloudflare Clean IP:** Ability to use online scanner and setting up clean IP-domains.
+12. **Warp configs:** Provides Warp and Warp on Warp subscription.
 <br>
 
 ## How to use:
