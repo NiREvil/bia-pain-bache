@@ -1971,7 +1971,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 				</div>
                 <h2>PROXY IP</h2>
 				<div class="form-control">
-					<label for="proxyIP">📍 IP or Domain</label>
+					<label for="proxyIP">🗺 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
                 <h2>CLEAN IP</h2>
@@ -2007,7 +2007,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
                 <h2>WARP ENDPOINT</h2>
 				<div class="form-control">
-                    <label for="endpoint">💦 Warp Endpoint</label>
+                    <label for="endpoint">✈️ Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
