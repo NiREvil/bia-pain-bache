@@ -1914,7 +1914,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BpB panel<span style="font-size: smaller;">${panelVersion}</span> </h3>
+		<h1>👻 BpB panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS</h2>
 			<form id="configForm">
