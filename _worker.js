@@ -1321,7 +1321,7 @@ const getWoWConfig = async (env, client) => {
     wowConfigSingbox.dns.servers[1].address = localDNS;
     wowConfigSingbox.dns.rules[0].domain = 'engage.cloudflareclient.com';
     wowConfigSingbox.outbounds.splice(1,1);
-    wowConfigSingbox.outbounds[0].outbounds = ['👻 Warp on Warp', '💦 Warp'];
+    wowConfigSingbox.outbounds[0].outbounds = ['👻 Warp on Warp', '👻 Warp'];
     wowConfigSingbox.outbounds = [...wowConfigSingbox.outbounds, ...singboxOutbounds];
     delete wowConfigSingbox.route.final;
 
