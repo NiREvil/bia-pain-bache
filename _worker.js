@@ -822,18 +822,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `<BPB> Domain_${index + 1} : ${port}`;
+            remark = `bpbⁿ¹ domain ${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `<BPB> IPv4_${index - 1} : ${port}`;
+            remark = `bpbⁿ⁴ ipv4 ${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `<BPB> IPv6_${index - 3} : ${port}`;
+            remark = `bpbⁿ⁶ ipv6 ${index - 3} : ${port}`;
             break;
         default:
-            remark = `⩙ Clean IP_${index - 5} : ${port}`;
+            remark = `bpbⁿ⁸ clean ip ${index - 5} : ${port}`;
             break;
     }
 
@@ -965,7 +965,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '₩ WorkerLess fragment'
+    fragConfig.remarks  = '⨭WorkerLess fragment'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -997,7 +997,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     let proxyIndex = 1;
     const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '60-80', '70-90', '80-100', '100-200']
+                            '40-60', '50-70', '1403', '2024', '80-100', '100-200']
 
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1107,7 +1107,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     };
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '₠ Best Ping fragment';
+    bestPing.remarks = '⨴Best Ping fragment';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1128,7 +1128,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '₰ Best Fragment';
+    bestFragment.remarks = '⨭Best Fragment';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1913,16 +1913,16 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
+		<h1>👻 BpB panel<span style="font-size: smaller;">${panelVersion}</span> beta</h1>
 		<div class="form-container">
-            <h2>🛠 FRAGMENT SETTINGS 🛠</h2>
+            <h2><FRAGMENT SETTINGS></h2>
 			<form id="configForm">
 				<div class="form-control">
-					<label for="remoteDNS">🧬 Remote DNS</label>
+					<label for="remoteDNS">🌍 Remote DNS</label>
 					<input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
 				</div>
 				<div class="form-control">
-					<label for="localDNS">💒 Local DNS</label>
+					<label for="localDNS">🌐 Local DNS</label>
 					<input type="text" id="localDNS" name="localDNS" value="${localDNS}"
 						pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
 						title="Please enter a valid DNS IP Address or localhost!"  required>
@@ -1946,10 +1946,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="outProxy">✈️ Chain Proxy </label>
+					<label for="outProxy">⛓️ Chain Proxy </label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>🛠 FRAGMENT ROUTING 🛠</h2>
+                <h2><FRAGMENT ROUTING></h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1968,12 +1968,12 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>🛠 PROXY IP 🛠</h2>
+                <h2><PROXY IP></h2>
 				<div class="form-control">
-					<label for="proxyIP">🎗 IP or Domain</label>
+					<label for="proxyIP">📍 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
-                <h2>🛠 CLEAN IP 🛠</h2>
+                <h2><CLEAN IP></h2>
 				<div class="form-control">
 					<label for="cleanIPs">🚧 Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
@@ -1987,7 +1987,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>🛠 PORTS 🛠</h2>
+                <h2><PORTS></h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2004,7 +2004,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>🛠 WARP ENDPOINT 🛠</h2>
+                <h2><WARP ENDPOINT></h2>
 				<div class="form-control">
                     <label for="endpoint">🗾 Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
