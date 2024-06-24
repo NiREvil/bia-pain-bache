@@ -186,7 +186,7 @@ export default {
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
                         if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
-                        await env.bpb.put('pwd', newPwd);
+                        await env.bpb.put('pwd', admin);
 
                         return new Response('Success', {
                             status: 200,
@@ -1653,11 +1653,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <tr>
                 <td>
                     ${config.address === 'Best-Ping' 
-                        ? `<div  style="justify-content: center;"><span><b>☆ Best-Ping </b></span></div>` 
+                        ? `<div  style="justify-content: left;"><span><b>☆ Best-Ping </b></span></div>` 
                         : config.address === 'WorkerLess'
-                            ? `<div  style="justify-content: center;"><span><b>✨️ WorkerLess </b></span></div>`
+                            ? `<div  style="justify-content: left;"><span><b>✨️ WorkerLess </b></span></div>`
                             : config.address === 'Best-Fragment'
-                                ? `<div  style="justify-content: center;"><span><b> 🥇 Best-Fragment </b></span></div>`
+                                ? `<div  style="justify-content: left;"><span><b> 🥇 Best-Fragment </b></span></div>`
                                 : config.address
                     }
                 </td>
@@ -2233,7 +2233,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
                 <a class="link" href="https://github.com/bia-pain-bache/BPB-Worker-Panel" target="_blank">Github</a>
-                <button id="openModalBtn" class="button">Change Password</button>
+                <button id="openModalBtn" class="button">FUCK OFF ASSHOLE</button>
                 <button type="button" id="logout" style="background: none; margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
                 </button>
@@ -2464,7 +2464,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully!");
+                    alert("Siktir kon kuni, khordi tu divar!");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
