@@ -186,7 +186,7 @@ export default {
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
                         if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
-                        await env.bpb.put('pwd', admin);
+                        await env.bpb.put('pwd', newPwd);
 
                         return new Response('Success', {
                             status: 200,
@@ -1293,18 +1293,18 @@ const getWoWConfig = async (env, client) => {
         singboxOutbound.peer_public_key = wgConfig.account.config.peers[0].public_key;
         singboxOutbound.reserved = wgConfig.account.config.client_id;
         singboxOutbound.private_key = wgConfig.privateKey;
-        singboxOutbound.tag = i === 1 ? '💦 Warp' : '💦 Warp on Warp';    
+        singboxOutbound.tag = i === 1 ? '👻 Warp' : '👻 Warp on Warp';    
         
         if (i === 1) {
             delete singboxOutbound.detour;
         } else {
-            singboxOutbound.detour = '💦 Warp';
+            singboxOutbound.detour = '👻 Warp';
         }
 
         singboxOutbounds.push(singboxOutbound);
     }
 
-    wowConfigXray.remarks = '💦 Warp on Warp';
+    wowConfigXray.remarks = '👻 Warp on Warp';
     wowConfigXray.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     wowConfigXray.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     wowConfigXray.outbounds.splice(0,1);
@@ -1315,13 +1315,13 @@ const getWoWConfig = async (env, client) => {
     let warpConfigXray = structuredClone(wowConfigXray);
     warpConfigXray.outbounds.splice(0,1);
     warpConfigXray.routing.rules[warpConfigXray.routing.rules.length - 1].outboundTag = 'warp-ir';
-    warpConfigXray.remarks = '💦 Warp';
+    warpConfigXray.remarks = '👻 Warp';
 
     wowConfigSingbox.dns.servers[0].address = remoteDNS;
     wowConfigSingbox.dns.servers[1].address = localDNS;
     wowConfigSingbox.dns.rules[0].domain = 'engage.cloudflareclient.com';
     wowConfigSingbox.outbounds.splice(1,1);
-    wowConfigSingbox.outbounds[0].outbounds = ['💦 Warp on Warp', '💦 Warp'];
+    wowConfigSingbox.outbounds[0].outbounds = ['👻 Warp on Warp', '💦 Warp'];
     wowConfigSingbox.outbounds = [...wowConfigSingbox.outbounds, ...singboxOutbounds];
     delete wowConfigSingbox.route.final;
 
