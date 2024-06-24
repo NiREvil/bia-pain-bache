@@ -1,17 +1,17 @@
-/**
-* @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-*   Last Update: 23:15pm - Sunday, 23 June 2024 by REvil
-* Many thanks to github.com/bia-pain-bache
-*/
+// @ts-nocheck
+// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
+// @ts-ignore
+// https://github.com/bia-pain-bache/BPB-Worker-Panel
 
 import { connect } from 'cloudflare:sockets';
 
-// How to generate your own UUID: https://www.uuidgenerator.net/
-let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
+// How to generate your own UUID:
+// https://www.uuidgenerator.net/
+let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
 
-//Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
-//Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/#google
-const proxyIPs= ['ni.radically.pro'];// OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
+// https://www.nslookup.io/domains/cdn.xn--b6gac.eu.org/dns-records/
+// https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
+const proxyIPs= ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -20,7 +20,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = 'v2.4.1';
+let panelVersion = '2.4.1';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -186,7 +186,7 @@ export default {
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
                         if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
-                        await env.bpb.put('pwd', admin);
+                        await env.bpb.put('pwd', newPwd);
 
                         return new Response('Success', {
                             status: 200,
@@ -823,18 +823,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `👻 BPB - Domain_${index + 1} : ${port}`;
+            remark = `💦 BPB - Domain_${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `👻 BPB - IPv4_${index - 1} : ${port}`;
+            remark = `💦 BPB - IPv4_${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `👻 BPB - IPv6_${index - 3} : ${port}`;
+            remark = `💦 BPB - IPv6_${index - 3} : ${port}`;
             break;
         default:
-            remark = `👻 BPB - Clean IP_${index - 5} : ${port}`;
+            remark = `💦 BPB - Clean IP_${index - 5} : ${port}`;
             break;
     }
 
@@ -966,7 +966,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💦 BPB Frag - WorkerLess'
+    fragConfig.remarks  = '💦 BPB Frag - WorkerLess ⭐'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1108,7 +1108,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     };
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '💦 BPB - Best Ping fragment';
+    bestPing.remarks = '💦 BPB Frag - Best Ping 💥';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1129,7 +1129,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '💦 BPB- Best Fragment';
+    bestFragment.remarks = '💦 BPB Frag - Best Fragment 😎';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1293,7 +1293,7 @@ const getWoWConfig = async (env, client) => {
         singboxOutbound.peer_public_key = wgConfig.account.config.peers[0].public_key;
         singboxOutbound.reserved = wgConfig.account.config.client_id;
         singboxOutbound.private_key = wgConfig.privateKey;
-        singboxOutbound.tag = i === 1 ? '💦 Warp' : '💦 Warp on Warp';    
+        singboxOutbound.tag = i === 1 ? '💦 Warp' : '💦 Warp on Warp 🚀';    
         
         if (i === 1) {
             delete singboxOutbound.detour;
@@ -1304,7 +1304,7 @@ const getWoWConfig = async (env, client) => {
         singboxOutbounds.push(singboxOutbound);
     }
 
-    wowConfigXray.remarks = '💦 Warp on Warp';
+    wowConfigXray.remarks = '💦 BPB - Warp on Warp 🚀';
     wowConfigXray.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     wowConfigXray.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     wowConfigXray.outbounds.splice(0,1);
@@ -1315,13 +1315,13 @@ const getWoWConfig = async (env, client) => {
     let warpConfigXray = structuredClone(wowConfigXray);
     warpConfigXray.outbounds.splice(0,1);
     warpConfigXray.routing.rules[warpConfigXray.routing.rules.length - 1].outboundTag = 'warp-ir';
-    warpConfigXray.remarks = '💦 Warp';
+    warpConfigXray.remarks = '💦 BPB - Warp';
 
     wowConfigSingbox.dns.servers[0].address = remoteDNS;
     wowConfigSingbox.dns.servers[1].address = localDNS;
     wowConfigSingbox.dns.rules[0].domain = 'engage.cloudflareclient.com';
     wowConfigSingbox.outbounds.splice(1,1);
-    wowConfigSingbox.outbounds[0].outbounds = ['💦 Warp on Warp', '💦 Warp'];
+    wowConfigSingbox.outbounds[0].outbounds = ['💦 Warp on Warp 🚀', '💦 Warp'];
     wowConfigSingbox.outbounds = [...wowConfigSingbox.outbounds, ...singboxOutbounds];
     delete wowConfigSingbox.route.final;
 
@@ -1653,11 +1653,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <tr>
                 <td>
                     ${config.address === 'Best-Ping' 
-                        ? `<div  style="justify-content: center;"><span><b> Best-Ping ✨</b></span></div>` 
+                        ? `<div  style="justify-content: center;"><span><b>💦 Best-Ping 💥</b></span></div>` 
                         : config.address === 'WorkerLess'
-                            ? `<div  style="justify-content: center;"><span><b> WorkerLess ⭐</b></span></div>`
+                            ? `<div  style="justify-content: center;"><span><b>💦 WorkerLess ⭐</b></span></div>`
                             : config.address === 'Best-Fragment'
-                                ? `<div  style="justify-content: center;"><span><b> Best-Fragment ⚡</b></span></div>`
+                                ? `<div  style="justify-content: center;"><span><b>💦 Best-Fragment 😎</b></span></div>`
                                 : config.address
                     }
                 </td>
@@ -1914,16 +1914,16 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
+		<h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
 		<div class="form-container">
-            <h2>⚙️ FRAGMENT SETTINGS ⚙️</h2>
+            <h2>FRAGMENT SETTINGS ⚙️</h2>
 			<form id="configForm">
 				<div class="form-control">
-					<label for="remoteDNS">❄ Remote DNS</label>
+					<label for="remoteDNS">🌏 Remote DNS</label>
 					<input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
 				</div>
 				<div class="form-control">
-					<label for="localDNS">☔ Local DNS</label>
+					<label for="localDNS">🏚️ Local DNS</label>
 					<input type="text" id="localDNS" name="localDNS" value="${localDNS}"
 						pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
 						title="Please enter a valid DNS IP Address or localhost!"  required>
@@ -1933,24 +1933,24 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
-						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="8000" required>
+						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="500" required>
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="fragmentIntervalMin">⏰ Interval</label>
+					<label for="fragmentIntervalMin">🕞 Interval</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
-    						value="${intervalMin}" max="50" required>
+    						value="${intervalMin}" max="30" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
 						<input type="number" id="fragmentIntervalMax" name="fragmentIntervalMax"
-    						value="${intervalMax}" max="50" required>
+    						value="${intervalMax}" max="30" required>
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="outProxy">✈️ Chain Proxy </label>
+					<label for="outProxy">✈️ Chain Proxy</label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>⚙️ FRAGMENT ROUTING ⚙️</h2>
+                <h2>FRAGMENT ROUTING ⚙️</h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1969,14 +1969,14 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>⚙️ PROXY IP ⚙️</h2>
+                <h2>PROXY IP ⚙️</h2>
 				<div class="form-control">
-					<label for="proxyIP">🚧 IP or Domain</label>
+					<label for="proxyIP">📍 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
-                <h2>⚙️ CLEAN IP ⚒🔨🛠⚙️</h2>
+                <h2>CLEAN IP ⚙️</h2>
 				<div class="form-control">
-					<label for="cleanIPs">🚩 Clean IPs</label>
+					<label for="cleanIPs">✨ Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
@@ -1988,7 +1988,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>⚙️ PORTS ⚙️</h2>
+                <h2>PORTS ⚙️</h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2005,9 +2005,9 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>⚙️ WARP ENDPOINT ⚙️</h2>
+                <h2>WARP ENDPOINT ⚙️</h2>
 				<div class="form-control">
-                    <label for="endpoint">✨🗾 Warp Endpoint</label>
+                    <label for="endpoint">✨ Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
@@ -2018,7 +2018,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="🃏 APPLY SETTINGS 🃏" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value="APPLY SETTINGS 💥" form="configForm">
 					</div>
 				</div>
 			</form>
@@ -2334,7 +2334,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
-			alert('Copied to clipboard:\\n\\n' +  value);
+			alert('📋 Copied to clipboard:\\n\\n' +  value);
 		}
 
         const applySettings = async (event, configForm) => {
@@ -2396,7 +2396,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Done ✔');
+                    alert('Parameters applied successfully 😎');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
@@ -2464,7 +2464,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully!");
+                    alert("Password changed successfully! 👍");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
@@ -2560,7 +2560,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2631,7 +2631,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>💎 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
@@ -2922,11 +2922,11 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["💦 Best-Ping"]
+            outbounds: ["💦 Best-Ping 💥"]
         },
         {
             type: "urltest",
-            tag: "💦 Best-Ping",
+            tag: "💦 Best-Ping 💥",
             outbounds: [],
             url: "https://www.gstatic.com/generate_204",
             interval: "3m",
