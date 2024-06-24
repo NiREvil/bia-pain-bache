@@ -1,10 +1,9 @@
-/**
-* @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-*   Last Update: 23:15pm - Sunday, 23 June 2024 by REvil
-* Many thanks to github.com/bia-pain-bache
-*/
+// @ts-nocheck
+// <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
+// @ts-ignore
+// https://github.com/bia-pain-bache/BPB-Worker-Panel
 
-import { connect } from 'cloudflare:sockets';
+import { connect } from 'cloudflare:sockets'
 
 // How to generate your own UUID: https://www.uuidgenerator.net/
 let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
@@ -1916,7 +1915,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<body>
 		<h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
 		<div class="form-container">
-            <h2>🛠 FRAGMENT SETTINGS</h2>
+            <h2>🛠 FRAGMENT SETTINGS 🛠</h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS">🧬 Remote DNS</label>
@@ -1950,7 +1949,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<label for="outProxy">✈️ Chain Proxy </label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>🛠 FRAGMENT ROUTING</h2>
+                <h2>🛠 FRAGMENT ROUTING 🛠</h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1969,7 +1968,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>🛠 PROXY IP</h2>
+                <h2>🛠 PROXY IP 🛠</h2>
 				<div class="form-control">
 					<label for="proxyIP">🎗 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
@@ -1988,7 +1987,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>🛠 PORTS </h2>
+                <h2>🛠 PORTS 🛠</h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2005,7 +2004,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>🛠 WARP ENDPOINT</h2>
+                <h2>🛠 WARP ENDPOINT 🛠</h2>
 				<div class="form-control">
                     <label for="endpoint">🗾 Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
