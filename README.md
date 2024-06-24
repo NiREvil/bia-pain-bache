@@ -1,29 +1,3 @@
-> **[🇮🇷Persian](README-fa.md)**
-> **[🇬🇧English](README.md)**
-
-<p align="center">
-  <img src="docs/assets/images/Panel.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel-2.jpg">
-</p>
-<br><br>
-
-## Introduction
-This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
-
-HUGE THANKS TO
-[bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
-
-----
-
- The panel offers two deployment options:
-- **Worker** deployment
-- **Pages** deployment
-<br>
-
-
 ## Features
 
 1. **Free**: No cost involved.
