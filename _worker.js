@@ -1695,7 +1695,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BPB Panel ${panelVersion}</title>
+        <title>BpB panel ${panelVersion}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<style>
@@ -1913,9 +1913,9 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BpB panel<span style="font-size: smaller;">${panelVersion}</span> beta</h1>
+		<h1>👻 BpB panel<span style="font-size: smaller;">${panelVersion}</span> beta</h3>
 		<div class="form-container">
-            <h2><FRAGMENT SETTINGS></h2>
+            <h2>FRAGMENT SETTINGS</h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS">🌍 Remote DNS</label>
@@ -1949,7 +1949,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<label for="outProxy">⛓️ Chain Proxy </label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2><FRAGMENT ROUTING></h2>
+                <h2>FRAGMENT ROUTING</h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1968,12 +1968,12 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2><PROXY IP></h2>
+                <h2>PROXY IP</h2>
 				<div class="form-control">
 					<label for="proxyIP">📍 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
-                <h2><CLEAN IP></h2>
+                <h2>CLEAN IP</h2>
 				<div class="form-control">
 					<label for="cleanIPs">🚧 Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
@@ -1987,7 +1987,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2><PORTS></h2>
+                <h2>PORTS</h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2004,9 +2004,9 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2><WARP ENDPOINT></h2>
+                <h2>WARP ENDPOINT</h2>
 				<div class="form-control">
-                    <label for="endpoint">🗾 Warp Endpoint</label>
+                    <label for="endpoint">💦 Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
