@@ -1916,7 +1916,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<body>
 		<h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
 		<div class="form-container">
-            <h2>🛠 FRAGMENT SETTINGS</h2>
+            <h2>🛠 FRAGMENT SETTINGS 🛠</h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS">🧬 Remote DNS</label>
@@ -1950,7 +1950,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<label for="outProxy">✈️ Chain Proxy </label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>🛠 FRAGMENT ROUTING</h2>
+                <h2>🛠 FRAGMENT ROUTING 🛠</h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1969,7 +1969,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>🛠 PROXY IP</h2>
+                <h2>🛠 PROXY IP 🛠</h2>
 				<div class="form-control">
 					<label for="proxyIP">🎗 IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
@@ -1988,7 +1988,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>🛠 PORTS </h2>
+                <h2>🛠 PORTS 🛠</h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2005,7 +2005,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>🛠 WARP ENDPOINT</h2>
+                <h2>🛠 WARP ENDPOINT 🛠</h2>
 				<div class="form-control">
                     <label for="endpoint">🗾 Warp Endpoint</label>
                     <input type="text" id="endpoint" name="endpoint" value="${warpEndpoint.replaceAll(",", " , ")}">
