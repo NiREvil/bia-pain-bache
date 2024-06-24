@@ -1321,7 +1321,7 @@ const getWoWConfig = async (env, client) => {
     wowConfigSingbox.dns.servers[1].address = localDNS;
     wowConfigSingbox.dns.rules[0].domain = 'engage.cloudflareclient.com';
     wowConfigSingbox.outbounds.splice(1,1);
-    wowConfigSingbox.outbounds[0].outbounds = ['👻 Warp on Warp', '💦 Warp'];
+    wowConfigSingbox.outbounds[0].outbounds = ['👻 Warp on Warp', '👻 Warp'];
     wowConfigSingbox.outbounds = [...wowConfigSingbox.outbounds, ...singboxOutbounds];
     delete wowConfigSingbox.route.final;
 
@@ -1653,11 +1653,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <tr>
                 <td>
                     ${config.address === 'Best-Ping' 
-                        ? `<div  style="justify-content: center;"><span><b>☆ Best-Ping </b></span></div>` 
+                        ? `<div  style="justify-content: left;"><span><b>☆ Best-Ping </b></span></div>` 
                         : config.address === 'WorkerLess'
-                            ? `<div  style="justify-content: center;"><span><b>✨️ WorkerLess </b></span></div>`
+                            ? `<div  style="justify-content: left;"><span><b>✨️ WorkerLess </b></span></div>`
                             : config.address === 'Best-Fragment'
-                                ? `<div  style="justify-content: center;"><span><b> 🥇 Best-Fragment </b></span></div>`
+                                ? `<div  style="justify-content: left;"><span><b> 🥇 Best-Fragment </b></span></div>`
                                 : config.address
                     }
                 </td>
