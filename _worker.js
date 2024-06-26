@@ -1,12 +1,13 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-*   Last Update: 16:59am - Monday, 24 June 2024 by REvil
+* Last Update: 16:59 - Monday, 24 June 2024 by REvil
 * Many thanks to github.com/bia-pain-bache
 */
 
 import { connect } from 'cloudflare:sockets'
 
 // How to generate your own UUID: https://www.uuidgenerator.net/
+// OR in the [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
