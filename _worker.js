@@ -826,18 +826,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `bpbⁿ¹ ${index + 1}: ${port}`;
+            remark = `bpbⁿ¹ ${addr}: ${port}`;
             break;
         case 2:
         case 3:
-            remark = `bpbⁿ⁴ ${index - 1}: ${port}`;
+            remark = `bpbⁿ⁴ ${addr}: ${port}`;
             break;
         case 4:
         case 5:
-            remark = `bpbⁿ⁶ ${index - 3}: ${port}`;
+            remark = `bpbⁿ⁶ ${addr}: ${port}`;
             break;
         default:
-            remark = `bpbⁿ⁸ ${index - 5}: ${port}`;
+            remark = `bpbⁿ⁸ ${addr}: ${port}`;
             break;
     }
 
@@ -1132,7 +1132,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '☆ Best-Fragment¦';
+    bestFragment.remarks = '☆ Best-Fragment';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1285,7 +1285,7 @@ const getWarpConfigs = async (env, client) => {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = `WoW ${index/2 + 1} 🌍`;
+            xrayWoWConfig.remarks = `Warp 🇩🇪 - ${index/2 + 1}`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -1352,7 +1352,7 @@ const buildWarpOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, blo
             ...singboxOutbound,
             server: endpoint.includes('[') ? endpoint.match(ipv6Regex)[1] : endpoint.split(':')[0],
             server_port: endpoint.includes('[') ? +endpoint.match(portRegex)[0] : +endpoint.split(':')[1],
-            tag: `Warp ${index + 1} 🇮🇷`
+            tag: `Warp 🇮🇷 - ${index + 1} `
         });
     })
     
@@ -1400,7 +1400,7 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             singboxOutbound.peer_public_key = wgConfigs[i].account.config.peers[0].public_key;
             singboxOutbound.reserved = wgConfigs[i].account.config.client_id;
             singboxOutbound.private_key = wgConfigs[i].privateKey;
-            singboxOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : `WoW ${index + 1} 🌍`;    
+            singboxOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : `Warp 🇩🇪 - ${index + 1}`;    
             
             if (i === 0) {
                 singboxOutbound.detour = `warp-ir_${index + 1}`;
@@ -2124,7 +2124,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>WARP ENDPOINTS <span class="material-symbols-outlined">stat_3</span></h2>
+                <h2>WARP ENDPOINTS <span class="material-symbols-outlined">settings</span></h2>
 				<div class="form-control">
                     <label for="wowEndpoint"><span class="material-symbols-outlined">airline_stops</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}">
@@ -2141,7 +2141,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="☆ APPLY SETTINGS ☆" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value="🫧 APPLY SETTINGS 🫧" form="configForm">
 					</div>
 				</div>
 			</form>
