@@ -2712,7 +2712,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 👻 <h2>
+            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span>Dev 👻</h4>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2783,7 +2783,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>👻 BPB Panel <span style="font-size: smaller;">${panelVersion}</span></h1>
+            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span></h4>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
