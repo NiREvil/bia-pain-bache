@@ -1584,26 +1584,6 @@ const updateDataset = async (env, Settings) => {
         throw new Error(`An error occurred while getting current values - ${error}`);
     }
 
-    const {
-        remoteDNS: currentRemoteDNS, 
-        localDNS: currentLocalDNS, 
-        lengthMin: currentLengthMin, 
-        lengthMax: currentLengthMax, 
-        intervalMin: currentIntervalMin, 
-        intervalMax: currentIntervalMax,
-        blockAds: currentBlockAds,
-        bypassIran: currentBypassIran,
-        blockPorn: currentBlockPorn,
-        bypassLAN: currentBypassLAN, 
-        cleanIPs: currentCleanIPs,
-        proxyIP: currentProxyIP,
-        outProxy: currentOutProxy,
-        outProxyParams: currentOutProxyParams,
-        wowEndpoint: currentWoWEndpoint,
-        warpEndpoints: currentWarpEndpoints,
-        ports: currentPorts
-    } = currentProxySettings;
-
     const vlessConfig = Settings?.get('outProxy');
     const proxySettings = {
         remoteDNS: Settings?.get('remoteDNS') || currentRemoteDNS || 'https://94.140.14.14/dns-query',
@@ -2033,9 +2013,9 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1> bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h3>
+		<h1> bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h1>
 		<div class="form-container">
-            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span></h2>
+            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS"><span class="material-symbols-outlined">dns</span> Remote DNS</label>
@@ -2050,7 +2030,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 				<div class="form-control">
 					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span> Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
-						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="1" required>
+						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
 						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="8000" required>
 					</div>
@@ -2783,7 +2763,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
+            <h1>bpb panel <span style="font-size: smaller;">${panelVersion} </span> </h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
