@@ -826,18 +826,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `bpbⁿ¹ ${hostName}: ${port}`;
+            remark = `bpbⁿ¹ ${index + 1}:${port}`;
             break;
         case 2:
         case 3:
-            remark = `bpbⁿ⁴ ${hostName}: ${port}`;
+            remark = `bpbⁿ⁴ ${index - 1}:${port}`;
             break;
         case 4:
         case 5:
-            remark = `bpbⁿ⁶ ${hostName}: ${port}`;
+            remark = `bpbⁿ⁶ ${index - 3}:${port}`;
             break;
         default:
-            remark = `bpbⁿ⁸ ${hostName}: ${port}`;
+            remark = `bpbⁿ⁸ ${index - 5}:${port}`;
             break;
     }
 
