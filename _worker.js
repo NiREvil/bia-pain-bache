@@ -826,18 +826,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `Ðoϻɑiͷ⇢► ${index + 1} : ${port}`;
+            remark = `Ðoϻɑiͷ⇢ ${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `ÍPv4⇢► ${index - 1} : ${port}`;
+            remark = `IPv4⇢ ${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `ÍPv6⇢► ${index - 3} : ${port}`;
+            remark = `IPv6⇢ ${index - 3} : ${port}`;
             break;
         default:
-            remark = `Clean ÍP⇢► ${index - 5} : ${port}`;
+            remark = `Clean IP⇢ ${index - 5} : ${port}`;
             break;
     }
 
@@ -1254,15 +1254,15 @@ const getWarpConfigs = async (env, client) => {
     const {xray: xrayWarpOutbounds, singbox: singboxWarpOutbounds} = await buildWarpOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, warpEndpoints) 
     const {xray: xrayWoWOutbounds, singbox: singboxWoWOutbounds} = await buildWoWOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, wowEndpoint); 
     
-    singboxWarpConfig.outbounds[0].outbounds = ['☆●○Warp BestPing'];
-    singboxWarpConfig.outbounds[1].tag = '☆○●Warp BestPing';
+    singboxWarpConfig.outbounds[0].outbounds = ['☆ Warp BestPing'];
+    singboxWarpConfig.outbounds[1].tag = '☆ Warp BestPing';
     xrayWarpConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpConfig.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     xrayWarpConfig.outbounds.splice(0,1);
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = '☆●○Warp BestPing'
+    xrayWarpBestPing.remarks = '☆ Warp BestPing'
     xrayWarpBestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpBestPing.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
