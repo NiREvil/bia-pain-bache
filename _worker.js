@@ -2120,7 +2120,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="🪩 APPLY SETTINGS 🪩" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value=" APPLY SETTINGS " form="configForm">
 					</div>
 				</div>
 			</form>
