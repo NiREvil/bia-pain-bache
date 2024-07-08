@@ -1606,12 +1606,12 @@ const updateDataset = async (env, Settings) => {
 
     const vlessConfig = Settings?.get('outProxy');
     const proxySettings = {
-        remoteDNS: Settings?.get('remoteDNS') || currentRemoteDNS || 'tcp://185.228.168.9',
-        localDNS: Settings?.get('localDNS') || currentLocalDNS || 'tcp://185.228.168.9',
-        lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '1402',
-        lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '1403',
-        intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '1',
-        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '2',
+        remoteDNS: Settings?.get('remoteDNS') || currentRemoteDNS || 'https://94.140.14.14/dns-query',
+        localDNS: Settings?.get('localDNS') || currentLocalDNS || '8.8.8.8',
+        lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '100',
+        lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '200',
+        intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '5',
+        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '10',
         blockAds: Settings?.get('block-ads') || currentBlockAds || false,
         bypassIran: Settings?.get('bypass-iran') || currentBypassIran || false,
         blockPorn: Settings?.get('block-porn') || currentBlockPorn || false,
@@ -1621,8 +1621,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings?.getAll('ports[]') || currentPorts || ['443'],
         outProxy: vlessConfig || currentOutProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentOutProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || 'ipw.bachebiapain.ir:890',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || 'ipw.nscl.ir:955',
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || 'engage.cloudflareclient.com:2408',
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || 'engage.cloudflareclient.com:2408',
         panelVersion: panelVersion
     };
 
