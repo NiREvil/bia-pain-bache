@@ -21,7 +21,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = '2.4.4';
+let panelVersion = 'v2.4.4';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -826,18 +826,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `bpbⁿ¹ ${addr}: ${port}`;
+            remark = `bpbⁿ¹ ${hostName}: ${port}`;
             break;
         case 2:
         case 3:
-            remark = `bpbⁿ⁴ ${addr}: ${port}`;
+            remark = `bpbⁿ⁴ ${hostName}: ${port}`;
             break;
         case 4:
         case 5:
-            remark = `bpbⁿ⁶ ${addr}: ${port}`;
+            remark = `bpbⁿ⁶ ${hostName}: ${port}`;
             break;
         default:
-            remark = `bpbⁿ⁸ ${addr}: ${port}`;
+            remark = `bpbⁿ⁸ ${hostName}: ${port}`;
             break;
     }
 
@@ -2033,7 +2033,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BpB panel <span style="font-size: smaller;"><span class="material-symbols-outlined">admin_panel_settings</span></b></span>${panelVersion}</h4>
+		<h1>👻 BpB panel <span style="font-size: smaller;">${panelVersion}</span> </h4>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span></h2>
 			<form id="configForm">
