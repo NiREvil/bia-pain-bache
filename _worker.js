@@ -2033,22 +2033,22 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>👻 BpB panel <span style="font-size: smaller;"><span class="material-symbols-outlined">admin_panel_settings</span><span>&nbsp;<b></b></span>${panelVersion}</h4>
+		<h1>👻 BpB panel <span style="font-size: smaller;"><span class="material-symbols-outlined">admin_panel_settings</span></b></span>${panelVersion}</h4>
 		<div class="form-container">
-            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span><span>&nbsp;<b></b></span></div></h2>
+            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span></h2>
 			<form id="configForm">
 				<div class="form-control">
-					<label for="remoteDNS"><span class="material-symbols-outlined">settings_remote</span><span>&nbsp;<b> Remote DNS</b></span></div> </label>
+					<label for="remoteDNS"><span class="material-symbols-outlined">settings_remote</span> Remote DNS</label>
 					<input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
 				</div>
 				<div class="form-control">
-					<label for="localDNS"><span class="material-symbols-outlined">dns</span><span>&nbsp;<b> Local DNS</b></span></div> </label>
+					<label for="localDNS"><span class="material-symbols-outlined">dns</span> Local DNS</label>
 					<input type="text" id="localDNS" name="localDNS" value="${localDNS}"
 						pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
 						title="Please enter a valid DNS IP Address or localhost!"  required>
 				</div>	
 				<div class="form-control">
-					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span><span>&nbsp;<b> Length</b></span></div> </label>
+					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span> Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="1" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
@@ -2056,7 +2056,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="fragmentIntervalMin"><span class="material-symbols-outlined">alarm</span><span>&nbsp;<b> Interval</b></span></div> </label>
+					<label for="fragmentIntervalMin"><span class="material-symbols-outlined">alarm</span> Interval</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
     						value="${intervalMin}" max="30" required>
@@ -2066,7 +2066,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="outProxy"><span class="material-symbols-outlined">precision_manufacturing</span><span>&nbsp;<b> Chain Proxy</b></span></div> </label>
+					<label for="outProxy"><span class="material-symbols-outlined">precision_manufacturing</span> Chain Proxy</label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
                 <h2>FRAGMENT ROUTING ⚙️</h2>
