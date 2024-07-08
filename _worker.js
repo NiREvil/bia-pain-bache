@@ -2035,9 +2035,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<body>
 		<h1>👻 BpB panel <span style="font-size: smaller;"><span class="material-symbols-outlined">admin_panel_settings</span><span>&nbsp;<b></b></span>${panelVersion}</h4>
 		<div class="form-container">
-            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">
-settings
-</span></h2>
+            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span><span>&nbsp;<b></b></span></div></h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS"><span class="material-symbols-outlined">settings_remote</span><span>&nbsp;<b> Remote DNS</b></span></div> </label>
