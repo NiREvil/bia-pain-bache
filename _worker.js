@@ -1585,12 +1585,12 @@ const updateDataset = async (env, Settings) => {
 
     const vlessConfig = Settings?.get('outProxy');
     const proxySettings = {
-        remoteDNS: Settings?.get('remoteDNS') || currentRemoteDNS || 'https://94.140.14.14/dns-query',
+        remoteDNS: Settings?.get('remoteDNS') || currentProxySettings?.remoteDNS || 'tcp://185.228.168.9',
         localDNS: Settings?.get('localDNS') || currentLocalDNS || '8.8.8.8',
-        lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '100',
-        lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '200',
-        intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '5',
-        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '10',
+        lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '1402',
+        lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '1403',
+        intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '1',
+        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '2',
         blockAds: Settings?.get('block-ads') || currentBlockAds || false,
         bypassIran: Settings?.get('bypass-iran') || currentBypassIran || false,
         blockPorn: Settings?.get('block-porn') || currentBlockPorn || false,
