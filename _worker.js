@@ -1,10 +1,9 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 09:59 UTC - Monday, 8 July 2024, By REvil
+* Last Update: 10:59 UTC - Monday, 8 July 2024, By REvil
 * Many thanks to github.com/bia-pain-bache
 */
-
-import { connect } from 'cloudflare:sockets'
+import { connect } from 'cloudflare:sockets';
 
 // How to generate your own UUID: https://www.uuidgenerator.net/
 // OR in Desktop [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
@@ -12,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['usa.revil.link', 'ni.radically.pro'];// OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+const proxyIPs= ['usa.revil.link', 'ni.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -100,7 +99,7 @@ export default {
                         
                         if (!isAuth) return Response.redirect(`${url.origin}/login`, 302);
                         const proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
-                        const isUpdated = panelVersion === proxySettings.panelVersion;
+                        const isUpdated = panelVersion === proxySettings?.panelVersion;
                         if (!proxySettings || !isUpdated) await updateDataset(env);
                         const fragConfs = await getFragmentConfigs(env, host, 'nekoray');
                         const homePage = await renderHomePage(env, host, fragConfs);
@@ -1001,7 +1000,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     let proxyIndex = 1;
     const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '1403', '2024', '80-100', '100-200']
+                            '40-60', '50-70', '60-80', '70-90', '80-100', '100-200']
 
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1584,45 +1583,25 @@ const updateDataset = async (env, Settings) => {
         throw new Error(`An error occurred while getting current values - ${error}`);
     }
 
-    const {
-        remoteDNS: currentRemoteDNS, 
-        localDNS: currentLocalDNS, 
-        lengthMin: currentLengthMin, 
-        lengthMax: currentLengthMax, 
-        intervalMin: currentIntervalMin, 
-        intervalMax: currentIntervalMax,
-        blockAds: currentBlockAds,
-        bypassIran: currentBypassIran,
-        blockPorn: currentBlockPorn,
-        bypassLAN: currentBypassLAN, 
-        cleanIPs: currentCleanIPs,
-        proxyIP: currentProxyIP,
-        outProxy: currentOutProxy,
-        outProxyParams: currentOutProxyParams,
-        wowEndpoint: currentWoWEndpoint,
-        warpEndpoints: currentWarpEndpoints,
-        ports: currentPorts
-    } = currentProxySettings;
-
     const vlessConfig = Settings?.get('outProxy');
     const proxySettings = {
-        remoteDNS: Settings?.get('remoteDNS') || currentRemoteDNS || 'https://94.140.14.14/dns-query',
-        localDNS: Settings?.get('localDNS') || currentLocalDNS || '8.8.8.8',
-        lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '100',
-        lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '200',
-        intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '5',
-        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '10',
-        blockAds: Settings?.get('block-ads') || currentBlockAds || false,
-        bypassIran: Settings?.get('bypass-iran') || currentBypassIran || false,
-        blockPorn: Settings?.get('block-porn') || currentBlockPorn || false,
-        bypassLAN: Settings?.get('bypass-lan') || currentBypassLAN || false,
-        cleanIPs: Settings?.get('cleanIPs')?.replaceAll(' ', '') || currentCleanIPs || '',
-        proxyIP: Settings?.get('proxyIP') || currentProxyIP || '',
-        ports: Settings?.getAll('ports[]') || currentPorts || ['443'],
-        outProxy: vlessConfig || currentOutProxy || '',
-        outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentOutProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || 'engage.cloudflareclient.com:2408',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || 'engage.cloudflareclient.com:2408',
+        remoteDNS: Settings?.get('remoteDNS') || currentProxySettings?.remoteDNS || 'tcp://185.228.168.9',
+        localDNS: Settings?.get('localDNS') || currentProxySettings?.localDNS || '8.8.8.8',
+        lengthMin: Settings?.get('fragmentLengthMin') || currentProxySettings?.lengthMin || '1402',
+        lengthMax: Settings?.get('fragmentLengthMax') || currentProxySettings?.lengthMax || '1403',
+        intervalMin: Settings?.get('fragmentIntervalMin') || currentProxySettings?.intervalMin || '1',
+        intervalMax: Settings?.get('fragmentIntervalMax') || currentProxySettings?.intervalMax || '2',
+        blockAds: Settings?.get('block-ads') || currentProxySettings?.blockAds || false,
+        bypassIran: Settings?.get('bypass-iran') || currentProxySettings?.bypassIran || false,
+        blockPorn: Settings?.get('block-porn') || currentProxySettings?.blockPorn || false,
+        bypassLAN: Settings?.get('bypass-lan') || currentProxySettings?.bypassLAN || false,
+        cleanIPs: Settings?.get('cleanIPs')?.replaceAll(' ', '') || currentProxySettings?.cleanIPs || '',
+        proxyIP: Settings?.get('proxyIP') || currentProxySettings?.proxyIP || '',
+        ports: Settings?.getAll('ports[]') || currentProxySettings?.ports || ['443'],
+        outProxy: vlessConfig || currentProxySettings?.outProxy || '',
+        outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'ipw.bachebiapain.ir:955',
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || '188.114.98.224:890',
         panelVersion: panelVersion
     };
 
@@ -2033,9 +2012,9 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1> bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h3>
+		<h1> bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h1>
 		<div class="form-container">
-            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span></h2>
+            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS"><span class="material-symbols-outlined">dns</span> Remote DNS</label>
@@ -2050,7 +2029,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 				<div class="form-control">
 					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span> Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
-						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="1" required>
+						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
 						<input type="number" id="fragmentLengthMax" name="fragmentLengthMax" value="${lengthMax}" max="8000" required>
 					</div>
@@ -2141,7 +2120,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="🫧 APPLY SETTINGS 🫧" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value=":trollface: APPLY SETTINGS :trollface:" form="configForm">
 					</div>
 				</div>
 			</form>
@@ -2438,7 +2417,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one port should be selected! 🫤");
+                alert("⛔ At least one port should be selected! 🖕🏿");
                 activePortsNo = 1;
                 return false;
             }
@@ -2514,29 +2493,29 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             });
     
             if (invalidIPs.length) {
-                alert('⛔ Invalid IPs or Domains 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('⛔ Invalid IPs or Domains 🖕🏿 \\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
                 return false;
             }
             
             if (invalidEndpoints.length) {
-                alert('⛔ Invalid endpoint 🫤\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
+                alert('⛔ Invalid endpoint 🖕🏿 \\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! 🫤');               
+                alert('⛔ Minimum should be smaller or equal to Maximum! ');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && chainProxy) {
-                alert('⛔ Invalid Config! 🫤 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
+                alert('⛔ Invalid Config! \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
                 return false;
             }
 
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌛ Loading...';
+                applyButton.value = 'Please Wait Koskesh ...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -2599,7 +2578,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const isLongEnough = newPassword.length >= 8;
 
             if (!(hasCapitalLetter && hasNumber && isLongEnough)) {
-                passwordError.textContent = '⚠️ Password must contain at least one capital letter, one number, and be at least 8 characters long.';
+                passwordError.textContent = '⚠️ Password must contain at least one capital letter , one number, and be at least 8 characters long.';
                 return false;
             }
                     
@@ -2783,7 +2762,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span></h4>
+            <h1>bpb panel <span style="font-size: smaller;">${panelVersion} </span> </h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
@@ -3009,7 +2988,7 @@ const singboxConfigTemp = {
         servers: [
             {
                 tag: "dns-remote",
-                address: "https://8.8.8.8/dns-query",
+                address: "tcp://185.228.168.9",
                 address_resolver: "dns-direct"
             },
             {
@@ -3250,13 +3229,13 @@ const xrayWgOutboundTemp = {
         mtu: 1280,
         peers: [
             {
-                endpoint: "engage.cloudflareclient.com:2408",
+                endpoint: "ipw.bachebiapain.ir:955",
                 publicKey: ""
             }
         ],
         reserved: [],
         secretKey: "",
-        keepAlive: 10
+        keepAlive: 11
     },
     streamSettings: {
         sockopt: {
