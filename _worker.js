@@ -1621,8 +1621,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings?.getAll('ports[]') || currentPorts || ['443'],
         outProxy: vlessConfig || currentOutProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentOutProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || ['ipw.bachebiapain.ir:890', '188.114.97.36:890'],
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || ['ipw.nscl.ir:955', '162.159.192.187:3854'],
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || 'ipw.bachebiapain.ir:890',
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || 'ipw.nscl.ir:955',
         panelVersion: panelVersion
     };
 
@@ -2783,7 +2783,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span></h3>
+            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span> </h3>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
