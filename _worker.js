@@ -2126,11 +2126,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
                 <h2>WARP ENDPOINTS <span class="material-symbols-outlined">network_node</span></h2>
 				<div class="form-control">
-                    <label for="wowEndpoint"><span class="material-symbols-outlined">subscript</span> WoW Endpoints</label>
+                    <label for="wowEndpoint"><span class="material-symbols-outlined">roundabout_left</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}">
 				</div>
 				<div class="form-control">
-                    <label for="warpEndpoints"><span class="material-symbols-outlined">superscript</span> Warp Endpoints</label>
+                    <label for="warpEndpoints"><span class="material-symbols-outlined">arrow_outward</span> Warp Endpoints</label>
                     <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
@@ -2141,7 +2141,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="<span class="material-symbols-outlined">approval_delegation</span> APPLY SETTINGS" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value="☆ APPLY SETTINGS ☆" form="configForm">
 					</div>
 				</div>
 			</form>
