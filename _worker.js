@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 10:59 UTC - Monday, 8 July 2024, By REvil
+* Last Update: 14:50 UTC - Monday, 8 July 2024, By REvil
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -1600,8 +1600,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings?.getAll('ports[]') || currentProxySettings?.ports || ['443'],
         outProxy: vlessConfig || currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'ipw.bachebiapain.ir:955',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || '188.114.98.224:890',
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'wa.bachebiapain.ir:890',
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || 'ipw.bachebiapain.ir:955',
         panelVersion: panelVersion
     };
 
