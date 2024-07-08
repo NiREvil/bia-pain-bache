@@ -1611,7 +1611,7 @@ const updateDataset = async (env, Settings) => {
         lengthMin: Settings?.get('fragmentLengthMin') || currentLengthMin || '1402',
         lengthMax: Settings?.get('fragmentLengthMax') || currentLengthMax || '1403',
         intervalMin: Settings?.get('fragmentIntervalMin') || currentIntervalMin || '1',
-        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '1',
+        intervalMax: Settings?.get('fragmentIntervalMax') || currentIntervalMax || '2',
         blockAds: Settings?.get('block-ads') || currentBlockAds || false,
         bypassIran: Settings?.get('bypass-iran') || currentBypassIran || false,
         blockPorn: Settings?.get('block-porn') || currentBlockPorn || false,
