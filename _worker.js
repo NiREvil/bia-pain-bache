@@ -826,18 +826,18 @@ const generateRemark = (index, port) => {
     switch (index) {
         case 0:
         case 1:
-            remark = `Ðoϻɑiͷ- ${index + 1}:${port}`;
+            remark = `Ðoϻɑiͷ⇢► ${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `IPv4- ${index - 1}:${port}`;
+            remark = `ÍPv4⇢► ${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `IPv6- ${index - 3}:${port}`;
+            remark = `ÍPv6⇢► ${index - 3} : ${port}`;
             break;
         default:
-            remark = `Clean IP- ${index - 5}:${port}`;
+            remark = `Clean ÍP⇢► ${index - 5} : ${port}`;
             break;
     }
 
