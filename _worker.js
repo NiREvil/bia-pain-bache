@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 10:59 UTC - Monday, 8 July 2024, By REvil
+* Last Update: 13:59 UTC - Monday, 8 July 2024, By REvil
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['ni.radically.pro'];// OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+const proxyIPs= ['usa.revil.link', 'ni.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -20,7 +20,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = '2.4.4';
+let panelVersion = 'v2.4.4';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -1000,7 +1000,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     let proxyIndex = 1;
     const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '60-80', '70-90', '80-100', '100-200']
+                            '40-60', '50-70', '1403', '2024', '80-100', '100-200']
 
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1600,8 +1600,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings?.getAll('ports[]') || currentProxySettings?.ports || ['443'],
         outProxy: vlessConfig || currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'engage.cloudflareclient.com:2408',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || 'engage.cloudflareclient.com:2408',
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'ipw.bachebiapain.ir:955', '188.114.97.36:890', 'wa.bachebiapain.ir:942', '162.159.192.187:3854',
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || '188.114.98.224:890', 'ipw.nscl.ir:955', '162.159.195.239:8742', '188.114.98.209:3581',
         panelVersion: panelVersion
     };
 
@@ -2120,7 +2120,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 </div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%;">
-						<input type="submit" id="applyButton" class="button disabled" value="🫧 APPLY SETTINGS 🫧" form="configForm">
+						<input type="submit" id="applyButton" class="button disabled" value=" APPLY SETTINGS " form="configForm">
 					</div>
 				</div>
 			</form>
@@ -2338,7 +2338,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
                 <a class="link" href="https://github.com/bia-pain-bache/BPB-Worker-Panel" target="_blank">Github</a>
-                <button id="openModalBtn" class="button">Change Password</button>
+                <button id="openModalBtn" class="button">FUCK OFF ASSHOLE</button>
                 <button type="button" id="logout" style="background: none; margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
                 </button>
@@ -2578,7 +2578,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const isLongEnough = newPassword.length >= 8;
 
             if (!(hasCapitalLetter && hasNumber && isLongEnough)) {
-                passwordError.textContent = '⚠️ Password must contain at least one capital letter 🖕🏿, one number, and be at least 8 characters long.';
+                passwordError.textContent = '⚠️ Password must contain at least one capital letter , one number, and be at least 8 characters long.';
                 return false;
             }
                     
@@ -2993,7 +2993,7 @@ const singboxConfigTemp = {
             },
             {
                 tag: "dns-direct",
-                address: "tcp://185.228.168.9",
+                address: "8.8.8.8",
                 address_resolver: "dns-local",
                 detour: "direct"
             },
@@ -3229,7 +3229,7 @@ const xrayWgOutboundTemp = {
         mtu: 1280,
         peers: [
             {
-                endpoint: "ipw.bachebiapain.ir:2408",
+                endpoint: "ipw.bachebiapain.ir:955",
                 publicKey: ""
             }
         ],
