@@ -1621,8 +1621,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings?.getAll('ports[]') || currentPorts || ['443'],
         outProxy: vlessConfig || currentOutProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentOutProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || 'ipw.bachebiapain.ir:955', '188.114.97.36:890', 'wa.bachebiapain.ir:942', '162.159.192.187:3854',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || '188.114.98.224:890', 'ipw.nscl.ir:955', '162.159.195.239:8742', '188.114.98.209:3581',
+        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentWoWEndpoint || ['ipw.bachebiapain.ir:955', '188.114.97.36:890', 'wa.bachebiapain.ir:942', '162.159.192.187:3854'],
+        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentWarpEndpoints || ['188.114.98.224:890', 'ipw.nscl.ir:955', '162.159.195.239:8742', '188.114.98.209:3581'],
         panelVersion: panelVersion
     };
 
