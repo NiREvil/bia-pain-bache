@@ -2562,7 +2562,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Parameters applied successfully 😎');
+                    alert('Aaaand Boom! It's in the bag ✔️');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
