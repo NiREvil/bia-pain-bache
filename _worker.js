@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 2:33 UTC - Monday, 19 July 2024, By REvil
+* Last Update: 4:20 UTC - Friday, 19 July 2024, By REvil
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -2550,7 +2550,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = 'Please Wait Koskesh ...';
+                applyButton.value = 'My brain is running on Windows 95 right now ...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -2562,7 +2562,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('DONE ✔');
+                    alert('Aaaand Boom! It's in the bag ✔');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
