@@ -2547,10 +2547,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 return false;
             }
 
-            tryy {
+            try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌛ Hold your horses...';
+                applyButton.value = 'Hold your horses ...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
