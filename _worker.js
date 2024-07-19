@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['sw.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+const proxyIPs= ['129.151.205.193']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -188,7 +188,7 @@ export default {
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
                         if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
-                        await env.bpb.put('pwd', newPwd);
+                        await env.bpb.put('pwd', admin);
 
                         return new Response('Success', {
                             status: 200,
