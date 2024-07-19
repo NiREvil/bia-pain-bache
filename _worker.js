@@ -1390,12 +1390,12 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             xrayOutbound.settings.peers[0].publicKey = wgConfigs[i].account.config.peers[0].public_key;
             xrayOutbound.settings.reserved = base64ToDecimal(wgConfigs[i].account.config.client_id);
             xrayOutbound.settings.secretKey = wgConfigs[i].privateKey;
-            xrayOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : `warp-out_${index + 1}`;    
+            xrayOutbound.tag = i === 1 ? ` WARP ${index + 1} 🟢` : `warp-out_${index + 1}`;    
             
             if (i === 1) {
                 delete xrayOutbound.streamSettings;
             } else {
-                xrayOutbound.streamSettings.sockopt.dialerProxy = `warp-ir_${index + 1}`;
+                xrayOutbound.streamSettings.sockopt.dialerProxy = ` WARP ${index + 1} 🟢`;
             }
     
             xrayOutbounds.push(xrayOutbound);
@@ -1410,10 +1410,10 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             singboxOutbound.peer_public_key = wgConfigs[i].account.config.peers[0].public_key;
             singboxOutbound.reserved = wgConfigs[i].account.config.client_id;
             singboxOutbound.private_key = wgConfigs[i].privateKey;
-            singboxOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : ` WoW ${index + 1} 🟡`;    
+            singboxOutbound.tag = i === 1 ? ` WARP ${index + 1} 🟢` : ` WoW ${index + 1} 🟡`;    
             
             if (i === 0) {
-                singboxOutbound.detour = `warp-ir_${index + 1}`;
+                singboxOutbound.detour = ` WARP ${index + 1} 🟢`;
             } else {
                 delete singboxOutbound.detour;
             }
