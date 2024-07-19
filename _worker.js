@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['usa.revil.link', 'ni.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+const proxyIPs= ['ni.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -1190,6 +1190,8 @@ const getFragmentConfigs = async (env, hostName, client) => {
 
 const getSingboxConfig = async (env, hostName) => {
     let proxySettings = {};
+    let outboundDomains = [];
+    const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-]{1,63}\.)*[a-zA-Z0-9][a-zA-Z0-9-]{0,62}\.[a-zA-Z]{2,11}$/;
     
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1228,8 +1230,11 @@ const getSingboxConfig = async (env, hostName) => {
             config.outbounds.push(outbound);
             config.outbounds[0].outbounds.push(remark);
             config.outbounds[1].outbounds.push(remark);
+            if (domainRegex.test(outbound.server)) outboundDomains.push(outbound.server);
         });
     });
+
+	config.dns.rules[0].domain = [...new Set(outboundDomains)];
 
     return config;
 }
@@ -1241,6 +1246,8 @@ const getWarpConfigs = async (env, client) => {
     let xrayWarpBestPing = structuredClone(xrayConfigTemp);
     let xrayWoWConfigTemp = structuredClone(xrayConfigTemp);
     let singboxWarpConfig = structuredClone(singboxConfigTemp);
+    let outboundDomains = [];
+    const domainRegex = /^(?!:\/\/)([a-zA-Z0-9-]{1,63}\.)*[a-zA-Z0-9][a-zA-Z0-9-]{0,62}\.[a-zA-Z]{2,11}$/;
     
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1265,7 +1272,7 @@ const getWarpConfigs = async (env, client) => {
     xrayWarpBestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpBestPing.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
-    xrayWarpBestPing.routing.balancers[0].selector = 'warp';
+    xrayWarpBestPing.routing.balancers[0].selector = ['warp'];
     xrayWarpBestPing.observatory.subjectSelector = ['warp'];
     xrayWoWConfigTemp.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWoWConfigTemp.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
@@ -1298,14 +1305,18 @@ const getWarpConfigs = async (env, client) => {
         singboxWarpConfig.outbounds.push(outbound);
         singboxWarpConfig.outbounds[0].outbounds.push(outbound.tag);
         singboxWarpConfig.outbounds[1].outbounds.push(outbound.tag);
+        if (domainRegex.test(outbound.server)) outboundDomains.push(outbound.server);
     });
 
     singboxWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('WoW')) {
             singboxWarpConfig.outbounds.push(singboxWoWOutbounds[index], singboxWoWOutbounds[index + 1]);
             singboxWarpConfig.outbounds[0].outbounds.push(outbound.tag);
+            if (domainRegex.test(outbound.server)) outboundDomains.push(outbound.server);
         }
     });
+
+	singboxWarpConfig.dns.rules[0].domain = [...new Set(outboundDomains)]; 
 
     return client === 'singbox' 
         ? singboxWarpConfig 
@@ -1476,12 +1487,12 @@ const buildDNSObject = async (remoteDNS, localDNS, blockAds, bypassIran, blockPo
     }
 
     if (blockAds) {
-        dnsObject.hosts["geosite:category-ads-all"] = "127.0.0.1";
-        dnsObject.hosts["geosite:category-ads-ir"] = "127.0.0.1";
+        dnsObject.hosts["geosite:category-ads-all"] = ["127.0.0.1"];
+        dnsObject.hosts["geosite:category-ads-ir"] = ["127.0.0.1"];
     }
 
     if (blockPorn) {
-        dnsObject.hosts["geosite:category-porn"] = "127.0.0.1";
+        dnsObject.hosts["geosite:category-porn"] = ["127.0.0.1"];
     }
 
     if (!bypassIran || localDNS === 'localhost' || isWorkerLess) {
@@ -1585,23 +1596,23 @@ const updateDataset = async (env, Settings) => {
 
     const vlessConfig = Settings?.get('outProxy');
     const proxySettings = {
-        remoteDNS: Settings?.get('remoteDNS') || currentProxySettings?.remoteDNS || 'tcp://185.228.168.9',
-        localDNS: Settings?.get('localDNS') || currentProxySettings?.localDNS || '8.8.8.8',
-        lengthMin: Settings?.get('fragmentLengthMin') || currentProxySettings?.lengthMin || '1402',
-        lengthMax: Settings?.get('fragmentLengthMax') || currentProxySettings?.lengthMax || '1403',
-        intervalMin: Settings?.get('fragmentIntervalMin') || currentProxySettings?.intervalMin || '1',
-        intervalMax: Settings?.get('fragmentIntervalMax') || currentProxySettings?.intervalMax || '2',
-        blockAds: Settings?.get('block-ads') || currentProxySettings?.blockAds || false,
-        bypassIran: Settings?.get('bypass-iran') || currentProxySettings?.bypassIran || false,
-        blockPorn: Settings?.get('block-porn') || currentProxySettings?.blockPorn || false,
-        bypassLAN: Settings?.get('bypass-lan') || currentProxySettings?.bypassLAN || false,
-        cleanIPs: Settings?.get('cleanIPs')?.replaceAll(' ', '') || currentProxySettings?.cleanIPs || '',
-        proxyIP: Settings?.get('proxyIP') || currentProxySettings?.proxyIP || '',
-        ports: Settings?.getAll('ports[]') || currentProxySettings?.ports || ['443'],
-        outProxy: vlessConfig || currentProxySettings?.outProxy || '',
+        remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://94.140.14.14/dns-query',
+        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.8',
+        lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '1402',
+        lengthMax: Settings ? Settings.get('fragmentLengthMax') : currentProxySettings?.lengthMax || '1403',
+        intervalMin: Settings ? Settings.get('fragmentIntervalMin') : currentProxySettings?.intervalMin || '1',
+        intervalMax: Settings ? Settings.get('fragmentIntervalMax') : currentProxySettings?.intervalMax || '2',
+        blockAds: Settings ? Settings.get('block-ads') : currentProxySettings?.blockAds || false,
+        bypassIran: Settings ? Settings.get('bypass-iran') : currentProxySettings?.bypassIran || false,
+        blockPorn: Settings ? Settings.get('block-porn') : currentProxySettings?.blockPorn || false,
+        bypassLAN: Settings ? Settings.get('bypass-lan') : currentProxySettings?.bypassLAN || false,
+        cleanIPs: Settings ? Settings.get('cleanIPs')?.replaceAll(' ', '') : currentProxySettings?.cleanIPs || '',
+        proxyIP: Settings ? Settings.get('proxyIP') : currentProxySettings?.proxyIP || '',
+        ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
+        outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings?.get('wowEndpoint')?.replaceAll(' ', '') || currentProxySettings?.wowEndpoint || 'wa.bachebiapain.ir:890',
-        warpEndpoints: Settings?.get('warpEndpoints')?.replaceAll(' ', '') || currentProxySettings?.warpEndpoints || 'ipw.bachebiapain.ir:955',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wa.bachebiapain.ir:890',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'ipw.bachebiapain.ir:955',
         panelVersion: panelVersion
     };
 
@@ -2106,11 +2117,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 <h2>WARP ENDPOINTS <span class="material-symbols-outlined">settings</span></h2>
 				<div class="form-control">
                     <label for="wowEndpoint"><span class="material-symbols-outlined">airline_stops</span> WoW Endpoints</label>
-                    <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}">
+                    <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
 				</div>
 				<div class="form-control">
                     <label for="warpEndpoints"><span class="material-symbols-outlined">straight</span> Warp Endpoints</label>
-                    <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}">
+                    <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
 				</div>
                 <div class="form-control">
                     <label><span class="material-symbols-outlined">search_insights</span> Scanner Script</label>
@@ -2464,7 +2475,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const intervalMax = getValue('fragmentIntervalMax');
             const proxyIP = document.getElementById('proxyIP').value?.trim();
             const cleanIP = document.getElementById('cleanIPs');
-            const wowEndpoint = document.getElementById('warpEndpoints').value?.replaceAll(' ', '').split(',');
+            const wowEndpoint = document.getElementById('wowEndpoint').value?.replaceAll(' ', '').split(',');
             const warpEndpoints = document.getElementById('warpEndpoints').value?.replaceAll(' ', '').split(',');
             const cleanIPs = cleanIP.value?.split(',');
             const chainProxy = document.getElementById('outProxy').value?.trim();                    
@@ -2987,34 +2998,41 @@ const singboxConfigTemp = {
     dns: {
         servers: [
             {
-                tag: "dns-remote",
                 address: "tcp://185.228.168.9",
-                address_resolver: "dns-direct"
+				address_resolver: "dns-direct",
+                strategy: "prefer_ipv4",
+                tag: "dns-remote"
             },
             {
-                tag: "dns-direct",
                 address: "8.8.8.8",
                 address_resolver: "dns-local",
-                detour: "direct"
+				strategy: "prefer_ipv4",
+                detour: "direct",
+                tag: "dns-direct"
             },
             {
-                tag: "dns-local",
                 address: "local",
-                detour: "direct"
+                tag: "dns-local"
             },
             {
-                tag: "dns-block",
-                address: "rcode://success"
+                address: "rcode://success",
+                tag: "dns-block"
             }
         ],
         rules: [
             {
-                domain_suffix: [".ir"],
+                domain_suffix: ".ir",
                 server: "dns-direct"
             },
             {
-                outbound: "direct",
-                server: "dns-direct"
+                disable_cache: true,
+                rule_set: [
+                    "geosite-category-ads-all",
+                    "geosite-malware",
+                    "geosite-phishing",
+                    "geosite-cryptominers"
+                ],
+                server: "dns-block"
             }
         ],
         independent_cache: true
@@ -3031,8 +3049,9 @@ const singboxConfigTemp = {
         {
             type: "tun",
             tag: "tun-in",
-            mtu: 9000,
             inet4_address: "172.19.0.1/28",
+			inet6_address: "fdfe:dcba:9876::1/126",
+            mtu: 9000,
             auto_route: true,
             strict_route: true,
             endpoint_independent_nat: true,
@@ -3089,7 +3108,7 @@ const singboxConfigTemp = {
             {
                 network: "udp",
                 port: 443,
-                port_range: [],
+                protocol: "quic",
                 outbound: "block"
             },
             {
