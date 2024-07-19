@@ -2550,7 +2550,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = 'My brain is running on Windows 95 right now ...';
+                applyButton.value = 'Hold your horses ...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
