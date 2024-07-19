@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 14:50 UTC - Monday, 8 July 2024, By REvil
+* Last Update: 2:33 UTC - Monday, 19 July 2024, By REvil
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -20,7 +20,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = 'v2.4.4';
+let panelVersion = 'v2.4.5';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -1612,8 +1612,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wa.bachebiapain.ir:890',
-        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'ipw.bachebiapain.ir:955',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'ipw.nscl.ir:894',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'engage.cloudflareclient.com:2408',
         panelVersion: panelVersion
     };
 
@@ -2445,7 +2445,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 event.target.checked = !event.target.checked;
                 alert("⛔ At least one port should be selected! 🖕🏿");
                 activePortsNo = 1;
-				defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
+		defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
             }
                 
@@ -3223,6 +3223,9 @@ const singboxConfigTemp = {
         final: "proxy"
     },
     experimental: {
+        cache_file: {
+            enabled: true
+        },
         clash_api: {
             external_controller: "0.0.0.0:9090",
             external_ui: "yacd",
@@ -3272,13 +3275,13 @@ const xrayWgOutboundTemp = {
         mtu: 1280,
         peers: [
             {
-                endpoint: "ipw.bachebiapain.ir:955",
+                endpoint: "engage.cloudflareclient.com:2408",
                 publicKey: ""
             }
         ],
         reserved: [],
         secretKey: "",
-        keepAlive: 11
+        keepAlive: 10
     },
     streamSettings: {
         sockopt: {
