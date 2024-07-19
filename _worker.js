@@ -2547,10 +2547,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 return false;
             }
 
-            try {
+            tryy {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = 'Hold your horses ...';
+                applyButton.value = '⌛ Hold your horses...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -2562,7 +2562,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Aaaand Boom! It's in the bag ✔');
+                    alert('Aaaand Boom! It's in the bag ✔️ ');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
