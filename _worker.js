@@ -1260,15 +1260,15 @@ const getWarpConfigs = async (env, client) => {
     const {xray: xrayWarpOutbounds, singbox: singboxWarpOutbounds} = await buildWarpOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, warpEndpoints) 
     const {xray: xrayWoWOutbounds, singbox: singboxWoWOutbounds} = await buildWoWOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, wowEndpoint); 
     
-    singboxWarpConfig.outbounds[0].outbounds = ['☆ Warp BestPing'];
-    singboxWarpConfig.outbounds[1].tag = '☆ Warp BestPing';
+    singboxWarpConfig.outbounds[0].outbounds = ['☆ WARP BestPing'];
+    singboxWarpConfig.outbounds[1].tag = '☆ WARP BestPing';
     xrayWarpConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpConfig.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     xrayWarpConfig.outbounds.splice(0,1);
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = '💦 BPB - Warp Best Ping 🚀'
+    xrayWarpBestPing.remarks = '☆ WARP Best Ping'
     xrayWarpBestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpBestPing.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -1283,7 +1283,7 @@ const getWarpConfigs = async (env, client) => {
     xrayWarpOutbounds.forEach((outbound, index) => {
         xrayWarpConfigs.push({
             ...xrayWarpConfig,
-            remarks: `💦 BPB - Warp ${index + 1} 🇮🇷`,
+            remarks: `WARP ${index + 1} 🟢`,
             outbounds: [{...outbound, tag: 'warp'}, ...xrayWarpConfig.outbounds]
         });
     });
@@ -1291,7 +1291,7 @@ const getWarpConfigs = async (env, client) => {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = `💦 BPB - WoW ${index/2 + 1} 🌍`;
+            xrayWoWConfig.remarks = `WARP ${index/2 + 1} 🟡`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -1362,7 +1362,7 @@ const buildWarpOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, blo
             ...singboxOutbound,
             server: endpoint.includes('[') ? endpoint.match(ipv6Regex)[1] : endpoint.split(':')[0],
             server_port: endpoint.includes('[') ? +endpoint.match(portRegex)[0] : +endpoint.split(':')[1],
-            tag: `💦 Warp ${index + 1} 🇮🇷`
+            tag: `WARP ${index + 1} 🟢`
         });
     })
     
@@ -1410,7 +1410,7 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             singboxOutbound.peer_public_key = wgConfigs[i].account.config.peers[0].public_key;
             singboxOutbound.reserved = wgConfigs[i].account.config.client_id;
             singboxOutbound.private_key = wgConfigs[i].privateKey;
-            singboxOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : `💦 WoW ${index + 1} 🌍`;    
+            singboxOutbound.tag = i === 1 ? `warp-ir_${index + 1}` : `WARP ${index + 1} 🟢`;    
             
             if (i === 0) {
                 singboxOutbound.detour = `warp-ir_${index + 1}`;
@@ -1598,7 +1598,7 @@ const updateDataset = async (env, Settings) => {
 	
     const proxySettings = {
         remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://94.140.14.14/dns-query',
-        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '9.9.9.9',
+        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.8',
         lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '1402',
         lengthMax: Settings ? Settings.get('fragmentLengthMax') : currentProxySettings?.lengthMax || '1403',
         intervalMin: Settings ? Settings.get('fragmentIntervalMin') : currentProxySettings?.intervalMin || '1',
@@ -1613,7 +1613,7 @@ const updateDataset = async (env, Settings) => {
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
         wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'ipw.nscl.ir:894',
-        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'engage.cloudflareclient.com:2408',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || '188.114.98.136:955',
         panelVersion: panelVersion
     };
 
@@ -3272,7 +3272,7 @@ const xrayWgOutboundTemp = {
     protocol: "wireguard",
     settings: {
         address: [],
-        mtu: 1280,
+        mtu: 1300,
         peers: [
             {
                 endpoint: "engage.cloudflareclient.com:2408",
@@ -3293,7 +3293,7 @@ const xrayWgOutboundTemp = {
 
 const singboxWgOutboundTemp = {
     local_address: [],
-    mtu: 1280,
+    mtu: 1300,
     peer_public_key: "",
     pre_shared_key: "",
     private_key: "",
