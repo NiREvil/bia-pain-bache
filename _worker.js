@@ -968,7 +968,7 @@ const buildWorkerLessConfig = async (env, client) => {
     fakeOutbound.tag = 'fake-outbound';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '🐓 WorkerLess'
+    fragConfig.remarks  = '🐓 WorkerLess Config'
     fragConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -1000,7 +1000,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     let proxyIndex = 1;
     const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '60-80', '70-90', '80-100', '100-200']
+                            '40-60', '50-70', '1403', '2024', '80-100', '100-200']
 
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1110,7 +1110,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     };
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '☆ Best-Ping';
+    bestPing.remarks = '☆ Best Fragment Ping';
     bestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -1131,7 +1131,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '★ Best-Fragment';
+    bestFragment.remarks = '★ Best Fragment Values';
     bestFragment.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -1260,15 +1260,15 @@ const getWarpConfigs = async (env, client) => {
     const {xray: xrayWarpOutbounds, singbox: singboxWarpOutbounds} = await buildWarpOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, warpEndpoints) 
     const {xray: xrayWoWOutbounds, singbox: singboxWoWOutbounds} = await buildWoWOutbounds(remoteDNS, localDNS, blockAds, bypassIran, blockPorn, bypassLAN, wowEndpoint); 
     
-    singboxWarpConfig.outbounds[0].outbounds = ['☆ WARP BestPing'];
-    singboxWarpConfig.outbounds[1].tag = '☆ WARP BestPing';
+    singboxWarpConfig.outbounds[0].outbounds = ['★ singbox WARP BestPing'];
+    singboxWarpConfig.outbounds[1].tag = '★ singbox WARP BestPing';
     xrayWarpConfig.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpConfig.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, false);
     xrayWarpConfig.outbounds.splice(0,1);
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = '☆ WARP BestPing'
+    xrayWarpBestPing.remarks = '☆ x-ray WARP BestPing'
     xrayWarpBestPing.dns = await buildDNSObject(remoteDNS, localDNS, blockAds, bypassIran, blockPorn);
     xrayWarpBestPing.routing.rules = buildRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -1291,7 +1291,7 @@ const getWarpConfigs = async (env, client) => {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = ` WoW ${index/2 + 1} 🟡`;
+            xrayWoWConfig.remarks = `WoW ${index/2 + 1} 🟡`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -1362,7 +1362,7 @@ const buildWarpOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, blo
             ...singboxOutbound,
             server: endpoint.includes('[') ? endpoint.match(ipv6Regex)[1] : endpoint.split(':')[0],
             server_port: endpoint.includes('[') ? +endpoint.match(portRegex)[0] : +endpoint.split(':')[1],
-            tag: ` WARP ${index + 1} 🟢`
+            tag: `WARP ${index + 1} 🟢`
         });
     })
     
@@ -1390,12 +1390,12 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             xrayOutbound.settings.peers[0].publicKey = wgConfigs[i].account.config.peers[0].public_key;
             xrayOutbound.settings.reserved = base64ToDecimal(wgConfigs[i].account.config.client_id);
             xrayOutbound.settings.secretKey = wgConfigs[i].privateKey;
-            xrayOutbound.tag = i === 1 ? ` WARP ${index + 1} 🟢` : `warp-out_${index + 1}`;    
+            xrayOutbound.tag = i === 1 ? `WARP-IR ${index + 1} 🟢` : `warp-out_${index + 1}`;    
             
             if (i === 1) {
                 delete xrayOutbound.streamSettings;
             } else {
-                xrayOutbound.streamSettings.sockopt.dialerProxy = ` WARP ${index + 1} 🟢`;
+                xrayOutbound.streamSettings.sockopt.dialerProxy = `WARP-IR ${index + 1} 🟢`;
             }
     
             xrayOutbounds.push(xrayOutbound);
@@ -1410,10 +1410,10 @@ const buildWoWOutbounds = async (remoteDNS, localDNS, blockAds, bypassIran, bloc
             singboxOutbound.peer_public_key = wgConfigs[i].account.config.peers[0].public_key;
             singboxOutbound.reserved = wgConfigs[i].account.config.client_id;
             singboxOutbound.private_key = wgConfigs[i].privateKey;
-            singboxOutbound.tag = i === 1 ? ` WARP ${index + 1} 🟢` : ` WoW ${index + 1} 🟡`;    
+            singboxOutbound.tag = i === 1 ? `WARP-IR ${index + 1} 🟢` : `WoW ${index + 1} 🟡`;    
             
             if (i === 0) {
-                singboxOutbound.detour = ` WARP ${index + 1} 🟢`;
+                singboxOutbound.detour = `WARP-IR ${index + 1} 🟢`;
             } else {
                 delete singboxOutbound.detour;
             }
@@ -1612,8 +1612,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'ipw.nscl.ir:894',
-        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || '188.114.98.136:955',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'ipw.nscl.ir:928',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'wa.bachebiapain.ir:928',
         panelVersion: panelVersion
     };
 
@@ -1763,11 +1763,11 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             <tr>
                 <td>
                     ${config.address === 'Best-Ping' 
-                        ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">speed</span><span>&nbsp;<b> Best-Ping </b></span></div>` 
+                        ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">speed</span><span>&nbsp;<b> Best Fragment Ping </b></span></div>` 
                         : config.address === 'WorkerLess'
-                            ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">cloud</span><span>&nbsp;<b> WorkerLess </b></span></div>`
+                            ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">cloud</span><span>&nbsp;<b> WorkerLess Config </b></span></div>`
                             : config.address === 'Best-Fragment'
-                                ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">hotel_class</span><span>&nbsp;<b> Best-Fragment </b></span></div>`
+                                ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">hotel_class</span><span>&nbsp;<b> Best Fragment Values </b></span></div>`
                                 : config.address
                     }
                 </td>
@@ -3096,11 +3096,11 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["Best-Ping"]
+            outbounds: ["★ BestPing"]
         },
         {
             type: "urltest",
-            tag: "Best-Ping",
+            tag: "★ BestPing",
             outbounds: [],
             url: "https://www.gstatic.com/generate_204",
             interval: "30s",
@@ -3272,7 +3272,7 @@ const xrayWgOutboundTemp = {
     protocol: "wireguard",
     settings: {
         address: [],
-        mtu: 1300,
+        mtu: 1280,
         peers: [
             {
                 endpoint: "engage.cloudflareclient.com:2408",
@@ -3281,7 +3281,7 @@ const xrayWgOutboundTemp = {
         ],
         reserved: [],
         secretKey: "",
-        keepAlive: 10
+        keepAlive: 11
     },
     streamSettings: {
         sockopt: {
@@ -3293,7 +3293,7 @@ const xrayWgOutboundTemp = {
 
 const singboxWgOutboundTemp = {
     local_address: [],
-    mtu: 1300,
+    mtu: 1306,
     peer_public_key: "",
     pre_shared_key: "",
     private_key: "",
