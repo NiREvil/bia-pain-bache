@@ -10,8 +10,8 @@ import { connect } from 'cloudflare:sockets';
 let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
-//Find proxyIP : https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/
-const proxyIPs= ['ni.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+//Find proxyIP : https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
+const proxyIPs= ['bpb.yousef.isegaro.com']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -19,8 +19,7 @@ const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
-
-let panelVersion = 'v2.4.5';
+let panelVersion = 'v2.4.7';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -57,8 +56,8 @@ export default {
                                 'Content-Type': 'application/json;charset=utf-8',
                             },
                         });
-
-				case '/warp-keys':
+                        
+                    case '/warp-keys':
 
                         const Auth = await Authenticate(request, env); 
                         if (!Auth) return new Response('Unauthorized', { status: 401 });
@@ -67,15 +66,16 @@ export default {
                             try {
                                 const warpKeys = await request.json();
                                 await fetchWgConfig(env, warpKeys);
+                                return new Response('Warp configs updated successfully', { status: 200 });
                             } catch (error) {
                                 console.log(error);
-                                throw new Error(`An error occurred while updating Warp Keys - ${error}`);
+                                return new Response(`An error occurred while updating Warp configs! - ${error}`, { status: 500 });
                             }
 
                         } else {
                             return new Response('Unsupported request', { status: 405 });
                         }
-                        
+
                     case `/sub/${userID}`:
 
                         if (client === 'sfa') {
@@ -94,8 +94,8 @@ export default {
 
                     case `/warpsub/${userID}`:
 
-                        const wowConfig = await getWarpConfigs(env, client);
-                        return new Response(`${JSON.stringify(wowConfig, null, 4)}`, { status: 200 });
+                        const warpConfig = await getWarpConfigs(env, client);
+                        return new Response(`${JSON.stringify(warpConfig, null, 4)}`, { status: 200 });
 
                     case '/panel':
 
@@ -104,10 +104,10 @@ export default {
                             return new Response(errorPage, { status: 200, headers: {'Content-Type': 'text/html'}});
                         }
 
+                        const pwd = await env.bpb.get('pwd');
                         const isAuth = await Authenticate(request, env); 
                         
-                        if (request.method === 'POST') {
-                            
+                        if (request.method === 'POST') {     
                             if (!isAuth) return new Response('Unauthorized', { status: 401 });             
                             const formData = await request.formData();
                             await updateDataset(env, formData);
@@ -115,8 +115,8 @@ export default {
                             return new Response('Success', { status: 200 });
                         }
                         
-                        if (!isAuth) return Response.redirect(`${url.origin}/login`, 302);
-                        const proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
+                        if (pwd && !isAuth) return Response.redirect(`${url.origin}/login`, 302);
+                        const proxySettings = await env.bpb.get('proxySettings', {type: 'json'});
                         const isUpdated = panelVersion === proxySettings?.panelVersion;
                         if (!proxySettings || !isUpdated) await updateDataset(env);
                         const fragConfs = await getFragmentConfigs(env, host, 'nekoray');
@@ -146,9 +146,6 @@ export default {
                         if (loginAuth) return Response.redirect(`${url.origin}/panel`, 302);
 
                         let secretKey = await env.bpb.get('secretKey');
-                        const pwd = await env.bpb.get('pwd');
-                        if (!pwd) await env.bpb.put('pwd', 'admin');
-
                         if (!secretKey) {
                             secretKey = generateSecretKey();
                             await env.bpb.put('secretKey', secretKey);
@@ -159,7 +156,7 @@ export default {
                             const savedPass = await env.bpb.get('pwd');
 
                             if (password === savedPass) {
-                                const jwtToken = generateJWTToken(secretKey, password);
+                                const jwtToken = generateJWTToken(password, secretKey);
                                 const cookieHeader = `jwtToken=${jwtToken}; HttpOnly; Secure; Max-Age=${7 * 24 * 60 * 60}; Path=/; SameSite=Strict`;
                                 
                                 return new Response('Success', {
@@ -1756,9 +1753,13 @@ const Authenticate = async (request, env) => {
 
 const renderHomePage = async (env, hostName, fragConfigs) => {
     let proxySettings = {};
+    let warpConfigs = [];
+    let password = '';
     
     try {
-        proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
+        proxySettings = await env.bpb.get('proxySettings', {type: 'json'});
+        warpConfigs = await env.bpb.get('warpConfigs', {type: 'json'});
+        password = await env.bpb.get('pwd');
     } catch (error) {
         console.log(error);
         throw new Error(`An error occurred while rendering home page - ${error}`);
@@ -1783,6 +1784,8 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
         warpEndpoints
     } = proxySettings;
 
+    const isWarpReady = warpConfigs ? true : false;
+    const isPassSet = password ? password.length >= 8 : false;
     const genCustomConfRow = async (configs) => {
         let tableBlock = "";
         configs.forEach(config => {
@@ -1934,7 +1937,6 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 pointer-events: none;
             }
 			.button:hover,
-			.button:focus,
 			table button:hover,
 			table button:focus {
 				background-color: #2980b9;
@@ -2142,7 +2144,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>WARP ENDPOINTS <span class="material-symbols-outlined">settings</span></h2>
+                <h2>WARP SETTINGS <span class="material-symbols-outlined">settings</span></h2>
 				<div class="form-control">
                     <label for="wowEndpoint"><span class="material-symbols-outlined">airline_stops</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
@@ -2152,7 +2154,13 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                     <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
 				</div>
                 <div class="form-control">
-                    <label><span class="material-symbols-outlined">search_insights</span> Scanner Script</label>
+                    <label><span class="material-symbols-outlined">search_insights</span> Warp Configs Script</label>
+                    <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
+                        Refresh<span class="material-symbols-outlined">autorenew</span>
+                    </button>
+                </div>
+                <div class="form-control">
+                    <label><span class="material-symbols-outlined">search_insights</span> Endpoit Script</label>
                     <button type="button" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)', false)">
                         Copy Script<span class="material-symbols-outlined">terminal</span>
                     </button>
@@ -2394,23 +2402,6 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
     const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
         let activePortsNo = ${ports.length};
         let activeHttpsPortsNo = ${ports.filter(port => defaultHttpsPorts.includes(port)).length};
-		
-  		function base64Encode(array) {
-            return btoa(String.fromCharCode.apply(null, array));
-        }
-		
-        function generateKeyPair() {
-            let privateKey = new Uint8Array(32);
-            window.crypto.getRandomValues(privateKey);
-            privateKey[0] &= 248;
-            privateKey[31] &= 127;
-            privateKey[31] |= 64;
-            let publicKey = nacl.scalarMult.base(privateKey);
-            const publicKeyBase64 = base64Encode(publicKey);
-            const privateKeyBase64 = base64Encode(privateKey);
-			
-            return {publicKey: publicKeyBase64, privateKey: privateKeyBase64};
-        }
 		
 		document.addEventListener('DOMContentLoaded', async () => {
             const configForm = document.getElementById('configForm');            
