@@ -2089,7 +2089,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<label for="outProxy"><span class="material-symbols-outlined">connecting_airports</span> Chain Proxy</label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>FRAGMENT ROUTING <span class="material-symbols-outlined">settings</span></h2>
+                <h2>FRAGMENT ROUTING <span class="material-symbols-outlined">settings_ethernet</span></h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -2108,18 +2108,18 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>PROXY IP <span class="material-symbols-outlined">settings</span></h2>
+                <h2>PROXY IP <span class="material-symbols-outlined">tune</span></h2>
 				<div class="form-control">
 					<label for="proxyIP"><span class="material-symbols-outlined">bring_your_own_ip</span> IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
-                <h2>CLEAN IP <span class="material-symbols-outlined">settings</span></h2>
+                <h2>CLEAN IP <span class="material-symbols-outlined">tune</span></h2>
 				<div class="form-control">
 					<label for="cleanIPs"><span class="material-symbols-outlined">rocket</span> Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
-                    <label><span class="material-symbols-outlined">search_insights</span> Online Scanner</label>
+                    <label><span class="material-symbols-outlined">search_insights</span>Online Scanner</label>
                     <a href="https://scanner.github1.cloud/" id="scanner" name="scanner" target="_blank">
                         <button type="button" class="button">
                             Scan now
@@ -2127,7 +2127,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>PORTS <span class="material-symbols-outlined">settings</span></h2>
+                <h2>PORTS <span class="material-symbols-outlined">tune</span></h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2154,13 +2154,13 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                     <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
 				</div>
                 <div class="form-control">
-                    <label><span class="material-symbols-outlined">search_insights</span> Warp Configs Script</label>
+                    <label><span class="material-symbols-outlined">javascript</span> Warp Script</label>
                     <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
                         Refresh<span class="material-symbols-outlined">autorenew</span>
                     </button>
                 </div>
                 <div class="form-control">
-                    <label><span class="material-symbols-outlined">search_insights</span> Endpoit Script</label>
+                    <label><span class="material-symbols-outlined">roundabout_right</span> Endpoit Scanner</label>
                     <button type="button" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)', false)">
                         Copy Script<span class="material-symbols-outlined">terminal</span>
                     </button>
@@ -2172,7 +2172,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 				</div>
 			</form>
             <hr>            
-			<h2>NORMAL CONFIGS <span class="material-symbols-outlined">code</span></h2>
+			<h2>NORMAL CONFIGS <span class="material-symbols-outlined">settings_ethernet</span></h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -2207,10 +2207,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="openQR('https://${hostName}/sub/${userID}#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/sub/${userID}#REvilBPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code_2</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#BPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#REvilBPB-Normal', false)">
                                 Copy Sub<span class="material-symbols-outlined">toc</span>
                             </button>
                         </td>
@@ -2348,7 +2348,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</tr>
 				</table>
 			</div>
-            <h2>FRAGMENT - NEKORAY <span class="material-symbols-outlined">code</span></h2>
+            <h2>FRAGMENT - NEKORAY <span class="material-symbols-outlined">settings_ethernet</span></h2>
             <div class="table-container">
 				<table id="custom-configs-table">
 					<tr style="text-wrap: nowrap;">
