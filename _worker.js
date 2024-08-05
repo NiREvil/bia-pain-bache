@@ -1015,7 +1015,7 @@ const getFragmentConfigs = async (env, hostName, client) => {
     let proxyIndex = 1;
     const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
                             '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '1403', '2024', '80-100', '100-200']
+                            '40-60', '50-70', '80-100', '100-200', '1402-1403', '2020-2024']
 
     try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
@@ -1622,11 +1622,11 @@ const updateDataset = async (env, Settings) => {
 	
     const proxySettings = {
         remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://94.140.14.14/dns-query',
-        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.8',
-        lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '1402',
+        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.4',
+        lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '1401',
         lengthMax: Settings ? Settings.get('fragmentLengthMax') : currentProxySettings?.lengthMax || '1403',
         intervalMin: Settings ? Settings.get('fragmentIntervalMin') : currentProxySettings?.intervalMin || '1',
-        intervalMax: Settings ? Settings.get('fragmentIntervalMax') : currentProxySettings?.intervalMax || '2',
+        intervalMax: Settings ? Settings.get('fragmentIntervalMax') : currentProxySettings?.intervalMax || '1',
         blockAds: Settings ? Settings.get('block-ads') : currentProxySettings?.blockAds || false,
         bypassIran: Settings ? Settings.get('bypass-iran') : currentProxySettings?.bypassIran || false,
         blockPorn: Settings ? Settings.get('block-porn') : currentProxySettings?.blockPorn || false,
@@ -1636,8 +1636,8 @@ const updateDataset = async (env, Settings) => {
         ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'ipw.nscl.ir:928',
-        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'wa.bachebiapain.ir:928',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'engage.cloudflareclient.com:2408',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'ipw.nscl.ir:864',
         panelVersion: panelVersion
     };
 
@@ -2055,7 +2055,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<body>
 		<h1> bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h1>
 		<div class="form-container">
-            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
+            <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">manufacturing</span> </h2>
 			<form id="configForm">
 				<div class="form-control">
 					<label for="remoteDNS"><span class="material-symbols-outlined">dns</span> Remote DNS</label>
@@ -2108,12 +2108,12 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         <label for="bypass-lan">Bypass LAN</label>
 					</div>
 				</div>
-                <h2>PROXY IP <span class="material-symbols-outlined">tune</span></h2>
+                <h2>PROXY IP <span class="material-symbols-outlined">data_object</span></h2>
 				<div class="form-control">
 					<label for="proxyIP"><span class="material-symbols-outlined">bring_your_own_ip</span> IP or Domain</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
-                <h2>CLEAN IP <span class="material-symbols-outlined">tune</span></h2>
+                <h2>CLEAN IP <span class="material-symbols-outlined">data_object</span></h2>
 				<div class="form-control">
 					<label for="cleanIPs"><span class="material-symbols-outlined">rocket</span> Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
@@ -2127,7 +2127,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </button>
                     </a>
                 </div>
-                <h2>PORTS <span class="material-symbols-outlined">tune</span></h2>
+                <h2>PORTS <span class="material-symbols-outlined">data_object</span></h2>
                 <div class="table-container">
                     <table id="frag-sub-table">
                         <tr>
@@ -2144,7 +2144,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>WARP SETTINGS <span class="material-symbols-outlined">settings</span></h2>
+                <h2>WARP SETTINGS <span class="material-symbols-outlined">manufacturing</span></h2>
 				<div class="form-control">
                     <label for="wowEndpoint"><span class="material-symbols-outlined">airline_stops</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
@@ -2154,7 +2154,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                     <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
 				</div>
                 <div class="form-control">
-                    <label><span class="material-symbols-outlined">javascript</span> Warp Script</label>
+                    <label><span class="material-symbols-outlined">integration_instructions</span> Warp Script</label>
                     <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
                         Refresh<span class="material-symbols-outlined">autorenew</span>
                     </button>
