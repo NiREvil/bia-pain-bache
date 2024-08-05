@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
-const proxyIPs= ['bpb.yousef.isegaro.com']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
+const proxyIPs= ['bpb.radically.pro']; // OR use ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'proxyip.us.hw.090227.xyz'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
@@ -2089,7 +2089,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					<label for="outProxy"><span class="material-symbols-outlined">connecting_airports</span> Chain Proxy</label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
-                <h2>FRAGMENT ROUTING <span class="material-symbols-outlined">settings_ethernet</span></h2>
+                <h2>FRAGMENT ROUTING <span class="material-symbols-outlined">manufacturing</span></h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -2172,7 +2172,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 				</div>
 			</form>
             <hr>            
-			<h2>NORMAL CONFIGS <span class="material-symbols-outlined">settings_ethernet</span></h2>
+			<h2>NORMAL CONFIGS <span class="material-symbols-outlined">code</span></h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -2207,10 +2207,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                             </div>
                         </td>
 						<td>
-                            <button onclick="openQR('https://${hostName}/sub/${userID}#REvilBPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
+                            <button onclick="openQR('https://${hostName}/sub/${userID}#BPB-Normal', 'Normal Subscription')" style="margin-bottom: 8px;">
                                 QR Code&nbsp;<span class="material-symbols-outlined">qr_code_2</span>
                             </button>
-                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#REvilBPB-Normal', false)">
+                            <button onclick="copyToClipboard('https://${hostName}/sub/${userID}#BPB-Normal', false)">
                                 Copy Sub<span class="material-symbols-outlined">toc</span>
                             </button>
                         </td>
@@ -2348,7 +2348,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</tr>
 				</table>
 			</div>
-            <h2>FRAGMENT - NEKORAY <span class="material-symbols-outlined">settings_ethernet</span></h2>
+            <h2>FRAGMENT - NEKORAY <span class="material-symbols-outlined">code</span></h2>
             <div class="table-container">
 				<table id="custom-configs-table">
 					<tr style="text-wrap: nowrap;">
@@ -2397,12 +2397,12 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
         </div>
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl.min.js"></script>
 	<script>
-    const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
+        const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
         let activePortsNo = ${ports.length};
         let activeHttpsPortsNo = ${ports.filter(port => defaultHttpsPorts.includes(port)).length};
-		
+
 		document.addEventListener('DOMContentLoaded', async () => {
             const configForm = document.getElementById('configForm');            
             const modal = document.getElementById('myModal');
@@ -2414,31 +2414,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const closeQR = document.getElementById("closeQRModal");
             let modalQR = document.getElementById("myQRModal");
             let qrcodeContainer = document.getElementById("qrcode-container");
-			const warpKeys = [
-                generateKeyPair(),
-                generateKeyPair()
-            ];
-			
-            try {
-			
-                const response = await fetch('/warp-keys', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(warpKeys),
-                    credentials: 'include'
-                });
-				
-                if (!response.ok) {
-                    const errorMessage = await response.text();
-                    console.error(errorMessage, response.status);
-                    alert('⚠️ An error occured, Please refresh the page!');
-                }           
-            } catch (error) {
-                console.error('Error:', error);
-            }
-          
+            let forcedPassChange = false;
+
+            ${isPassSet && !isWarpReady} && await getWarpConfigs();
+                  
             const hasFormDataChanged = () => {
                 const currentFormData = new FormData(configForm);
                 const currentFormDataEntries = [...currentFormData.entries()];
@@ -2472,8 +2451,10 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             configForm.addEventListener('input', enableApplyButton);
             configForm.addEventListener('change', enableApplyButton);
             changePass.addEventListener('click', () => {
+                forcedPassChange ? closeBtn.style.display = 'none' : closeBtn.style.display = '';
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
+                forcedPassChange = false;
             });        
             closeBtn.addEventListener('click', () => {
                 modal.style.display = "none";
@@ -2489,10 +2470,67 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                     qrcodeContainer.lastElementChild.remove();
                 }
             }
+
+            if (${!isPassSet}) {
+                forcedPassChange = true;
+                changePass.click();
+            }
 		});
 
+        const base64Encode = (array) => {
+            return btoa(String.fromCharCode.apply(null, array));
+        }
+
+        const generateKeyPair = () => {
+            let privateKey = new Uint8Array(32);
+            window.crypto.getRandomValues(privateKey);
+            privateKey[0] &= 248;
+            privateKey[31] &= 127;
+            privateKey[31] |= 64;
+            let publicKey = nacl.scalarMult.base(privateKey);
+            const publicKeyBase64 = base64Encode(publicKey);
+            const privateKeyBase64 = base64Encode(privateKey);
+
+            return {publicKey: publicKeyBase64, privateKey: privateKeyBase64};
+        }
+
+        const getWarpConfigs = async () => {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const warpKeys = [
+                generateKeyPair(),
+                generateKeyPair()
+            ];
+
+            try {
+                document.body.style.cursor = 'wait';
+                const refreshButtonVal = refreshBtn.innerHTML;
+                refreshBtn.innerHTML = 'Hold your horses ...';
+
+                const response = await fetch('/warp-keys', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(warpKeys),
+                    credentials: 'include'
+                });
+
+                if (response.ok) {
+                    document.body.style.cursor = 'default';
+                    refreshBtn.innerHTML = refreshButtonVal;
+                    alert('Yup!! Warp configs are in the bag ✔️');
+                } else {
+                    const errorMessage = await response.text();
+                    console.error(errorMessage, response.status);
+                    alert('⚠️🖕🏿 An error occured, Please try again!');
+                }           
+            } catch (error) {
+                console.error('Error:', error);
+            } 
+        }
+
         const handlePortChange = (event) => {
-		
+            
             if(event.target.checked) { 
                 activePortsNo++ 
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
@@ -2500,20 +2538,20 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
                 activePortsNo--;
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo--;
             }
-			
+
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one port should be selected! 🖕🏿");
+                alert("⛔ At least one port should be selected! 🖕🏿 ");
                 activePortsNo = 1;
-		defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
+                defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
             }
                 
             if (activeHttpsPortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one TLS(https) port should be selected! 🫤");
+                alert("⛔ At least one TLS(https) port should be selected! 🖕🏿 ");
                 activeHttpsPortsNo = 1;
                 return false;
             }
@@ -2599,12 +2637,12 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! ');               
+                alert('⛔ Minimum should be smaller or equal to Maximum! 🫤');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && chainProxy) {
-                alert('⛔ Invalid Config! \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
+                alert('⛔ Invalid Config!  🖕🏿  \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
                 return false;
             }
 
@@ -2674,7 +2712,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
             const isLongEnough = newPassword.length >= 8;
 
             if (!(hasCapitalLetter && hasNumber && isLongEnough)) {
-                passwordError.textContent = '⚠️ Password must contain at least one capital letter , one number, and be at least 8 characters long.';
+                passwordError.textContent = '⚠️🖕🏿 Password must contain at least one capital letter , one number, and be at least 8 characters long.';
                 return false;
             }
                     
@@ -2817,7 +2855,7 @@ const renderLoginPage = async () => {
                 if (response.ok) {
                     window.location.href = '/panel';
                 } else {
-                    passwordError.textContent = '⚠️ Wrong Password!';
+                    passwordError.textContent = '⚠️🖕🏿 Wrong Password!';
                     const errorMessage = await response.text();
                     console.error('Login failed:', errorMessage);
                 }
@@ -3163,7 +3201,7 @@ const singboxConfigTemp = {
             type: "urltest",
             tag: "★ BestPing",
             outbounds: [],
-            url: "https://www.gstatic.com/generate_204",
+            url: "http://www.gstatic.com/generate_204",
             interval: "30s",
             tolerance: 50
         },
@@ -3333,7 +3371,7 @@ const xrayWgOutboundTemp = {
     protocol: "wireguard",
     settings: {
         address: [],
-        mtu: 1280,
+        mtu: 1306,
         peers: [
             {
                 endpoint: "engage.cloudflareclient.com:2408",
@@ -3354,7 +3392,7 @@ const xrayWgOutboundTemp = {
 
 const singboxWgOutboundTemp = {
     local_address: [],
-    mtu: 1306,
+    mtu: 1280,
     peer_public_key: "",
     pre_shared_key: "",
     private_key: "",
