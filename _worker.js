@@ -2053,22 +2053,22 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h2>BPB PANEL <span style="font-size: smaller;">${panelVersion}</span> 👻</h3>
+		<h1>BPB PANEL <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">manufacturing</span> </h2>
 			<form id="configForm">
 				<div class="form-control">
-					<label for="remoteDNS"><span class="material-symbols-outlined">dns</span>Remote DNS</label>
+					<label for="remoteDNS"><span class="material-symbols-outlined">dns</span> Remote DNS</label>
 					<input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
 				</div>
 				<div class="form-control">
-					<label for="localDNS"><span class="material-symbols-outlined">roofing</span>Local DNS</label>
+					<label for="localDNS"><span class="material-symbols-outlined">roofing</span> Local DNS</label>
 					<input type="text" id="localDNS" name="localDNS" value="${localDNS}"
 						pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
 						title="Please enter a valid DNS IP Address or localhost!"  required>
 				</div>	
 				<div class="form-control">
-					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span>Length</label>
+					<label for="fragmentLengthMin"><span class="material-symbols-outlined">square_foot</span> Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
@@ -2076,7 +2076,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="fragmentIntervalMin"><span class="material-symbols-outlined">alarm</span>Interval</label>
+					<label for="fragmentIntervalMin"><span class="material-symbols-outlined">alarm</span> Interval</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
     						value="${intervalMin}" max="30" required>
