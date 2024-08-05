@@ -1636,7 +1636,7 @@ const updateDataset = async (env, Settings) => {
         ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wow.nscl.ir:2408', 'engage.cloudflareclient.com:2408',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wow.nscl.ir:2408', 'engage.cloudflareclient.com:2408'
         warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'revil.nscl.ir:864',
         panelVersion: panelVersion
     };
