@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 16:11 UTC - Monday, 5 August 2024, By Sahar-KM
+* Last Update: 23:11 UTC - Monday, 5 August 2024, By Sahar-KM
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -1636,7 +1636,7 @@ const updateDataset = async (env, Settings) => {
         ports: Settings ? Settings.getAll('ports[]') : currentProxySettings?.ports || ['443'],
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wow.nscl.ir:2408',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll(' ', '') : currentProxySettings?.wowEndpoint || 'wow.nscl.ir:988',
         warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll(' ', '') : currentProxySettings?.warpEndpoints || 'revil.nscl.ir:864',
         panelVersion: panelVersion
     };
@@ -2825,7 +2825,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h3>
+            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -3392,7 +3392,7 @@ const xrayWgOutboundTemp = {
 
 const singboxWgOutboundTemp = {
     local_address: [],
-    mtu: 1280,
+    mtu: 1306,
     peer_public_key: "",
     pre_shared_key: "",
     private_key: "",
