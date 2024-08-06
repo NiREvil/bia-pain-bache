@@ -33,7 +33,7 @@
 
 >`https://worker-polished-leaf-d022.workers.dev/panel`
 
-اول میره به صفحه‌ی لاگین، پسورد پیشفرض یعنی `admin` رو وارد کنید و تمام.
+ازتون میخواد پسورد جدید بذارید و لاگین کنید و تمام.
 نصب به پایان رسیده و توضیحاتی که در ادامه اومده شاید برای عموم لازم نباشه.
 آموزشهای تنظیمات و نکات هم که توی [آموزش اصلی](configuration_fa.md)  هست.
 <br><br>
@@ -69,12 +69,12 @@
 متن اول خط 14 به این صورت است:
 
 ```javascript
-const proxyIPs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel.anycast.eu.org'];
+const proxyIPs = ['sahar.nscl.ir', 'de.radically.pro', 'bpb.yousef.isegaro.com'];
 ```
 
 بعد که خواستید IP رو بذارید این شکلی میشه:
 ```javascript
-const proxyIPs = ['ni.radically.pro'];
+const proxyIPs = ['bpb.radically.pro'];
 ```
 
 ورکر رو `Save and Deploy` کنید.

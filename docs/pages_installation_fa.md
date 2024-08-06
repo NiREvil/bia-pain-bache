@@ -109,14 +109,29 @@
 
 >[Proxy IP](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md)
 
->[Proxy IP](https://www.nslookup.io/domains/cdn.xn--b6gac.eu.org/dns-records/)
+>[Proxy IP](https://www.nslookup.io/domains/sahar.nscl.ir/dns-records/)
 
->[Proxy IP](https://www.nslookup.io/domains/cdn-all.xn--b6gac.eu.org/dns-records/)
+>[Proxy IP](https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/)
 
 <p align="center">
   <img src="assets/images/Proxy_ips.jpg">
 </p>
 <br>
+
+و یا میتونید از داخل کد اونو تغییر بدید
+متن اول خط 14 به این شکله:
+
+```javascript
+const proxyIPs = ['sahar.nscl.ir', 'de.radically.pro', 'bpb.yousef.isegaro.com'];
+```
+
+بعد که خواستید IP رو بذارید این شکلی میشه:
+```javascript
+const proxyIPs = ['bpb.radically.pro'];
+```
+در نهایت Comit changes بزنید تا ذخیره بشه.
+
+
 
 ## بروز رسانی:
 یکی از مزیت‌های Pages نسبت به Worker اینه که وقتی آپدیتی برای کد منتشر میشه دیگه نیازی نیست برید ورژن جدید worker.js رو دانلود کنید و روز از نو روزی از نو! اصلا برای آپدیت دیگه کاری به کلادفلر ندارید. کافیه به گیتهاب خودتون برید وارد ریپازیتوری `BPB-Worker-Panel` بشید و از اینجا `Sync fork` رو بزنید:
