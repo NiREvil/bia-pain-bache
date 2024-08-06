@@ -1836,7 +1836,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BPB Panel ${panelVersion}</title>
+        <title>BpB Panel ${panelVersion}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<style>
@@ -2053,7 +2053,7 @@ const renderHomePage = async (env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
-		<h1>BPB PANEL <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+		<h1>BpB Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS <span class="material-symbols-outlined">manufacturing</span> </h2>
 			<form id="configForm">
@@ -2825,7 +2825,7 @@ const renderLoginPage = async () => {
     </head>
     <body>
         <div class="container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+            <h1>BpB Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2896,7 +2896,7 @@ const renderErrorPage = (message, error, refer) => {
 
     <body>
         <div id="error-container">
-            <h1>bpb panel <span style="font-size: smaller;">${panelVersion} </span> </h1>
+            <h1>BpB Panel <span style="font-size: smaller;">${panelVersion} </span> </h2>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
