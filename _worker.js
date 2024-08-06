@@ -11,7 +11,7 @@ let userID = 'cf8cf683-40fa-4cd3-93cd-820071b11c90';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
 //Find proxyIP : https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
-const proxyIPs= ['bpb.radically.pro']; // OR use ['ni.radically.pro', 'de.radically.pro', 'proxyip.us.hw.090227.xyz', 'bpb.yousef.isegaro.com'];
+const proxyIPs= ['sahar.nscl.ir']; // OR use ['bpb.radically.pro', 'de.radically.pro', 'proxyip.us.hw.090227.xyz', 'bpb.yousef.isegaro.com'];
 
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
