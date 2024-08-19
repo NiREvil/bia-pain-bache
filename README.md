@@ -10,7 +10,6 @@
 <p align="center">
   <img src="docs/assets/images/Panel-2.jpg">
 </p>
-<br><br>
 
 <p align="center">
   <img src="docs/assets/images/Panel-3.jpg">
@@ -19,7 +18,6 @@
 <p align="center">
   <img src="docs/assets/images/Panel-4.jpg">
 </p>
-<br><br>
 
 <p align="center">
   <img src="docs/assets/images/Panel-5.jpg">
@@ -30,7 +28,6 @@
 </p>
 
 <br><br>
-
 
 
 ## Introduction
