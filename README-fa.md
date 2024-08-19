@@ -1,5 +1,6 @@
 > **[🇬🇧English](README.md)**
-> **[🇮🇷فارسی](README-fa.md)**
+>
+>  **[🇮🇷فارسی](README-fa.md)**
 
 <p align="center">
   <img src="docs/assets/images/Panel.jpg">
@@ -9,6 +10,26 @@
   <img src="docs/assets/images/Panel-2.jpg">
 </p>
 <br><br>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-3.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-4.jpg">
+</p>
+<br><br>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-5.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-6.jpg">
+</p>
+
+<br><br>
+
 
 
 ## معرفی
@@ -69,14 +90,15 @@
       <td>❌</td>
     </tr>
     <tr>
+      <td><b>v2rayN</b></td>
+      <td>6.42 و بالاتر</td>
+      <td>✔️</td>
+      <td>❌</td>
+    </tr>
+    <tr>
       <td><b>v2rayN-Pro</b></td>
       <td>1.4 و بالاتر</td>
       <td>✔️</td>
-      <td>✔️</td>
-    </tr>
-    <tr>
-      <td><b>v2rayN</b></td>
-      <td>6.42 و بالاتر</td>
       <td>✔️</td>
     </tr>
     <tr>
@@ -95,6 +117,7 @@
       <td><b>Streisand</b></td>
       <td></td>
       <td>✔️</td>
+      <td>❌</td>
     </tr>
     <tr>
       <td><b>V2Box</b></td>
@@ -112,11 +135,19 @@
       <td><b>Nekoray</b></td>
       <td></td>
       <td>✔️</td>
+      <td>❌</td>
     </tr>
     <tr>
       <td><b>Hiddify</b></td>
       <td>2.0.5 و بالاتر</td>
       <td>❌</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td><b>NikaNG</b></td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
     </tr>
   </tbody>
 </table>
