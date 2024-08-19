@@ -1,5 +1,7 @@
 > **[🇮🇷Persian](README-fa.md)**
+>
 > **[🇬🇧English](README.md)**
+
 
 <p align="center">
   <img src="docs/assets/images/Panel.jpg">
@@ -9,6 +11,27 @@
   <img src="docs/assets/images/Panel-2.jpg">
 </p>
 <br><br>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-3.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-4.jpg">
+</p>
+<br><br>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-5.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel-6.jpg">
+</p>
+
+<br><br>
+
+
 
 ## Introduction
 This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
@@ -38,6 +61,7 @@ HUGE THANKS TO
 10. **Password-Protected Panel:** Secure your panel with password protection.
 11. **Custom Cloudflare Clean IP:** Ability to use online scanner and setting up clean IP-domains.
 12. **Warp configs:** Provides Warp and Warp on Warp subscription.
+13. **Warp Pro configs:** Optimized Warp for crucial circumstances.
 <br>
 
 ## How to use:
@@ -50,18 +74,21 @@ HUGE THANKS TO
 - [FAQ](docs/faq.md)
 <br>
 
+
 ## Supported Clients
-| Client  | Version | Fragment |
-| :-------------: | :-------------: | :-------------: |
-| **v2rayNG**  | 1.8.19 or higher  | :heavy_check_mark: |
-| **v2rayN**  | 6.42 or higher  | :heavy_check_mark: |
-| **Nekobox**  |   | :x: |
-| **Sing-box**  | 1.8.10 or higher  | :x: |
-| **Streisand**  |   | :heavy_check_mark: |
-| **V2Box**  |   | :x: |
-| **Shadowrocket**  |   | :x: |
-| **Nekoray**  |   | :heavy_check_mark: |
-| **Hiddify**  |   | :x: |
+| Client  | Version | Fragment | Warp Pro |
+| :-------------: | :-------------: | :-------------: | :-------------: |
+| **v2rayNG**  | 1.8.19 or higher  | :heavy_check_mark: | :x: |
+| **v2rayN**  | 6.42 or higher  | :heavy_check_mark: | :x: |
+| **v2rayN-PRO**  | 1.4 or higher  | :heavy_check_mark: | :heavy_check_mark: |
+| **Nekobox**  |   | :x: | :x: |
+| **Sing-box**  | 1.8.10 or higher  | :x: | :x: |
+| **Streisand**  |   | :heavy_check_mark: | :x: |
+| **V2Box**  |   | :x: | :x: |
+| **Shadowrocket**  |   | :x: | :x: |
+| **Nekoray**  |   | :heavy_check_mark: | :x: |
+| **Hiddify**  | 2.0.5 or higher  | :x: | :heavy_check_mark: |
+| **NikaNG**  |   | :heavy_check_mark: | :heavy_check_mark: |
 
 
 ---
