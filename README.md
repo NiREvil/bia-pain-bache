@@ -5,10 +5,6 @@
   <img src="docs/assets/images/Panel.jpg">
 </p>
 
-<p align="center">
-  <img src="docs/assets/images/Panel-2.jpg">
-</p>
-<br><br>
 
 ## Introduction
 This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
