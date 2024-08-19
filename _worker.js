@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 1:21 UTC - Monday, 19 August 2024, By @Sahar-KM
+* Last Update: 4:20 UTC - Monday, 19 August 2024, By @Sahar-KM
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -3632,7 +3632,7 @@ const xrayWgOutboundTemp = {
 
 const singboxWgOutboundTemp = {
     local_address: [],
-    mtu: 1306,
+    mtu: 1300,
     peer_public_key: "",
     pre_shared_key: "",
     private_key: "",
