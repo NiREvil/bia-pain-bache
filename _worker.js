@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 19:39 UTC - Sunday, 18 August 2024, By Sahar-KM
+* Last Update: 1:21 UTC - Monday, 19 August 2024, By @Sahar-KM
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -20,7 +20,7 @@ let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
-let panelVersion = '2.5';
+let panelVersion = 'v2.5';
 
 if (!isValidUUID(userID)) {
     throw new Error('uuid is not valid');
@@ -1018,9 +1018,9 @@ const getFragmentConfigs = async (env, hostName, client) => {
       let proxySettings = {};
       let proxyOutbound;
       let proxyIndex = 1;
-      const bestFragValues = ['3-8', '5-10', '10-20', '10-20', '20-30', '30-40', '40-50', 
+      const bestFragValues = ['1-3', '3-8', '5-10', '10-20', '20-30', '30-40', '40-50', 
         '50-60', '60-70', '70-80', '80-90', '90-100', '50-100', '10-30', '20-40', '30-50',
-        '30-60', '40-60', '45-90', '50-70', '60-80', '60-90', '70-90', '80-100', '100-200'
+        '30-60', '40-60', '499', '50-70', '60-80', '1403', '70-90', '80-100', '100-200'
       ]
 
       try {
@@ -1709,7 +1709,7 @@ const updateDataset = async (env, Settings) => {
 
     const proxySettings = {
         remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://94.140.14.14/dns-query',
-        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.4.4',
+        localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.8',
         lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '10',
         lengthMax: Settings ? Settings.get('fragmentLengthMax') : currentProxySettings?.lengthMax || '30',
         intervalMin: Settings ? Settings.get('fragmentIntervalMin') : currentProxySettings?.intervalMin || '1',
@@ -3611,7 +3611,7 @@ const xrayWgOutboundTemp = {
     protocol: "wireguard",
     settings: {
         address: [],
-        mtu: 1306,
+        mtu: 1300,
         peers: [
             {
                 endpoint: "engage.cloudflareclient.com:2408",
