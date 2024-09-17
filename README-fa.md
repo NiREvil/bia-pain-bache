@@ -1,7 +1,6 @@
-> __[🇮🇷Persian](README-fa.md)__
->
 > __[🇬🇧English](README.md)__
-
+>
+>  __[🇮🇷فارسی](README-fa.md)__
 
 <p align="center">
   <img src="docs/assets/images/Panel.jpg">
@@ -30,80 +29,154 @@
 <br><br>
 
 
-## Introduction
-This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
 
-HUGE THANKS TO
-[bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
+## معرفی
 
-----
+این پروژه توسعه‌ی یک پنل کاربری برای اسکریپت <a href="https://github.com/yonggekkk/Cloudflare-workers-pages-vless">پروکسی Cloudflare-workers/pages</a> ایجاد شده توسط <a href="https://github.com/yonggekkk">yonggekkk</a> می‌باشد.
 
- The panel offers two deployment options:
-- __Worker__ deployment
-- __Pages__ deployment
+و همچنین قدردانی می‌کنم از توسعه دهنده اصلی پروژه [bia pain bache](https://github.com/bia-pain-bache) بخاطر پنل فوق العاده ای که ایجاد کردند.
+
+### این پنل به دو روش راه‌اندازی می‌شود:
+
+- راه‌اندازی با __Cloudflare Worker__
+- راه‌اندازی با __Cloudflare Worker__
 <br>
 
 
-## Features
 
-1. __Free__: No cost involved.
-2. __User-Friendly Panel:__ Designed for easy navigation, configuration and usage.
-3. __Protocols:__ Provides VLESS, Trojan and Wireguard (Warp) protocols.
-4. __Warp Pro configs:__ Optimized Warp for crucial circumstances.
-5. __Support Fragment:__ Supports Fragment functionality for crucial network situations.
-6. __Full routing rules:__ Bypassing Iran/China and LAN, Blocking QUIC, Porn, Ads, Malwares, Phishing...
-5. __Bypass Iran and LAN (Optional)__
-6. __Full routing rules:__ Bypassing Iran, Blocking Ads, Malwares, Phishing... for Sing-box.
-7. __Chain Proxy:__ Capable of adding a chain proxy to fix IP.
-8. __Supports Wide Range of Clients:__ Offers subscription links for Xray, Sing-box and Clash core clients.
-10. __Subscription Link (JSON):__ Provides subscription link for JSON configs.
-11. __Password-Protected Panel:__ Secure your panel with password protection.
-12. __Fully customizable:__ Ability to use online scanner and setting up clean IP-domains, Proxy IP, setting DNS servers, choosing ports and protocols, Warp endpoints...
+## ویژگی‌ها
+<br>
+<ol dir="rtl">
+  <li><strong>رایگان</strong></li>
+  <li><strong>پنل کاربری راحت:</strong> قابلیت آسان تنظیمات و دریافت کانفیگ ها و لینک های اشتراک.</li>
+  <li><strong>پروتکل‌های متنوع:</strong> ارائه کانفیگ‌های VLESS، Trojan و Warp.</li>
+  <li><strong>سابسکریپشن Warp Pro: </strong>ارائه‌ی کانفیگ‌های وارپ بهینه شده برای شرایط همیشه خاص ایران</li>
+  <li><strong>پشتیبانی از فرگمنت:</strong> قابل استفاده حتی در صورت فیلتر شدن دامنه.</li>
+  <li><strong>قوانین مسیریابی کامل:</strong> شامل دور زدن سایت‌های ایرانی و چینی، دسترسی مستقیم به LAN، مسدودسازی تبلیغات ایرانی و خارجی و پورن و پروتکل QUIC</li>
+  <li><strong>زنجیره‌ی Proxy:</strong> قابلیت اضافه کردن Proxy خروجی جهت تثبیت IP.</li>
+  <li><strong>پشتیبانی از طیف وسیعی از برنامه‌ها:</strong> لینک‌های اشتراک را برای انواع نرم افزار ها با هسته‌های Xray و Sing-box و Clash ارائه میدهد.</li>
+  <li><strong>لینک اشتراک (JSON):</strong> لینک‌ اشتراک کانفیگ‌های فرگمنت را در فرمت JSON فراهم می‌کند.</li>
+  <li><strong>پنل با رمز عبور محافظت شده:</strong> ایمن‌سازی پنل با استفاده از رمز عبور.</li>
+  <li><strong>سفارشی‌سازی کامل تنظیمات:</strong> قابلیت اسکن و تنظیم IP تمیز، Proxy IP، DNS سرورها، پورت‌ها، پروتکل‌ها و Warp endpoint و ...</li>
+</ol>
+<br><br>
+
+## نحوه‌ی راه‌اندازی، تنظیمات و استفاده
+- [نصب به صورت Pages](docs/pages_installation_fa.md)
+- [نصب به صورت Worker](docs/worker_installation_fa.md)
+- [پیدا کردن Proxy IP](docs/proxy-ip-scanner.md)
+- [نحوه استفاده از پنل](docs/configuration_fa.md)
+- [پرسش‌های متداول (FAQ)](docs/faq.md)
 <br>
 
-## How to use:
-- [Installation (Pages)](docs/pages_installation_fa.md)
-
-- [Installation (Worker)](docs/worker_installation_fa.md)
-
-- [Scanning Proxy IP](docs/proxy-ip-scanner.md))
-
-- [How to use](docs/configuration_fa.md)
-
-- [FAQ](docs/faq.md)
-<br>
-
-
-## Supported Clients
-| Client  | Version | Fragment | Warp Pro |
-| :-------------: | :-------------: | :-------------: | :-------------: |
-| __v2rayNG__  | 1.8.19 or higher  | :heavy_check_mark: | :x: |
-| __v2rayN__  | 6.42 or higher  | :heavy_check_mark: | :x: |
-| __v2rayN-PRO__  | 1.4 or higher  | :heavy_check_mark: | :heavy_check_mark: |
-| __Nekobox__  |   | :x: | :x: |
-| __Sing-box__  | 1.8.10 or higher  | :x: | :x: |
-| __Streisand__  |   | :heavy_check_mark: | :x: |
-| __V2Box__  |   | :x: | :x: |
-| __Shadowrocket__  |   | :x: | :x: |
-| __Nekoray__  |   | :heavy_check_mark: | :x: |
-| __Hiddify__  | 2.0.5 or higher  | :x: | :heavy_check_mark: |
-| __NikaNG__  |   | :heavy_check_mark: | :heavy_check_mark: |
-| __Clash Meta__  |   | :x: | :x: |
-| __Clash Verge Rev__  |   | :x: | :x: |
-| __FLClash__  |   | :x: | :x: |
-
+## برنامه‌های پشتیبانی شده
+<div dir="rtl">
+<table>
+  <thead>
+    <th>برنامه</th>
+    <th>نسخه</th>
+    <th>Fragment</th>
+    <th>Warp Pro</th>
+  </thead>
+  <tbody  align="center">
+    <tr>
+      <td><b>v2rayNG</b></td>
+      <td>1.8.19 و بالاتر</td>
+      <td>✔️</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>v2rayN</b></td>
+      <td>6.42 و بالاتر</td>
+      <td>✔️</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>v2rayN-Pro</b></td>
+      <td>1.4 و بالاتر</td>
+      <td>✔️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td><b>Nekobox</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Sing-box</b></td>
+      <td>1.8.10 و بالاتر</td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Streisand</b></td>
+      <td></td>
+      <td>✔️</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>V2Box</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Shadowrocket</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Nekoray</b></td>
+      <td></td>
+      <td>✔️</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Hiddify</b></td>
+      <td>2.0.5 و بالاتر</td>
+      <td>❌</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td><b>NikaNG</b></td>
+      <td></td>
+      <td>✔️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td><b>Clash Meta</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>Clash Verg Rev</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><b>FLClash</b></td>
+      <td></td>
+      <td>❌</td>
+      <td>❌</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ---
+## تعداد ستاره‌ها به مرور زمان
 
-## Stargazers Over Time
-[![Stargazers Over Time](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
-
----
-
-### Special Thanks
-- CF-vless code author [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)
-- CF preferred IP program author [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest), [XIU2](https://github.com/XIU2/CloudflareSpeedTest)
+[![تعداد ستاره‌ها به مرور زمان](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel.svg?variant=adaptive)](https://starchart.cc/bia-pain-bache/BPB-Worker-Panel)
 
 ---
+### تشکر ویژه
 
-For a detailed tutorial on the core script, please refer to [Yongge’s blog and video tutorials](https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html).
+- نویسنده کد CF-vless <a href="https://github.com/3Kmfi6HP/EDtunnel">3Kmfi6HP</a>
+- نویسنده برنامه IP ترجیحی CF <a href="https://github.com/badafans/Cloudflare-IP-SpeedTest">badafans</a>، <a href="https://github.com/XIU2/CloudflareSpeedTest">XIU2</a>
+
+---
+برای آموزش جزئیات اسکریپت اصلی، لطفاً به <a href="https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html">وبلاگ و آموزش‌های ویدیویی Yongge</a> مراجعه کنید.
