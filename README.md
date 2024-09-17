@@ -1,6 +1,6 @@
-> **[🇮🇷Persian](README-fa.md)**
->
-> **[🇬🇧English](README.md)**
+> __[🇮🇷Persian](README-fa.md)__
+> 
+> __[🇬🇧English](README.md)__
 
 
 <p align="center">
@@ -39,32 +39,34 @@ HUGE THANKS TO
 ----
 
  The panel offers two deployment options:
-- **Worker** deployment
-- **Pages** deployment
+- __Worker__ deployment
+- __Pages__ deployment
 <br>
 
 
 ## Features
 
-1. **Free**: No cost involved.
-2. **User-Friendly Panel:** Designed for easy navigation, configuration and usage.
-3. **Support Fragment:** Provides support for fragment functionality.
-4. **Block Ads. and Porn (Optional)**
-5. **Bypass Iran and LAN (Optional)**
-6. **Full routing rules:** Bypassing Iran, Blocking Ads, Malwares, Phishing... for Sing-box.
-7. **Chain Proxy:** Capable of adding a chain proxy to fix IP.
-8. **Supports Wide Range of Clients:** Offers subscription links for Xray and Sing-box core clients.
-9. **Subscription Link (JSON):** Provides subscription link for JSON configs.
-10. **Password-Protected Panel:** Secure your panel with password protection.
-11. **Custom Cloudflare Clean IP:** Ability to use online scanner and setting up clean IP-domains.
-12. **Warp configs:** Provides Warp and Warp on Warp subscription.
-13. **Warp Pro configs:** Optimized Warp for crucial circumstances.
+1. __Free__: No cost involved.
+2. __User-Friendly Panel:__ Designed for easy navigation, configuration and usage.
+3. __Protocols:__ Provides VLESS, Trojan and Wireguard (Warp) protocols.
+4. __Warp Pro configs:__ Optimized Warp for crucial circumstances.
+5. __Support Fragment:__ Supports Fragment functionality for crucial network situations.
+6. __Full routing rules:__ Bypassing Iran/China and LAN, Blocking QUIC, Porn, Ads, Malwares, Phishing...
+5. __Bypass Iran and LAN (Optional)__
+6. __Full routing rules:__ Bypassing Iran, Blocking Ads, Malwares, Phishing... for Sing-box.
+7. __Chain Proxy:__ Capable of adding a chain proxy to fix IP.
+8. __Supports Wide Range of Clients:__ Offers subscription links for Xray, Sing-box and Clash core clients.
+10. __Subscription Link (JSON):__ Provides subscription link for JSON configs.
+11. __Password-Protected Panel:__ Secure your panel with password protection.
+12. __Fully customizable:__ Ability to use online scanner and setting up clean IP-domains, Proxy IP, setting DNS servers, choosing ports and protocols, Warp endpoints...
 <br>
 
 ## How to use:
 - [Installation (Pages)](docs/pages_installation_fa.md)
 
 - [Installation (Worker)](docs/worker_installation_fa.md)
+
+- [Scanning Proxy IP](docs/proxy-ip-scanner.md))
 
 - [How to use](docs/configuration_fa.md)
 
@@ -75,17 +77,20 @@ HUGE THANKS TO
 ## Supported Clients
 | Client  | Version | Fragment | Warp Pro |
 | :-------------: | :-------------: | :-------------: | :-------------: |
-| **v2rayNG**  | 1.8.19 or higher  | :heavy_check_mark: | :x: |
-| **v2rayN**  | 6.42 or higher  | :heavy_check_mark: | :x: |
-| **v2rayN-PRO**  | 1.4 or higher  | :heavy_check_mark: | :heavy_check_mark: |
-| **Nekobox**  |   | :x: | :x: |
-| **Sing-box**  | 1.8.10 or higher  | :x: | :x: |
-| **Streisand**  |   | :heavy_check_mark: | :x: |
-| **V2Box**  |   | :x: | :x: |
-| **Shadowrocket**  |   | :x: | :x: |
-| **Nekoray**  |   | :heavy_check_mark: | :x: |
-| **Hiddify**  | 2.0.5 or higher  | :x: | :heavy_check_mark: |
-| **NikaNG**  |   | :heavy_check_mark: | :heavy_check_mark: |
+| __v2rayNG__  | 1.8.19 or higher  | :heavy_check_mark: | :x: |
+| __v2rayN__  | 6.42 or higher  | :heavy_check_mark: | :x: |
+| __v2rayN-PRO__  | 1.4 or higher  | :heavy_check_mark: | :heavy_check_mark: |
+| __Nekobox__  |   | :x: | :x: |
+| __Sing-box__  | 1.8.10 or higher  | :x: | :x: |
+| __Streisand__  |   | :heavy_check_mark: | :x: |
+| __V2Box__  |   | :x: | :x: |
+| __Shadowrocket__  |   | :x: | :x: |
+| __Nekoray__  |   | :heavy_check_mark: | :x: |
+| __Hiddify__  | 2.0.5 or higher  | :x: | :heavy_check_mark: |
+| __NikaNG__  |   | :heavy_check_mark: | :heavy_check_mark: |
+| __Clash Meta__  |   | :x: | :x: |
+| __Clash Verge Rev__  |   | :x: | :x: |
+| __FLClash__  |   | :x: | :x: |
 
 
 ---
