@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 4:20 UTC - Monday, 16 September 2024, By @Sahar-KM , @Diana-Cl & Nesa
+* Last Update: 4:20 UTC - Tuesday, 17 September 2024, By @Sahar-KM , @Diana-Cl & Nesa
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -9,16 +9,16 @@ import { connect } from 'cloudflare:sockets';
 let userID = '89b3cbba-e6ac-485a-9481-976a0415eab9';
 
 //Find proxyIP : https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md
-//Find proxyIP : https://www.nslookup.io/domains/bpb.yousef.isegaro.com/dns-records/
-const proxyIPs= ['bpb.radically.pro']; // OR use ['ni.radically.pro', 'de.radically.pro', 'bpb.yousef.isegaro.com', 'proxyip.digitalocean.hw.090227.xyz'];
+//Find proxyIP : https://www.nslookup.io/domains/ipdb.rr.nu/dns-records/
+const proxyIPs= ['bpb.radically.pro']; // OR use ['bpb.radically.pro', 'turk.radicalization.ir', 'bpb.yousef.isegaro.com', 'proxyip.digitalocean.hw.090227.xyz'];
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 let dohURL = 'https://cloudflare-dns.com/dns-query';
-let trojanPassword = `bpb-trojan`;
+let trojanPassword = `NiREvil`;
 // https://emn178.github.io/online-tools/sha224.html
 // https://www.atatus.com/tools/sha224-to-hash
-let hashPassword = 'b5d0a5f7ff7aac227bc68b55ae713131ffdf605ca0da52cce182d513';
+let hashPassword = 'a824e0acad66f6fde67a3f1f8bd5c2b11c7bc2ab94eed98e2b83c712';
 let panelVersion = 'v2.5.5';
 
 if (!isValidUUID(userID)) {
@@ -1416,7 +1416,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BpB Panel ${panelVersion}</title>
+        <title>BpB panel ${panelVersion}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<style>
@@ -1633,7 +1633,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 	</head>
 	
 	<body>
-		<h1>BpB Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+		<h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
 		<div class="form-container">
             <form id="configForm">
                 <h2>VLESS & TROJAN SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
@@ -1665,7 +1665,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </a>
                 </div>
                 <div class="form-control" style="padding-top: 10px;">
-					<label><span class="material-symbols-outlined">repartition</span> Protocols</label>
+					<label><span class="material-symbols-outlined">memory</span> Protocols</label>
 					<div style="display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
                         <div style = "display: flex; justify-content: center; align-items: center;">
                             <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" style="margin: 0; grid-column: 2;" value="true" ${vlessConfigs ? 'checked' : ''}>
@@ -1757,7 +1757,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 				</div>
                 <h2>WARP SETTINGS <span class="material-symbols-outlined">settings</span></h2>
 				<div class="form-control">
-                    <label for="wowEndpoint"><span class="material-symbols-outlined">route</span> WoW Endpoints</label>
+                    <label for="wowEndpoint"><span class="material-symbols-outlined">repartition</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
 				</div>
 				<div class="form-control">
@@ -1834,7 +1834,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 				</div>
 			</form>
             <hr>            
-			<h2>NORMAL CONFIGS <span class="material-symbols-outlined">code</span></h2>
+			<h2>NORMAL SUB <span class="material-symbols-outlined">code</span></h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -1956,7 +1956,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
 				</table>
 			</div>
-			<h2>FRAGMENT SUB ⛓️</h2>
+			<h2>FRAGMENT SUB <span class="material-symbols-outlined">link</span></h2>
 			<div class="table-container">
                 <table id="frag-sub-table">
                     <tr>
@@ -2001,7 +2001,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
                 </table>
             </div>
-            <h2>WARP SUB 🔗</h2>
+            <h2>WARP SUB <span class="material-symbols-outlined">link</span></h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -2082,7 +2082,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
 				</table>
 			</div>
-            <h2>WARP PRO SUB 🔗</h2>
+            <h2>WARP PRO SUB <span class="material-symbols-outlined">link</span></h2>
 			<div class="table-container">
 				<table id="warp-pro-configs-table">
 					<tr>
@@ -2131,7 +2131,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					</tr>
 				</table>
 			</div>
-            <h2>FRAGMENT - NEKORAY ⛓️</h2>
+            <h2>FRAGMENT - NEKORAY <span class="material-symbols-outlined">code</span></h2>
             <div class="table-container">
 				<table id="custom-configs-table">
 					<tr style="text-wrap: nowrap;">
@@ -2171,7 +2171,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             <hr>
             <div class="footer">
                 <i class="fa fa-github" style="font-size:36px; margin-right: 10px;"></i>
-                <a class="link" href="https://github.com/bia-pain-bache/BPB-Worker-Panel" target="_blank">Github</a>
+                <a class="link" href="https://github.com/NiREvil/bia-pain-bache" target="_blank">Github</a>
                 <button id="openModalBtn" class="button">Change Password</button>
                 <button type="button" id="logout" style="background: none; margin: 0; border: none; cursor: pointer;">
                     <i class="fa fa-power-off fa-2x" aria-hidden="true"></i>
@@ -2288,7 +2288,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             try {
                 document.body.style.cursor = 'wait';
                 const refreshButtonVal = refreshBtn.innerHTML;
-                refreshBtn.innerHTML = '⌛ Loading...';
+                refreshBtn.innerHTML = 'Dont go anywhere. im on it';
 
                 const response = await fetch('/warp-keys', {
                     method: 'POST',
@@ -2302,11 +2302,11 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 document.body.style.cursor = 'default';
                 refreshBtn.innerHTML = refreshButtonVal;
                 if (response.ok) {
-                    ${isWarpPlus} ? alert('Warp configs upgraded to PLUS successfully! 😎') : alert('Warp configs updated successfully! 😎');
+                    ${isWarpPlus} ? alert('Warp configs upgraded to PLUS successfully ✔') : alert('Warp configs updated successfully ✔');
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ An error occured, Please try again!\\n⛔ ' + errorMessage);
+                    alert('⚠️ An error occured, Please try again!\\n❌ ' + errorMessage);
                 }         
             } catch (error) {
                 console.error('Error:', error);
@@ -2326,7 +2326,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one port should be selected! 🫤");
+                alert("❌ At least one port should be selected! ❌");
                 activePortsNo = 1;
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
@@ -2335,7 +2335,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activeHttpsPortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one TLS(https) port should be selected! 🫤");
+                alert("❌ At least one TLS(https) port should be selected! ❌");
                 activeHttpsPortsNo = 1;
                 return false;
             }
@@ -2352,7 +2352,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activeProtocols === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛔ At least one Protocol should be selected! 🫤");
+                alert("⛔ At least one Protocol should be selected!");
                 activeProtocols = 1;
                 return false;
             }
@@ -2385,7 +2385,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
-			alert('📋 Copied to clipboard:\\n\\n' +  value);
+			alert('📋 Copied and ready to paste:\\n\\n' +  value);
 		}
 
         const applySettings = async (event, configForm) => {
@@ -2428,29 +2428,29 @@ async function renderHomePage (env, hostName, fragConfigs) {
             });
     
             if (invalidIPs.length) {
-                alert('⛔ Invalid IPs or Domains 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('⚠️ Invalid IPs or Domains ⚠️\\n\\n' + invalidIPs.map(ip => '❌ ' + ip).join('\\n'));
                 return false;
             }
             
             if (invalidEndpoints.length) {
-                alert('⛔ Invalid endpoint 🫤\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
+                alert('⚠️ Invalid endpoint ⚠️\\n\\n' + invalidEndpoints.map(endpoint => '❌ ' + endpoint).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax) {
-                alert('⛔ Minimum should be smaller or equal to Maximum! 🫤');               
+                alert('⚠️ Minimum should be smaller or equal to Maximum! ⚠️');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && chainProxy) {
-                alert('⛔ Invalid Config! 🫤 \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
+                alert('⚠️ Invalid Config! ⚠️ \\n - The chain proxy should be VLESS!\\n - Transmission should be GRPC,WS or TCP\\n - Security should be TLS,Reality or None');               
                 return false;
             }
 
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌛ Loading...';
+                applyButton.value = 'Dont go anywhere. Im on it';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -2462,7 +2462,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('Parameters applied successfully 😎');
+                    alert('Signed sealed and Delivered');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
@@ -2530,7 +2530,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("Password changed successfully! 👍");
+                    alert("Password changed successfully");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
@@ -2626,7 +2626,7 @@ async function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2697,10 +2697,10 @@ function renderErrorPage (message, error, refer) {
 
     <body>
         <div id="error-container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
             <div id="error-message">
                 <h2>${message} ${refer 
-                    ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
+                    ? 'Please try again or refer to <a href="https://github.com/NiREvil/bia-pain-bache/blob/main/README.md">documents</a>' 
                     : ''}
                 </h2>
                 <p><b>${error ? `⚠️ ${error}` : ''}</b></p>
@@ -2817,7 +2817,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
 
         if (client === 'singbox' || client === 'hiddify') {
             let singboxOutbound = buildSingboxWarpOutbound(
-                client === 'hiddify' ? `💦 Warp Pro ${index + 1} 🇮🇷` : `💦 Warp ${index + 1} 🇮🇷`, 
+                client === 'hiddify' ? `⛄ Warp Pro ${index + 1} ` : `⛄ Warp ${index + 1} `, 
                 warpIPv6, 
                 privateKey, 
                 publicKey, 
@@ -2837,7 +2837,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
         }
 
         if (client === 'clash') {
-            let clashOutbound = buildClashWarpOutbound(`💦 Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
+            let clashOutbound = buildClashWarpOutbound(`⛄ Warp ${index + 1} `, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
             warpOutbounds.push(clashOutbound);
         }
 
@@ -2896,8 +2896,8 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
                     i === 1
                     ? `warp-ir_${index + 1}` 
                     : client === 'hiddify' 
-                        ? `💦 WoW Pro ${index + 1} 🌍` 
-                        : `💦 WoW ${index + 1} 🌍` , 
+                        ? `☔ WoW Pro ${index + 1}` 
+                        : `☂ WoW ${index + 1} ` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -2918,7 +2918,7 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `warp-ir_${index + 1}` : `💦 WoW ${index + 1} 🌍`, 
+                    i === 1 ? `warp-ir_${index + 1}` : `⛄ WoW ${index + 1} `, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3186,7 +3186,7 @@ function buildXrayWarpOutbound (remark, ipv6, privateKey, publicKey, endpoint, r
                 {
                     endpoint: endpoint,
                     publicKey: publicKey,
-                    keepAlive: 5
+                    keepAlive: 11
                 }
             ],
             reserved: base64ToDecimal(reserved),
@@ -3335,7 +3335,7 @@ async function buildWorkerLessConfig(env, client) {
     fakeOutbound.streamSettings.wsSettings.path = '/';
 
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '💦 BPB Frag - WorkerLess ⭐'
+    fragConfig.remarks  = '🐓 WorkerLess Config'
     fragConfig.dns = await buildXrayDNSObject('https://cloudflare-dns.com/dns-query', localDNS, blockAds, bypassIran, bypassChina, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -3414,11 +3414,12 @@ async function getFragmentConfigs(env, hostName, client) {
     let proxySettings = {};
     let proxyOutbound;
     let proxyIndex = 1;
-    const bestFragValues = ['10-20', '20-30', '30-40', '40-50', '50-60', '60-70', 
-                            '70-80', '80-90', '90-100', '10-30', '20-40', '30-50', 
-                            '40-60', '50-70', '60-80', '70-90', '80-100', '100-200']
+    const bestFragValues = ['1-3', '3-8', '5-10', '10-20', '20-30', '30-40', '40-50', 
+        '50-60', '60-70', '70-80', '80-90', '90-100', '50-100', '10-30', '20-40', '30-50',
+        '30-60', '40-60', '499', '50-70', '60-80', '1403', '70-90', '80-100', '100-200'
+      ]
 
-    try {
+      try {
         proxySettings = await env.bpb.get("proxySettings", {type: 'json'});
     } catch (error) {
         console.log(error);
@@ -3538,7 +3539,7 @@ async function getFragmentConfigs(env, hostName, client) {
     }
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '💦 BPB Frag - Best Ping 💥';
+    bestPing.remarks = '☆ Best Fragment Ping';
     bestPing.dns = await buildXrayDNSObject(remoteDNS, localDNS, blockAds, bypassIran, bypassChina, blockPorn, false);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -3560,7 +3561,7 @@ async function getFragmentConfigs(env, hostName, client) {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '💦 BPB Frag - Best Fragment 😎';
+    bestFragment.remarks = '★ Best Fragment Values';
     bestFragment.dns = await buildXrayDNSObject(remoteDNS, localDNS, blockAds, bypassIran, bypassChina, blockPorn, false);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
