@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 4:20 UTC - Tuesday, 17 September 2024, By @Sahar-KM , @Diana-Cl & Nesa
+* Last Update: 4:20 UTC - Wednesday, 18 September 2024, By @Sahar-KM , @Diana-Cl & Nesa @nescafetor
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -15,10 +15,10 @@ const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
 let dohURL = 'https://cloudflare-dns.com/dns-query';
-let trojanPassword = `NiREvil`;
+let trojanPassword = `REvil`;
 // https://emn178.github.io/online-tools/sha224.html
 // https://www.atatus.com/tools/sha224-to-hash
-let hashPassword = 'a824e0acad66f6fde67a3f1f8bd5c2b11c7bc2ab94eed98e2b83c712';
+let hashPassword = '6dfd0e8e67ad3230498f80938cb924bc767b7db65eb4c9545fbe4ad7';
 let panelVersion = 'v2.5.5';
 
 if (!isValidUUID(userID)) {
@@ -1112,22 +1112,22 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
 
 function generateRemark(index, port, protocol, fragType) {
     let remark = '';
-    const type = fragType ? ' Frag' : '';
+    const type = fragType ? ' ⇢F' : '';
     switch (index) {
         case 0:
         case 1:
-            remark = `${protocol}${type} ⇢ Ðoϻɑiͷ  ${index + 1} : ${port}`;
+            remark = `⇢${protocol}${type} ⇢Ðoϻɑiͷ  ${index + 1} ⇢${port}`;
             break;
         case 2:
         case 3:
-            remark = `${protocol}${type} ⇢ IPv4 ${index - 1} : ${port}`;
+            remark = `⇢${protocol}${type} ⇢IPV4 ${index - 1} ⇢${port}`;
             break;
         case 4:
         case 5:
-            remark = `${protocol}${type} ⇢ IPv6 ${index - 3} : ${port}`;
+            remark = `⇢${protocol}${type} ⇢IPV6 ${index - 3} ⇢${port}`;
             break;
         default:
-            remark = `${protocol}${type} ⇢ Clean IP ${index - 5} : ${port}`;
+            remark = `⇢${protocol}${type} ⇢CLEAN IP ${index - 5} ⇢${port}`;
             break;
     }
 
@@ -1170,7 +1170,7 @@ async function updateDataset (env, Settings) {
     const vlessConfig = Settings?.get('outProxy');
 
     const proxySettings = {
-        remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://94.140.14.14/dns-query',
+        remoteDNS: Settings ? Settings.get('remoteDNS') : currentProxySettings?.remoteDNS || 'https://cloudflare-dns.com/dns-query',
         localDNS: Settings ? Settings.get('localDNS') : currentProxySettings?.localDNS || '8.8.8.8',
         lengthMin: Settings ? Settings.get('fragmentLengthMin') : currentProxySettings?.lengthMin || '10',
         lengthMax: Settings ? Settings.get('fragmentLengthMax') : currentProxySettings?.lengthMax || '30',
@@ -1190,8 +1190,8 @@ async function updateDataset (env, Settings) {
         trojanConfigs: Settings ? Settings.get('trojanConfigs') : currentProxySettings?.trojanConfigs || false,
         outProxy: Settings ? vlessConfig : currentProxySettings?.outProxy || '',
         outProxyParams: vlessConfig ? await extractVlessParams(vlessConfig) : currentProxySettings?.outProxyParams || '',
-        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll?.(' ', '') : currentProxySettings?.wowEndpoint || '188.114.98.1:1010,162.159.192.100:1018,162.159.192.0:955',
-        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll?.(' ', '') : currentProxySettings?.warpEndpoints || '188.114.98.1:1010,162.159.192.100:1018,162.159.192.0:955',
+        wowEndpoint: Settings ? Settings.get('wowEndpoint')?.replaceAll?.(' ', '') : currentProxySettings?.wowEndpoint || '188.114.98.1:1010,162.159.192.100:1018,162.159.192.0:955,188.114.97.170:2371,162.159.192.1:988',
+        warpEndpoints: Settings ? Settings.get('warpEndpoints')?.replaceAll?.(' ', '') : currentProxySettings?.warpEndpoints || '188.114.98.1:1010,162.159.192.100:1018,162.159.192.0:955,188.114.97.170:2371,162.159.192.1:988',
         hiddifyNoiseMode: Settings ? Settings.get('hiddifyNoiseMode') : currentProxySettings?.hiddifyNoiseMode || 'm4',
         nikaNGNoiseMode: Settings ? Settings.get('nikaNGNoiseMode') : currentProxySettings?.nikaNGNoiseMode || 'quic',
         noiseCountMin: Settings ? Settings.get('noiseCountMin') : currentProxySettings?.noiseCountMin || '10',
@@ -1373,11 +1373,11 @@ async function renderHomePage (env, hostName, fragConfigs) {
             <tr>
                 <td>
                     ${config.address === 'Best-Ping' 
-                        ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">speed</span><span>&nbsp;<b> Best Fragment Ping </b></span></div>` 
+                        ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">speed</span><span>&nbsp;<b> Fragment Best Ping </b></span></div>` 
                         : config.address === 'WorkerLess'
                             ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">cloud</span><span>&nbsp;<b> WorkerLess Config </b></span></div>`
                             : config.address === 'Best-Fragment'
-                                ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">hotel_class</span><span>&nbsp;<b> Best Fragment Values </b></span></div>`
+                                ? `<div  style="justify-content: center;"><span class="material-symbols-outlined">hotel_class</span><span>&nbsp;<b> Fragment Best Values </b></span></div>`
                                 : config.address
                     }
                 </td>
@@ -1633,7 +1633,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 	</head>
 	
 	<body>
-		<h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+		<h1>BPB control panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
 		<div class="form-container">
             <form id="configForm">
                 <h2>VLESS & TROJAN SETTINGS <span class="material-symbols-outlined">settings</span> </h2>
@@ -1844,39 +1844,39 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>NikaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>MahsaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN-PRO</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Shadowrocket</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Streisand</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Hiddify</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Nekoray (Xray)</span>
                             </div>
                         </td>
@@ -1892,15 +1892,15 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Nekobox</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Nekoray (Sing-Box)</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Karing</span>
                             </div>
                         </td>
@@ -1913,7 +1913,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     <tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Sing-box</b></span>
                             </div>
                         </td>
@@ -1929,19 +1929,19 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     <tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Clash Meta</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Clash Verge</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>FlClash</span>
                             </div>
                         </td>
@@ -1966,27 +1966,27 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     <tr>
                         <td style="text-wrap: nowrap;">
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>NikaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>MahsaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN-PRO</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Streisand</span>
                             </div>
                         </td>
@@ -2011,15 +2011,15 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Streisand</span>
                             </div>
                         </td>
@@ -2035,11 +2035,11 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Hiddify</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Singbox</span>
                             </div>
                         </td>
@@ -2055,19 +2055,19 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     <tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Clash Meta</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Clash Verge</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>FlClash</span>
                             </div>
                         </td>
@@ -2092,15 +2092,15 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>NikaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>MahsaNG</span>
                             </div>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>v2rayN-PRO</span>
                             </div>
                         </td>
@@ -2116,7 +2116,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<tr>
                         <td>
                             <div>
-                                <span class="material-symbols-outlined symbol">verified</span>
+                                <span class="material-symbols-outlined symbol">task_alt</span>
                                 <span>Hiddify</span>
                             </div>
                         </td>
@@ -2626,7 +2626,7 @@ async function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+            <h1>Hi 👻 <br><span style="font-size: smaller;">Your welcome to bpb</span> </h3>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2697,7 +2697,7 @@ function renderErrorPage (message, error, refer) {
 
     <body>
         <div id="error-container">
-            <h1>BpB Control Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
+            <h1>BpB Panel <span style="font-size: smaller;">${panelVersion}</span> 👻</h2>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/NiREvil/bia-pain-bache/blob/main/README.md">documents</a>' 
@@ -2817,7 +2817,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
 
         if (client === 'singbox' || client === 'hiddify') {
             let singboxOutbound = buildSingboxWarpOutbound(
-                client === 'hiddify' ? `⛄ Warp Pro ${index + 1} ` : `⛄ Warp ${index + 1} `, 
+                client === 'hiddify' ? `⚫️ Warp Pro ${index + 1} ` : `⚪️ Warp ${index + 1} `, 
                 warpIPv6, 
                 privateKey, 
                 publicKey, 
@@ -2837,7 +2837,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
         }
 
         if (client === 'clash') {
-            let clashOutbound = buildClashWarpOutbound(`⛄ Warp ${index + 1} `, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
+            let clashOutbound = buildClashWarpOutbound(`⚫️ Warp ${index + 1} `, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
             warpOutbounds.push(clashOutbound);
         }
 
@@ -2894,16 +2894,16 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
             if (client === 'singbox' || client === 'hiddify') {
                 let singboxOutbound = buildSingboxWarpOutbound(
                     i === 1
-                    ? `warp-ir_${index + 1}` 
+                    ? `⚫️ Nothing ${index + 1}` 
                     : client === 'hiddify' 
-                        ? `☔ WoW Pro ${index + 1}` 
-                        : `☂ WoW ${index + 1} ` , 
+                        ? `⚪ WoW Pro ${index + 1}` 
+                        : `⚫️ WoW ${index + 1} ` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
                     endpoint, 
                     reserved, 
-                    i === 0 ? `warp-ir_${index + 1}` : ''
+                    i === 0 ? `⚫️ Nothing ${index + 1}` : ''
                 );
                 
                 (client === 'hiddify' && i === 1) && Object.assign(singboxOutbound, {
@@ -2918,13 +2918,13 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `warp-ir_${index + 1}` : `⛄ WoW ${index + 1} `, 
+                    i === 1 ? `⚫️ Nothing ${index + 1}` : `⚪ WoW ${index + 1} `, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
                     endpoint,
                     reserved, 
-                    i === 0 ? `warp-ir_${index + 1}` : ''
+                    i === 0 ? `⚫️ Nothing ${index + 1}` : ''
                 );
 
                 wowOutbounds.push(clashOutbound);
@@ -3539,7 +3539,7 @@ async function getFragmentConfigs(env, hostName, client) {
     }
 
     let bestPing = structuredClone(xrayConfigTemp);
-    bestPing.remarks = '☆ Best Fragment Ping';
+    bestPing.remarks = '☆ Fragment Best Ping';
     bestPing.dns = await buildXrayDNSObject(remoteDNS, localDNS, blockAds, bypassIran, bypassChina, blockPorn, false);
     bestPing.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
     bestPing.outbounds[0].settings.fragment.interval = `${intervalMin}-${intervalMax}`;
@@ -3561,7 +3561,7 @@ async function getFragmentConfigs(env, hostName, client) {
     }
 
     let bestFragment = structuredClone(xrayConfigTemp);
-    bestFragment.remarks = '★ Best Fragment Values';
+    bestFragment.remarks = '★ Fragment Best Values';
     bestFragment.dns = await buildXrayDNSObject(remoteDNS, localDNS, blockAds, bypassIran, bypassChina, blockPorn, false);
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
@@ -3643,7 +3643,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = client === 'nikang' ? '💦 BPB - Warp Pro Best Ping 🚀' : '💦 BPB - Warp Best Ping 🚀';
+    xrayWarpBestPing.remarks = client === 'nikang' ? '🔴 Warp Pro Best Ping' : '🔴 Warp Best Ping';
     xrayWarpBestPing.dns = await buildXrayDNSObject('1.1.1.1', localDNS, blockAds, bypassIran, bypassChina, blockPorn, false);
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, bypassChina, blockUDP443, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -3658,7 +3658,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpOutbounds.forEach((outbound, index) => {
         xrayWarpConfigs.push({
             ...xrayWarpConfig,
-            remarks: client === 'nikang' ? `💦 BPB - Warp Pro ${index + 1} 🇮🇷` : `💦 BPB - Warp ${index + 1} 🇮🇷`,
+            remarks: client === 'nikang' ? `⚫️ Warp Pro ${index + 1} ` : `⚫️ Warp ${index + 1} `,
             outbounds: [{...outbound, tag: 'warp'}, ...xrayWarpConfig.outbounds]
         });
     });
@@ -3666,7 +3666,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = client === 'nikang' ? `💦 BPB - WoW Pro ${index/2 + 1} 🌍` : `💦 BPB - WoW ${index/2 + 1} 🌍`;
+            xrayWoWConfig.remarks = client === 'nikang' ? `⚪ WoW Pro ${index/2 + 1} ` : `⚪️ WoW ${index/2 + 1} `;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -3674,7 +3674,7 @@ async function getXrayWarpConfigs (env, client) {
     });
 
     let xrayWoWBestPing = structuredClone(xrayWarpBestPing);
-    xrayWoWBestPing.remarks = client === 'nikang' ? '💦 BPB - WoW Pro Best Ping 🚀' : '💦 BPB - WoW Best Ping 🚀';
+    xrayWoWBestPing.remarks = client === 'nikang' ? '🔴 WoW Pro Best Ping' : '🔴 WoW Best Ping';
     xrayWoWBestPing.routing.balancers[0].selector = ['warp-out'];
     xrayWoWBestPing.observatory.subjectSelector = ['warp-out'];
     xrayWarpBestPing.outbounds = [...xrayWarpOutbounds, ...xrayWarpBestPing.outbounds];
@@ -3896,28 +3896,28 @@ async function getClashConfig (env, hostName, isWarp) {
         "proxies": outbounds,
         "proxy-groups": [
             {
-                "name": "✅ Selector",
+                "name": "★ Selector",
                 "type": "select",
                 "proxies": isWarp
-                    ? ['★ Warp Best Ping', '★ WoW Best Ping', ...warpOutboundsRemarks, ...wowOutboundRemarks ]
-                    : ['★ Best Ping', ...outboundsRemarks ]
+                    ? ['🔴 Warp Best Ping', '🔴 WoW Best Ping', ...warpOutboundsRemarks, ...wowOutboundRemarks ]
+                    : ['🔴 Best Ping', ...outboundsRemarks ]
             },
             {
-                "name": isWarp ? `★ Warp Best Ping`: `★ Best Ping`,
+                "name": isWarp ? `🔴 Warp Best Ping`: `🔴 Best Ping`,
                 "type": "url-test",
-                "url": "https://www.gstatic.com/generate_204",
+                "url": "http://www.gstatic.com/generate_204",
                 "interval": 30,
                 "tolerance": 50,
                 "proxies": isWarp ? warpOutboundsRemarks : outboundsRemarks
             }
         ],
-        "rules": [...rules, 'MATCH,✅ Selector']
+        "rules": [...rules, 'MATCH,★ Selector']
     };
 
     isWarp && config["proxy-groups"].push({
-        "name": "★ WoW Best Ping",
+        "name": "🔴 WoW Best Ping",
         "type": "url-test",
-        "url": "https://www.gstatic.com/generate_204",
+        "url": "http://www.gstatic.com/generate_204",
         "interval": 30,
         "tolerance": 50,
         "proxies": wowOutboundRemarks
@@ -4248,15 +4248,15 @@ async function getSingboxConfig (env, hostName, client, warpType) {
         const WOWOutbounds = await buildWoWOutbounds(env, client, proxySettings, warpConfigs);
         config.dns.servers[0].address = '1.1.1.1';
         config.outbounds[0].outbounds = client === 'hiddify'
-            ? ["🟢 Warp Pro Best Ping", "🟡 WoW Pro Best Ping"]
-            : ["🟢 Warp Best Ping", "🟡 WoW Best Ping"];
+            ? ["🔴 Warp Pro Best Ping", "🔴 WoW Pro Best Ping"]
+            : ["🔴 Warp Best Ping", "🔴 WoW Best Ping"];
         config.outbounds.splice(2, 0, structuredClone(config.outbounds[1]));
         config.outbounds[1].tag = client === 'hiddify' 
-            ? "🟢 Warp Pro Best Ping"
-            : "🟢 Warp Best Ping";
+            ? "🔴 Warp Pro Best Ping"
+            : "🔴 Warp Best Ping";
         config.outbounds[2].tag = client === 'hiddify'
-            ? "🟡 WoW Pro Best Ping"
-            : "🟡 WoW Best Ping";
+            ? "🔴 WoW Pro Best Ping"
+            : "🔴 WoW Best Ping";
         config.outbounds.push(...warpOutbounds, ...WOWOutbounds);
         warpOutbounds.forEach(outbound => {
             config.outbounds[0].outbounds.push(outbound.tag);
@@ -4495,13 +4495,13 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["★ Best Ping"]
+            outbounds: ["🔴 Best Ping"]
         },
         {
             type: "urltest",
-            tag: "★ Best Ping",
+            tag: "🔴 Best Ping",
             outbounds: [],
-            url: "https://www.gstatic.com/generate_204",
+            url: "http://www.gstatic.com/generate_204",
             interval: "30s",
             tolerance: 50
         },
