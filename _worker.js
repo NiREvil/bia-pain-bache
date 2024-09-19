@@ -3181,12 +3181,12 @@ function buildXrayWarpOutbound (remark, ipv6, privateKey, publicKey, endpoint, r
                 "172.16.0.2/32",
                 ipv6
             ],
-            mtu: 1330,
+            mtu: 1306,
             peers: [
                 {
                     endpoint: endpoint,
                     publicKey: publicKey,
-                    keepAlive: 11
+                    keepAlive: 9
                 }
             ],
             reserved: base64ToDecimal(reserved),
