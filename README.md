@@ -1,26 +1,22 @@
-## $$\color{gold} \Huge \text{BPB v2.5.5}$$
+## $$\color{silver} \Large \text{BPB v2.5.5}$$
 
-> __[🇮🇷Persian](README-fa.md)__
->
-> __[🇬🇧English](README.md)__
+> __[🇮🇷Persian](README-fa.md)__     __[🇬🇧English](README.md)__
 
-
-## Introduction
-This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
-
-HUGE THANKS TO
-[bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
-
----  
 
 ## table of contents
+- [Introduction](#Introduction)
 - [Features](#Features)
 - [How to use](#How-to-use)
 - [Variable description](#Variable-description)
 - [Panel preview](#Panel-preview)  
 - [Supported clients](#Supported-clients)
 
----
+
+### Introduction
+This project is dedicated to developing a user panel for the [Cloudflare-workers/pages proxy script](https://github.com/yonggekkk/Cloudflare-workers-pages-vless) created by [yonggekkk](https://github.com/yonggekkk).
+
+HUGE THANKS TO
+[bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
 
  The panel offers two deployment options:
 - __Worker__ deployment
@@ -67,7 +63,7 @@ HUGE THANKS TO
 | UUID | `90cd4a77-141a-43c9-991b-08263cfe9c10` |✅| To generate your own UUID refer to [this link](https://www.uuidgenerator.net/) |
 | PROXYIP | `bpp.radically.pro` |❌| Alternative as a proxy node for accessing CloudFlareCDN site (supports multiple ProxyIPs, ex: ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];``` To find proxyIP [check here](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) |
 | TROJAN_PASS  | `REvil` |✅| Your preferred password |
-| HASH_PASS | `6dfd0e8e67ad3230498f80938cb924bc767b7` |✅| Convert your preferred trojan password to SHA-224 Hash string to securely store password and verify data integrity, To performthis conversion refer to [this link](https://emn178.github.io/online-tools/sha224.html) |
+| HASH_PASS | `6dfd0e8e67ad3230498f80938cb924bc767b7` |✅| Your preferred trojan password should be converted to SHA-224 Hash string to securely store password and verify data integrity, To perform this conversion refer to [this link](https://emn178.github.io/online-tools/sha224.html) |
 
 ![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
 
