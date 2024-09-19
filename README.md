@@ -1,25 +1,8 @@
+## $$\color{gold} \Huge \text{BPB v2.5.5}$$
+
 > __[🇮🇷Persian](README-fa.md)__
-> 
+>
 > __[🇬🇧English](README.md)__
-
-
-<p align="center">
-  <img src="docs/assets/images/Panel.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel_2.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel_3.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel_4.jpg">
-</p>
-
-<br><br>
 
 
 ## Introduction
@@ -28,7 +11,16 @@ This project is dedicated to developing a user panel for the [Cloudflare-workers
 HUGE THANKS TO
 [bia pain bache](https://github.com/bia-pain-bache) for creating these amazing panel
 
-----
+---  
+
+## table of contents
+- [Features](#Features)
+- [How to use](#How-to-use)
+- [Variable description](#Variable-description)
+- [Panel preview](#Panel-preview)  
+- [Supported clients](#Supported-clients)
+
+---
 
  The panel offers two deployment options:
 - __Worker__ deployment
@@ -53,12 +45,12 @@ HUGE THANKS TO
 12. __Fully customizable:__ Ability to use online scanner and setting up clean IP-domains, Proxy IP, setting DNS servers, choosing ports and protocols, Warp endpoints...
 <br>
 
-## How to use:
+## How to use
 - [Installation (Pages)](docs/pages_installation_fa.md)
 
 - [Installation (Worker)](docs/worker_installation_fa.md)
 
-- [Scanning Proxy IP](docs/proxy-ip-scanner.md))
+- [Scanning Proxy IP](docs/proxy-ip-scanner.md)
 
 - [How to use](docs/configuration_fa.md)
 
@@ -66,7 +58,44 @@ HUGE THANKS TO
 <br>
 
 
-## Supported Clients
+## Variable description
+> For further information on how to create variables, please refer to [this link](https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan).
+
+![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
+| Variable Name | Example | Required | Remark |
+|-----|----|--|------------|
+| UUID | `90cd4a77-141a-43c9-991b-08263cfe9c10` |✅| To generate your own UUID refer to [this link](https://www.uuidgenerator.net/) |
+| PROXYIP | `bpp.radically.pro` |❌| Alternative as a proxy node for accessing CloudFlareCDN site (supports multiple ProxyIPs, ex: ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];``` To find proxyIP [check here](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) |
+| TROJAN_PASS  | `REvil` |✅| Your preferred password |
+| HASH_PASS | `6dfd0e8e67ad3230498f80938cb924bc767b7` |✅| Convert your preferred trojan password to SHA-224 Hash string to securely store password and verify data integrity, To performthis conversion refer to [this link](https://emn178.github.io/online-tools/sha224.html) |
+
+![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
+
+
+
+## Panel preview
+
+<p align="center">
+  <img src="docs/assets/images/Panel.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel_2.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel_3.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel_4.jpg">
+</p>
+
+<br><br>
+
+---
+## Supported clients  
+
 | Client  | Version | Fragment | Warp Pro |
 | :-------------: | :-------------: | :-------------: | :-------------: |
 | __v2rayNG__  | 1.8.19 or higher  | :heavy_check_mark: | :x: |
@@ -83,7 +112,6 @@ HUGE THANKS TO
 | __Clash Meta__  |   | :x: | :x: |
 | __Clash Verge Rev__  |   | :x: | :x: |
 | __FLClash__  |   | :x: | :x: |
-
 
 ---
 
