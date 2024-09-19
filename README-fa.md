@@ -7,27 +7,18 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/images/Panel-2.jpg">
+  <img src="docs/assets/images/Panel_2.jpg">
 </p>
 
 <p align="center">
-  <img src="docs/assets/images/Panel-3.jpg">
+  <img src="docs/assets/images/Panel_3.jpg">
 </p>
 
 <p align="center">
-  <img src="docs/assets/images/Panel-4.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel-5.jpg">
-</p>
-
-<p align="center">
-  <img src="docs/assets/images/Panel-6.jpg">
+  <img src="docs/assets/images/Panel_4.jpg">
 </p>
 
 <br><br>
-
 
 
 ## معرفی
