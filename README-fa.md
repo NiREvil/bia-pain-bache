@@ -1,9 +1,10 @@
-### $$\color{silver} \Huge \text{v2.5.5  بیا پایین بچه }$$
+### $$\color{silver} \Large \text{پنل بیا پایین بچه }$$
 
 
-> __[🇮🇷فارسی](README-fa.md)__
->
-> __[🇬🇧انگلیسی](README.md)__
+
+
+
+> __[🇮🇷فارسی](README-fa.md)__     __[🇬🇧انگلیسی](README.md)__
 
 
 ## جدول مطالب
