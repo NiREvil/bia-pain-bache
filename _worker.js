@@ -1,6 +1,6 @@
 /**
 * @ts-nocheck   <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
-* Last Update: 4:20 UTC - Wednesday, 18 September 2024, By @Sahar-KM , @Diana-Cl & Nesa @nescafetor
+* Last Update: 4:20 UTC - Thursday, 19 September 2024, By @Sahar-KM , @Diana-Cl & Nesa @nescafetor
 * Many thanks to github.com/bia-pain-bache
 */
 import { connect } from 'cloudflare:sockets';
@@ -1652,7 +1652,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
 				<div class="form-control">
-					<label for="cleanIPs"><span class="material-symbols-outlined">123</span> Clean IPs</label>
+					<label for="cleanIPs"><span class="material-symbols-outlined">spa</span> Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
@@ -1757,7 +1757,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 				</div>
                 <h2>WARP SETTINGS <span class="material-symbols-outlined">settings</span></h2>
 				<div class="form-control">
-                    <label for="wowEndpoint"><span class="material-symbols-outlined">repartition</span> WoW Endpoints</label>
+                    <label for="wowEndpoint"><span class="material-symbols-outlined">merge_type</span> WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
 				</div>
 				<div class="form-control">
@@ -3181,7 +3181,7 @@ function buildXrayWarpOutbound (remark, ipv6, privateKey, publicKey, endpoint, r
                 "172.16.0.2/32",
                 ipv6
             ],
-            mtu: 1280,
+            mtu: 1330,
             peers: [
                 {
                     endpoint: endpoint,
