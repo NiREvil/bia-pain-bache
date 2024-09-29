@@ -1,4 +1,4 @@
-## $$\color{silver} \Large \text{BPB v2.5.5}$$
+## $$\color{silver} \Large \text{BPB v2.6}$$
 
 > __[🇮🇷Persian](README-fa.md)__     __[🇬🇧English](README.md)__
 
@@ -55,13 +55,13 @@ HUGE THANKS TO
 
 
 ## Variable description
-> For further information on how to create variables, please refer to [this link](https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan).
+> For further information on how to create variables, please refer to [this link](https://github.com/NiREvil/bia-pain-bache/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan).
 
 ![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
 | Variable Name | Example | Required | Remark |
 |-----|----|--|------------|
 | UUID | `90cd4a77-141a-43c9-991b-08263cfe9c10` |✅| To generate your own UUID refer to [this link](https://www.uuidgenerator.net/) |
-| PROXYIP | `bpp.radically.pro` |❌| Alternative as a proxy node for accessing CloudFlareCDN site (supports multiple ProxyIPs, ex: ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];``` To find proxyIP [check here](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) |
+| PROXYIP | `bpb.radically.pro` |❌| Alternative as a proxy node for accessing CloudFlareCDN site (supports multiple ProxyIPs, ex: ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];``` To find proxyIP [check here](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) |
 | TROJAN_PASS  | `REvil` |✅| Your preferred password |
 | HASH_PASS | `6dfd0e8e67ad3230498f80938cb924bc767b7` |✅| Your preferred trojan password should be converted to SHA-224 Hash string to securely store password and verify data integrity, To perform this conversion refer to [this link](https://emn178.github.io/online-tools/sha224.html) |
 
@@ -86,6 +86,16 @@ HUGE THANKS TO
 <p align="center">
   <img src="docs/assets/images/Panel_4.jpg">
 </p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel_5.jpg">
+</p>
+
+<p align="center">
+  <img src="docs/assets/images/Panel_6.jpg">
+</p>
+
+<br><br> 
 
 <br><br>
 

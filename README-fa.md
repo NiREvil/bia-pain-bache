@@ -59,14 +59,14 @@
 
 
 ## درباره متغیر ها
-> برای مشاهده توضیحات بیشتر درباره چگونگی ایجاد متغییر‌ها به [این لینک](https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan) مراجعه کنید. 
+> برای مشاهده توضیحات بیشتر درباره چگونگی ایجاد متغییر‌ها به [این لینک](https://github.com/NiREvil/bia-pain-bache/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan) مراجعه کنید. 
 
 ![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
 
 | نام متغیر | مثال | الزام | توضیحات|
 |-----|----|--|------------|
 | UUID | `90cd4a77-141a-43c9-991b-08263cfe9c10` |✅|برای ایجاد آی‌دی خود به [این لینک](https://www.uuidgenerator.net/)مراجعه کنید. |
-| PROXYIP | `bpp.radically.pro` |❌|برای دسترسی به سایت‌هایی که از سی‌دی‌ان کلادفلر استفاده می‌کنند باید از پروکسی‌ آی‌پی‌ها استفاده کنیم، پشتیبانی از چند پروکسی آی‌پی، برای مثال : ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];```برای پیدا کردن پروکسی‌های بیشتر به [این لینک](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) مراجعه کنید. |
+| PROXYIP | `bpb.radically.pro` |❌|برای دسترسی به سایت‌هایی که از سی‌دی‌ان کلادفلر استفاده می‌کنند باید از پروکسی‌ آی‌پی‌ها استفاده کنیم، پشتیبانی از چند پروکسی آی‌پی، برای مثال : ```['bpb.radically.pro', 'bpb.yousef.isegaro.com'];```برای پیدا کردن پروکسی‌های بیشتر به [این لینک](https://github.com/NiREvil/vless/blob/main/sub/ProxyIP.md) مراجعه کنید. |
 | TROJAN_PASS  | `REvil` |✅|پسوورد دلخواه شما برای کانفیگ‌های تروجان |
 | HASH_PASS | `6dfd0e8e67ad3230498f80938cb924bc767b7` |✅| پسوورد تروجان دلخواه شما باید به رشته‌های هش SHA-224 به منزله ذخیره ایمن رمز عبور و تأیید صحت داده ها تبدیل شود، برای انجام تبدیل به [این لینک](https://emn178.github.io/online-tools/sha224.html) مراجعه کنید. |
 
@@ -90,6 +90,18 @@
 <p align="center">
   <img src="docs/assets/images/Panel_4.jpg">
 </p>
+
+
+<p align="center">
+  <img src="docs/assets/images/Panel_5.jpg">
+</p>
+
+
+
+<p align="center">
+  <img src="docs/assets/images/Panel_6.jpg">
+</p>
+
 
 <br><br> 
 
