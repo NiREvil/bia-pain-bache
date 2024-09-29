@@ -59,7 +59,7 @@
 
 
 ## درباره متغیر ها
-> برای مشاهده توضیحات بیشتر درباره چگونگی ایجاد متغییر‌ها به [این لینک](https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan) مراجعه کنید. 
+> برای مشاهده توضیحات بیشتر درباره چگونگی ایجاد متغییر‌ها به [این لینک](https://github.com/NiREvil/bia-pain-bache/blob/main/docs/pages_installation_fa.md#3--%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%BE%D8%B3%D9%88%D8%B1%D8%AF%D9%87%D8%A7%DB%8C-trojan) مراجعه کنید. 
 
 ![rainbow](https://github.com/NiREvil/vless/assets/126243832/1aca7f5d-6495-44b7-aced-072bae52f256)
 
