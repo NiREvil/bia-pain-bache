@@ -91,6 +91,18 @@
   <img src="docs/assets/images/Panel_4.jpg">
 </p>
 
+
+<p align="center">
+  <img src="docs/assets/images/Panel_5.jpg">
+</p>
+
+
+
+<p align="center">
+  <img src="docs/assets/images/Panel_6.jpg">
+</p>
+
+
 <br><br> 
 
 
