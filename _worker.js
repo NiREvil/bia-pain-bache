@@ -4703,7 +4703,7 @@ async function getNormalConfigs(env, hostName, client) {
     ports.forEach(port => {
         totalAddresses.forEach((addr, index) => {
             const isCustomAddr = index > Addresses.length - 1;
-            const configType = isCustomAddr ? 'C' : '';
+            const configType = isCustomAddr ? ' ⇢CDN' : '';
             const sni = randomUpperCase(isCustomAddr ? customCdnSni : hostName);
             const host = isCustomAddr ? customCdnHost : hostName;
             const path = `${getRandomPath(16)}${proxyIP ? `/${encodeURIComponent(btoa(proxyIP))}` : ''}${earlyData}`;
